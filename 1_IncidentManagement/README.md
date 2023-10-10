@@ -28,18 +28,20 @@ O ICS foi estabelecido em 1968 por bombeiros para gerenciar incêndios florestai
   1. **Configuração da Situação de Emergência**:
       - Distribuir um mapa impresso do edifício para cada participante ou equipe. Este mapa deve detalhar o layout, saídas, escadas, elevadores e possíveis obstáculos (por exemplo, locais de incêndio).
       - Informar os participantes sobre uma situação de emergência simulada.
-      - Utilizando o mapa fornecido, cada equipe deve identificar potenciais rotas de evacuação e áreas problemáticas.
-  1. **Coordenar Esforços de Resposta**:
-      - O Comandante de Incidente (IC) é designado e começa a delegar tarefas e responsabilidades para os membros da equipe.
+      - 🚨 **Alerta**: Emergência simulada ainda precisa ser definido e elaborado.
       - As equipes são formadas e cada membro recebe um papel específico: IC, Ops Lead ou Comms Lead.
-  2. **Comunicar entre os Respondedores do Incidente**:
-      - O Comms Lead é responsável por atualizar periodicamente todas as partes interessadas sobre o progresso e as decisões tomadas.
-      - As equipes devem realizar reuniões simuladas de atualização de status para discutir progresso, desafios e próximos passos.
-      - O Comms Lead deve manter um registro simulado das comunicações, garantindo que todas as partes estejam informadas.
-  3. **Manter Controle Sobre a Resposta ao Incidente**:
-      - O IC deve monitorar o progresso da equipe, tomar decisões estratégicas e garantir que a equipe esteja focada na resolução do incidente.
-      - Introduzir desafios inesperados (como "A escada oeste agora está bloqueada!") para testar a adaptabilidade das equipes e a capacidade do IC de manter o controle.
-      - Ao final da simulação, o IC deve garantir que todas as ações tomadas sejam revisadas e que a situação seja considerada "resolvida" antes de encerrar a atividade.
+      - Utilizando o mapa fornecido, cada equipe deve identificar potenciais rotas de evacuação e áreas problemáticas.
+  2. **Definir Protocolos de Comunicação entre os Respondedores do Incidente**:
+     - O Comms Lead deve estabelecer e documentar um plano de comunicação claro. Isso deve incluir a frequência das atualizações, os canais de comunicação a serem usados (por exemplo, chat, e-mail, reuniões) e as partes interessadas que precisam ser informadas.
+     - Criar uma checklist ou template para as atualizações de status, garantindo que todas as informações cruciais sejam comunicadas de forma consistente.
+     - O Comms Lead deve também estabelecer um protocolo para registrar todas as comunicações importantes. Isso pode ser um documento compartilhado, um sistema de tickets ou outro método preferido.
+     - O Ops Lead Criar uma lista de recursos, como documentações, scripts ou playbooks, que podem ser rapidamente acessados durante um incidente.
+     - Criar um plano de ação claro para abordar quaisquer lacunas ou melhorias identificadas durante a revisão.
+  3. **Estabelecer Responsabilidades e Protocolos de Controle para a Resposta ao Incidente**:
+     - O IC deve documentar claramente suas responsabilidades durante um incidente. Isso inclui monitorar o progresso, tomar decisões estratégicas e garantir que todos os respondentes estejam alinhados.
+     - Criar um conjunto de cenários hipotéticos e discutir como o IC e a equipe responderiam a cada um. Isso ajuda a esclarecer as responsabilidades e a preparar a equipe para desafios reais.
+     - Ao final de cada cenário discutido, o IC deve revisar as ações propostas pela equipe, garantindo que sejam eficazes e alinhadas com os protocolos estabelecidos.
+
 ## 1.3 Plataforma e Ferramentas
 - **Passo-a-Passo**:
   1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.

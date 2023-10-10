@@ -63,3 +63,57 @@ Ao medir e alertar com base nesses quatro sinais, podemos garantir que o sistema
      - Avaliação das métricas atuais e identificação de possíveis lacunas ou métricas adicionais. `Dashboard Grafana Service Levels`  `Dashboard Grafana SRE` 
      - Configuração de alertas no Prometheus para métricas críticas. `Alert Manager`
      - Discussão sobre como os SLIs, SLOs e SLAs existentes se traduzem em configurações no Prometheus e Grafana. `PrometheusRules`
+
+### Monitoramento com Quarkus e OpenShift
+O serviço [`concierge-app`](https://github.com/firefighters-sre/concierge-app/blob/main/pom.xml), além de seus endpoints padrão, expõe métricas e verificações de saúde graças às extensões Quarkus.
+
+Essas métricas monitoram o tempo que leva para processar eventos do lobby, fornecendo insights valiosos sobre a eficiência e o desempenho do sistema em situações do mundo real.
+
+1. **Definição da Métrica**:
+Especificamente, vamos focar na métrica `processLobbyPostTime` e `processLobbyEventTime` definidas nas classes [`AccessLogResource`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/resources/AccessLogResource.java) e [`AccessLogService`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/services/AccessLogService.java), respectivamente.
+   1. 
+    ```java
+    @Timed(name = "processLobbyPostTime", description = "Time taken to process a lobby POST call.", unit = MetricUnits.MILLISECONDS)
+    ```
+    ```java
+    @Timed(name = "processLobbyEventTime", description = "Time taken to process a lobby event.", unit = MetricUnits.MILLISECONDS)
+    ```
+   A anotação `@Timed` define a métrica, especificando seu nome, descrição e unidade de medida. Ela informa ao Quarkus para coletar dados sobre o tempo que leva para executar o método anotado.
+
+2. **Coleta de Dados**:
+   Sempre que os métodos anotados são chamados, Quarkus coleta os dados de tempo de execução e os expõe no endpoint `/q/metrics`.
+
+3. **Integração com OpenShift**:
+   Quando o serviço `concierge-app` é implantado no OpenShift, o `PodMonitor` e `ServiceMonitor` detecta automaticamente os endpoints de métricas expostos e os integra com o sistema de monitoramento Prometheus. Isso permite que os operadores vejam as métricas em tempo real no painel do OpenShift.
+
+4. **Visualização e Alertas**:
+   `Dashboar Grafana` `Prometheus Rules`
+   Com as métricas sendo coletadas pelo Prometheus, os operadores podem definir alertas com base em limites específicos ou anormalidades detectadas. Além disso, as métricas podem ser visualizadas em dashboards para uma análise mais detalhada.
+
+5. **Importância**:
+   Monitorar o tempo de processamento dos eventos do lobby é crucial para garantir que o serviço esteja respondendo de maneira eficiente. Qualquer atraso ou inconsistência pode ser rapidamente identificado e resolvido antes de se tornar um problema maior.
+
+[`AccessLogResourceTest.java`](
+https://github.com/firefighters-sre/concierge-app/blob/main/src/test/java/com/redhat/quarkus/resources/AccessLogResourceTest.java). Vamos detalhar este teste:ópico Kafka `entrance` para ouvir as mensagens que serão produzidas.
+
+
+<dependency>
+        <groupId>org.eclipse.microprofile.metrics</groupId>
+        <artifactId>microprofile-metrics-api</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-smallrye-openapi</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-micrometer</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
+      </dependency> 
+      <dependency>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-smallrye-health</artifactId>
+      </dependency>
