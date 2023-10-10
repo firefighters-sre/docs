@@ -34,12 +34,6 @@ This repository ([https://github.com/quarkus-sre/charts](https://github.com/quar
 - OpenShift CLI (`oc`)
 
 ## Quick Start
-### Add Helm Repository
-First, add the Quarkus SRE Helm repository:
-
-```bash
-helm repo add quarkus-sre https://quarkus-sre.github.io/charts
-```
 ### Create Namespaces
 1. Quarkus Development: Houses the Quarkus microservices.
 ```bash
