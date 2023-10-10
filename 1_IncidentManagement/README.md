@@ -26,17 +26,17 @@ O ICS foi estabelecido em 1968 por bombeiros para gerenciar incêndios florestai
 - **Desafio**: Simular uma situação de emergência no edifício e identificar as melhores rotas de evacuação.
 - **Passo-a-Passo**:
   1. **Configuração da Situação de Emergência**:
-      -  Distribuir um mapa impresso do edifício para cada participante ou equipe. Este mapa deve detalhar o layout, saídas, escadas, elevadores e possíveis obstáculos (por exemplo, locais de incêndio).
+      - Distribuir um mapa impresso do edifício para cada participante ou equipe. Este mapa deve detalhar o layout, saídas, escadas, elevadores e possíveis obstáculos (por exemplo, locais de incêndio).
       - Informar os participantes sobre uma situação de emergência simulada.
-  2. **Coordenar Esforços de Resposta**:
+      - Utilizando o mapa fornecido, cada equipe deve identificar potenciais rotas de evacuação e áreas problemáticas.
+  1. **Coordenar Esforços de Resposta**:
       - O Comandante de Incidente (IC) é designado e começa a delegar tarefas e responsabilidades para os membros da equipe.
       - As equipes são formadas e cada membro recebe um papel específico: IC, Ops Lead ou Comms Lead.
-      - Utilizando o mapa fornecido, cada equipe deve identificar potenciais rotas de evacuação e áreas problemáticas.
-  3. **Comunicar entre os Respondedores do Incidente**:
+  2. **Comunicar entre os Respondedores do Incidente**:
       - O Comms Lead é responsável por atualizar periodicamente todas as partes interessadas sobre o progresso e as decisões tomadas.
       - As equipes devem realizar reuniões simuladas de atualização de status para discutir progresso, desafios e próximos passos.
       - O Comms Lead deve manter um registro simulado das comunicações, garantindo que todas as partes estejam informadas.
-  4. **Manter Controle Sobre a Resposta ao Incidente**:
+  3. **Manter Controle Sobre a Resposta ao Incidente**:
       - O IC deve monitorar o progresso da equipe, tomar decisões estratégicas e garantir que a equipe esteja focada na resolução do incidente.
       - Introduzir desafios inesperados (como "A escada oeste agora está bloqueada!") para testar a adaptabilidade das equipes e a capacidade do IC de manter o controle.
       - Ao final da simulação, o IC deve garantir que todas as ações tomadas sejam revisadas e que a situação seja considerada "resolvida" antes de encerrar a atividade.
