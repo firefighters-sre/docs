@@ -83,6 +83,7 @@ helm template -f grafana/values.yaml grafana | oc apply -f-
 - Import Grafana dashboards:
   - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
   - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
+  
 4. Jaeger
 ```bash
 helm template -f jaeger/values.yaml jaeger | oc apply -f-
