@@ -80,11 +80,14 @@ helm template -f prometheus/values.yaml prometheus | oc apply -f-
 helm template -f grafana/values.yaml grafana | oc apply -f-
 ```
 - Configure the Prometheus data source manually in Grafana.
+  - **URL**: `http://prometheus-operated:9090`
+- Configure the AlertManager data source manually in Grafana.
+  - **URL**: `alertmanager:9093`
 - Import Grafana dashboards:
   - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
   - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
   
-4. Jaeger
+1. Jaeger
 ```bash
 helm template -f jaeger/values.yaml jaeger | oc apply -f-
 ```
