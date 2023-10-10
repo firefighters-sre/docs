@@ -70,50 +70,39 @@ O serviço [`concierge-app`](https://github.com/firefighters-sre/concierge-app/b
 Essas métricas monitoram o tempo que leva para processar eventos do lobby, fornecendo insights valiosos sobre a eficiência e o desempenho do sistema em situações do mundo real.
 
 1. **Definição da Métrica**:
-Especificamente, vamos focar na métrica `processLobbyPostTime` e `processLobbyEventTime` definidas nas classes [`AccessLogResource`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/resources/AccessLogResource.java) e [`AccessLogService`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/services/AccessLogService.java), respectivamente.
-   1. 
+
+Vamos focar especificamente nas métricas `processLobbyPostTime` e `processLobbyEventTime`.
+
+1. Na classe [`AccessLogResource`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/resources/AccessLogResource.java):
     ```java
     @Timed(name = "processLobbyPostTime", description = "Time taken to process a lobby POST call.", unit = MetricUnits.MILLISECONDS)
     ```
+2. Na classe [`AccessLogService`](https://github.com/firefighters-sre/concierge-app/blob/main/src/main/java/com/redhat/quarkus/services/AccessLogService.java):
     ```java
     @Timed(name = "processLobbyEventTime", description = "Time taken to process a lobby event.", unit = MetricUnits.MILLISECONDS)
     ```
-   A anotação `@Timed` define a métrica, especificando seu nome, descrição e unidade de medida. Ela informa ao Quarkus para coletar dados sobre o tempo que leva para executar o método anotado.
 
-2. **Coleta de Dados**:
-   Sempre que os métodos anotados são chamados, Quarkus coleta os dados de tempo de execução e os expõe no endpoint `/q/metrics`.
+A anotação `@Timed` define a métrica, especificando seu nome, descrição e unidade de medida. Ela instrui o Quarkus a coletar dados sobre o tempo que leva para executar o método anotado.
+Quando os métodos anotados com `@Timed` são invocados, o Quarkus coleta automaticamente os dados de tempo de execução. Estes dados são expostos através do endpoint `[APP_URL/q/metrics](APP_URL/q/metrics)`. Esta coleta e exposição de métricas é facilitada pelo Micrometer, uma biblioteca de instrumentação de aplicativos que suporta uma variedade de sistemas de monitoramento.
+
+2. **Micrometer Metrics**: 
+
+O Micrometer se posiciona como uma fachada para a instrumentação de aplicações, permitindo que desenvolvedores coletem métricas sem se vincularem a uma solução de monitoramento específica. Ao integrar o Micrometer com o Quarkus, somos capazes de expor uma rica gama de métricas através do endpoint `/q/metrics`.
+
+Apenas adicionando a extensão Micrometer, uma vasta quantidade de métricas são expostas por padrão. Estas incluem:
+   - Métricas sobre a JVM, como:
+     - Número de threads vivas: `jvm_threads_live_threads`
+     - Uso de memória, garbage collection, e outras métricas relacionadas ao ciclo de vida da JVM.
+   - Métricas sobre o sistema operacional, incluindo:
+     - Uso atual da CPU: `system_cpu_usage`
+     - Contagem de processadores disponíveis, carga de trabalho, entre outros.
 
 3. **Integração com OpenShift**:
    Quando o serviço `concierge-app` é implantado no OpenShift, o `PodMonitor` e `ServiceMonitor` detecta automaticamente os endpoints de métricas expostos e os integra com o sistema de monitoramento Prometheus. Isso permite que os operadores vejam as métricas em tempo real no painel do OpenShift.
 
-4. **Visualização e Alertas**:
+2. **Visualização e Alertas**:
    `Dashboar Grafana` `Prometheus Rules`
    Com as métricas sendo coletadas pelo Prometheus, os operadores podem definir alertas com base em limites específicos ou anormalidades detectadas. Além disso, as métricas podem ser visualizadas em dashboards para uma análise mais detalhada.
 
-5. **Importância**:
+3. **Importância**:
    Monitorar o tempo de processamento dos eventos do lobby é crucial para garantir que o serviço esteja respondendo de maneira eficiente. Qualquer atraso ou inconsistência pode ser rapidamente identificado e resolvido antes de se tornar um problema maior.
-
-[`AccessLogResourceTest.java`](
-https://github.com/firefighters-sre/concierge-app/blob/main/src/test/java/com/redhat/quarkus/resources/AccessLogResourceTest.java). Vamos detalhar este teste:ópico Kafka `entrance` para ouvir as mensagens que serão produzidas.
-
-
-<dependency>
-        <groupId>org.eclipse.microprofile.metrics</groupId>
-        <artifactId>microprofile-metrics-api</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-smallrye-openapi</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-micrometer</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
-      </dependency> 
-      <dependency>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-smallrye-health</artifactId>
-      </dependency>
