@@ -40,7 +40,7 @@ O ICS foi estabelecido em 1968 por bombeiros para gerenciar incêndios florestai
       - O IC deve monitorar o progresso da equipe, tomar decisões estratégicas e garantir que a equipe esteja focada na resolução do incidente.
       - Introduzir desafios inesperados (como "A escada oeste agora está bloqueada!") para testar a adaptabilidade das equipes e a capacidade do IC de manter o controle.
       - Ao final da simulação, o IC deve garantir que todas as ações tomadas sejam revisadas e que a situação seja considerada "resolvida" antes de encerrar a atividade.
-##### 1.3 Plataforma e Ferramentas
+## 1.3 Plataforma e Ferramentas
 - **Passo-a-Passo**:
   1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.
     - **Stack Tecnológica**:
