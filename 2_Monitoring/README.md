@@ -1,7 +1,8 @@
 # 2. Monitoramento, SLIs, SLOs, SLAs
-## 2.1 A Fundamentação do Monitoramento em Engenharia de Confiabilidade (SRE)
+
 No universo da Engenharia de Confiabilidade (SRE), o monitoramento é um pilar fundamental. Ele permite que as equipes de engenharia mantenham um pulso constante na saúde e no desempenho de seus sistemas, garantindo que os serviços atendam às expectativas definidas em termos de confiabilidade e disponibilidade. O monitoramento eficaz é vital para identificar rapidamente problemas potenciais e agir antes que esses problemas afetem adversamente os usuários ou a integridade do sistema.
 
+## 2.1 A Fundamentação do Monitoramento em Engenharia de Confiabilidade (SRE)
 O monitoramento é a espinha dorsal da Engenharia de Confiabilidade (SRE). Ele nos capacita a compreender e otimizar a saúde e o desempenho de nossos sistemas, permitindo:
 
 - **Antecipar problemas** através de alertas proativos.
