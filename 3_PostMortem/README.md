@@ -37,20 +37,21 @@ Através desta atividade prática, os participantes terão uma compreensão mais
 ##### 3.3 Abordagem Prática: Jogo de Simulação de Desastres
 Ao lidar com sistemas complexos e cenários de incidentes potenciais, a prática e a preparação são fundamentais. Nesta abordagem prática, os participantes serão submetidos a um exercício interativo de simulação de desastres, projetado para testar e aprimorar suas habilidades de resposta a incidentes em um ambiente controlado.
 
-## 3.2.1 Desafio:
+## 3.3.1 Desafio:
 Conduzir uma análise pós-incidente após um incidente simulado. 
 
-## 3.2.2 Passo-a-Passo:
+## 3.3.2 Passo-a-Passo:
 1. **Apresentação do Cenário**: O facilitador apresentará um cenário de incidente simulado, como uma falha crítica no sistema ou uma violação de segurança. Esse cenário será baseado em situações reais ou hipotéticas relevantes para o contexto da equipe.
 2. **Responder ao Incidente**: Os participantes, agindo como a equipe de resposta, começarão a abordar o incidente. Eles devem comunicar suas ações, fazer perguntas e tomar decisões sobre como investigar, mitigar e, eventualmente, resolver o incidente.
 3. **Revisão e Análise**: Uma vez que o incidente simulado seja "resolvido", o grupo discutirá as ações tomadas, identificando pontos fortes, áreas de melhoria e lições aprendidas.
 4. **Elaboração de Recomendações**: Os participantes colaborarão para elaborar recomendações baseadas em sua resposta ao incidente simulado. Isso pode incluir mudanças em procedimentos, melhorias em sistemas ou ferramentas, ou áreas de treinamento adicional.
 5. **Conclusão**: Concluir a atividade com um resumo das principais descobertas, lições aprendidas e próximos passos. 
 
-## 3.2.3 Objetivos da Abordagem Prática:
+## 3.3.3 Objetivos da Abordagem Prática:
 - **Melhorar a Preparação**: Através da simulação, os participantes podem praticar suas habilidades de resposta a incidentes em um ambiente seguro, preparando-se melhor para incidentes reais.
 - **Promover o Trabalho em Equipe**: Ao trabalhar juntos em um cenário desafiador, os participantes fortalecem sua coesão e habilidades de colaboração.
 - **Identificar Áreas de Melhoria**: A simulação ajuda a identificar lacunas em conhecimento, ferramentas ou procedimentos, proporcionando oportunidades claras para melhorias.
 - **Reforçar a Cultura de Resposta a Incidentes**: Ao participar regularmente de simulações, os participantes internalizam a importância de uma resposta rápida e eficaz a incidentes, reforçando a cultura de prontidão.
 
 Ao integrar esta abordagem prática em seu treinamento ou atividades regulares, as equipes estarão mais bem preparadas para responder eficazmente a incidentes reais, minimizando impactos e promovendo a resiliência do sistema.
+
