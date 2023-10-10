@@ -67,9 +67,9 @@ Install the following operators from the OpenShift OperatorHub:
 
 ## Install Helm Charts
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/quarkus-sre/charts
-   ```
+```bash
+git clone https://github.com/quarkus-sre/charts
+```
 
 Navigate to the charts directory to install these charts:
 
