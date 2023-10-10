@@ -27,8 +27,25 @@ O ICS foi estabelecido em 1968 por bombeiros para gerenciar incêndios florestai
 - **Passo-a-Passo**:
   1. **Configuração da Situação de Emergência**:
       - Distribuir um mapa impresso do edifício para cada participante ou equipe. Este mapa deve detalhar o layout, saídas, escadas, elevadores e possíveis obstáculos (por exemplo, locais de incêndio).
-      - Informar os participantes sobre uma situação de emergência simulada.
-      - 🚨 **Alerta**: Emergência simulada ainda precisa ser definido e elaborado.
+
+     <p align="center">
+      <img src="mapa.jpg" style="height: 250px; widht:500px;"/>
+     </p>
+
+      - **Atividade**: Propor uma ação de planejamento, onde serão estabelecidas as rotas mais eficientes em caso de emergência, saindo de cada uma das salas e um manual de evacuação do perímetro, utilizando os recursos disponíveis:
+      
+            * Saídas de emergência;
+            * Alarmes de incêndio; 
+            * Extintores de incêndio.
+
+
+     <p align="center">
+      <img src="mapa-jogo.jpg" style="height: 250px; widht: 500px;"/>
+     </p>
+
+      - Informar os participantes sobre uma situação de emergência simulada:
+
+               🚨**Emergência simulada**: Houve uma explosão de uma peça do elevador devido à alta temperatura. Toda a região pintada de vermelho está em chamas. *(Fornece-se um novo mapa, agora com uma área representando o fogo)*.
       - As equipes são formadas e cada membro recebe um papel específico: IC, Ops Lead ou Comms Lead.
       - Utilizando o mapa fornecido, cada equipe deve identificar potenciais rotas de evacuação e áreas problemáticas.
   2. **Definir Protocolos de Comunicação entre os Respondedores do Incidente**:
