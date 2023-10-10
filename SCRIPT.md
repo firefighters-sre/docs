@@ -23,6 +23,8 @@
 - **Objetivo da Atividade**: Esta atividade visa capacitar os participantes a pensar estrategicamente e adaptar-se rapidamente a mudanças em situações de emergência. O foco é combinar o planejamento prévio com a capacidade de reagir a novas informações em tempo real, uma habilidade crucial em SRE.
 - **Tags SRE**: Incident Response
 - **Nível na Hierarquia SRE**: Incident Response
+
+##### 2.1 METODOLOGIA
 - **Desafio**: Simular uma situação de emergência no edifício e identificar as melhores rotas de evacuação.
 - **Passo-a-Passo**:
     1. Distribuir um mapa impresso do edifício para cada participante ou equipe. Este mapa deve detalhar o layout, saídas, escadas, elevadores e possíveis obstáculos (por exemplo, locais de incêndio).
@@ -31,8 +33,30 @@
     4. Após o planejamento, cada participante ou equipe explica brevemente sua rota escolhida e sua justificativa.
     5. Os facilitadores discutem escolhas comuns, possíveis gargalos e estratégias de evacuação ideais com base nas rotas desenhadas.
     6. Os facilitadores podem introduzir mudanças repentinas (por exemplo, "A escada oeste agora está bloqueada!") para testar a adaptabilidade dos participantes.
-    7. Demonstração de como configurar e executar `testes unitários` na aplicação quarkus `concierge-app`.
-
+    
+##### 2.2 TECNOLOGIA
+- **Passo-a-Passo**:
+  1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.
+    - **Pilha Tecnológica**:
+       - Microserviços: Quarkus
+       - Plataforma de Mensagens: AMQ Streams (Kafka) e Red Hat Fuse (Apache Camel)
+       - Banco de Dados: PostgreSQL
+       - Implantação: OpenShift (Kubernetes com Helm charts)
+       - Monitoramento e Rastreamento: Prometheus, Jaeger e Grafana
+    - **Microserviços**:
+       - 🛎️ `Access Microservice (concierge-app)`: Gerencia a entrada e saída de indivíduos do edifício.
+       - 🚶‍♂️🔝 `Mobility Microservice (mobility-app)`: Monitora e gerencia a utilização de escadas e elevadores.
+       - 🏠 `Building Microservice (building-app)`: Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
+    - **Tópicos Kafka**:
+       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
+       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
+       - `Entrance (entrance)`: Manipula eventos pós-processamento do Lobby, marcando a entrada de indivíduos no edifício.
+       - `Elevator (elevator)`: Captura eventos associados às operações do elevador.
+       - `Stairs (stairs)`: Coleta dados sobre o uso de escadas.
+       - `Exit (exit)`: Coleta eventos relacionados à saída de indivíduos do edifício.
+       - `External (external)`: Coleta eventos originados de sistemas ou dispositivos externos ao edifício.
+  2. **Testes Unitários com Quarkus**:
+    - Demonstração de como configurar e executar `testes unitários` na aplicação quarkus `concierge-app`. 
 #### 3. "Monitoramento, SLIs, SLOs, SLAs."
 - **Horário de Início**: 10:00
 - **Horário de Término**: 11:00
@@ -58,13 +82,14 @@
      - Configuração de métricas(`@Timed`) nas classes (`AccessLogResource`, `AccessLogService`) usando as bibliotecas Quarkus(`microprofile-metrics-api`).
      - Visão geral de como as métricas(`/q/metrics`) e verificações de integridade do Quarkus se integram ao OpenShift e Prometheus com o `PodMonitor`.
   2. Introdução à interface do OpenShift e suas capacidades de monitoramento. (OpenShift Monitoring, Prometheus Operator, Dashboards)  
-  3. Implementação dos KPIs discutidos anteriormente no OpenShift, configurando alertas e dashboards.
-  4. **Exploração da Implementação Atual**:
+  3. **Exploração da Implementação Atual**:
      - Visão geral das três aplicações no OpenShift. `Topology`
-     - Análise da comunicação entre as aplicações através do Kafka. `Dashboard Grafana Kafka`
      - Introdução às métricas existentes e como elas são coletadas e exibidas no Grafana e Prometheus. `Prometheus`, `ServiceMonitor`, `Grafana`
+     - Análise da comunicação entre as aplicações através do Kafka. `Dashboard Grafana Kafka Exporter` 
+  4. Implementação dos KPIs discutidos anteriormente no OpenShift, configurando alertas e dashboards.
   5. **Otimização do Monitoramento**:
-     - Avaliação das métricas atuais e identificação de possíveis lacunas ou métricas adicionais.
+     - Introdução às métricas existentes e como elas são coletadas e exibidas no Grafana e Prometheus. `Prometheus`, `ServiceMonitor`, `Grafana`
+     - Avaliação das métricas atuais e identificação de possíveis lacunas ou métricas adicionais. `Dashboard Grafana Service Levels`  `Dashboard Grafana SRE` 
      - Configuração de alertas no Prometheus para métricas críticas. `Alert Manager`
      - Discussão sobre como os SLIs, SLOs e SLAs existentes se traduzem em configurações no Prometheus e Grafana. `PrometheusRules`
 
