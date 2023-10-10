@@ -46,6 +46,27 @@ Ao medir e alertar com base nesses quatro sinais, podemos garantir que o sistema
   5. **Reflexão e Feedback**: Após a simulação, os grupos refletem sobre a eficácia de seus SLIs, SLOs e sua resposta aos comandos. Discussões podem abordar melhorias, lacunas identificadas e a aplicação dos "4 Sinais Dourados" no contexto do cenário.
 
 ##### 2.3 Plataforma e Ferramentas
+
+### Ferramentas de Monitoramento e Alertas
+
+Ao coletar métricas de aplicações e sistemas, é essencial ter ferramentas robustas que não apenas armazenem e visualizem esses dados, mas também forneçam mecanismos eficazes de alerta para situações anômalas. Aqui, descrevemos três ferramentas centrais usadas para esses propósitos:
+
+- **Prometheus**:
+  - **Descrição**: Prometheus é uma ferramenta de monitoramento e alerta de código aberto que se integra perfeitamente a sistemas e aplicações para coletar métricas em intervalos específicos.
+  - **Repositório do Template**: O template usado para configurar e implantar o Prometheus no OpenShift está disponível [aqui](https://github.com/quarkus-sre/charts/tree/main/charts/prometheus).
+
+- **AlertManager**:
+  - **Descrição**: Gerencia os alertas enviados pelo Prometheus, agrupando-os e roteando-os para o destino correto, como e-mail, Slack ou outras integrações.
+  - **Repositório do Template**: O template usado para configurar e implantar o AlertManager no OpenShift pode ser encontrado [aqui](https://github.com/quarkus-sre/charts/blob/main/charts/prometheus/templates/alertmanager.yaml).
+
+- **Grafana**:
+  - **Descrição**: Grafana é uma plataforma de visualização de métricas que permite criar e visualizar dashboards com dados coletados pelo Prometheus.
+  - **Repositório dos Dashboards**: Este repositório contém configurações de dashboards Grafana personalizadas e está localizado [aqui](https://github.com/firefighters-sre/grafana-dashboards).
+    - [Service Levels Dashboard](https://github.com/firefighters-sre/grafana-dashboards/blob/main/grafana-servicelevels-dashboard.json): Fornece insights sobre os níveis de serviço do aplicativo ou sistema.
+    - [SRE Dashboard](https://github.com/firefighters-sre/grafana-dashboards/blob/main/grafana-sre-dashboard.json): Oferece uma visão geral da confiabilidade do sistema e outras métricas-chave de SRE.
+  - **Repositório do Template Grafana**: A configuração usada para implantar o Grafana no OpenShift pode ser encontrada [aqui](https://github.com/quarkus-sre/charts/tree/main/charts/grafana).
+
+
 - **Desafio**: Utilizar o OpenShift para implementar e monitorar as soluções discutidas anteriormente.
 - **Passo-a-Passo**:
   1. **Integração com Quarkus**:
@@ -98,11 +119,116 @@ Apenas adicionando a extensão Micrometer, uma vasta quantidade de métricas sã
      - Contagem de processadores disponíveis, carga de trabalho, entre outros.
 
 3. **Integração com OpenShift**:
-   Quando o serviço `concierge-app` é implantado no OpenShift, o `PodMonitor` e `ServiceMonitor` detecta automaticamente os endpoints de métricas expostos e os integra com o sistema de monitoramento Prometheus. Isso permite que os operadores vejam as métricas em tempo real no painel do OpenShift.
+Quando o serviço `concierge-app` é implantado no OpenShift, os recursos `PodMonitor` e `ServiceMonitor` são utilizados para detectar automaticamente os endpoints de métricas expostos e integrá-los ao sistema de monitoramento Prometheus. Isso permite que os operadores visualizem as métricas em tempo real no painel do OpenShift.
 
-2. **Visualização e Alertas**:
-   `Dashboar Grafana` `Prometheus Rules`
-   Com as métricas sendo coletadas pelo Prometheus, os operadores podem definir alertas com base em limites específicos ou anormalidades detectadas. Além disso, as métricas podem ser visualizadas em dashboards para uma análise mais detalhada.
+#### ServiceMonitor
+O recurso `ServiceMonitor` é uma definição customizada que instrui o Prometheus sobre como monitorar serviços no Kubernetes. Vamos examinar a configuração do `ServiceMonitor` para o `concierge-app`:
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: concierge-app
+  namespace: kafka-logging
+  labels:
+    helm.sh/chart: quarkus-app-chart-1.0.3
+    app.kubernetes.io/name: concierge-app
+    ...
+spec:
+  namespaceSelector:
+    matchNames:
+      - helm-test
+  endpoints:
+    - interval: 15s
+      path: /q/metrics
+      port: tcp-8080
+      scheme: http
+  selector:
+    matchLabels:
+      deploymentconfig: concierge-app
+```
+Nesta definição, especificamos que o Prometheus deve coletar métricas do endpoint /q/metrics a cada 15 segundos.
 
-3. **Importância**:
-   Monitorar o tempo de processamento dos eventos do lobby é crucial para garantir que o serviço esteja respondendo de maneira eficiente. Qualquer atraso ou inconsistência pode ser rapidamente identificado e resolvido antes de se tornar um problema maior.
+#### PodMonitor
+O PodMonitor é semelhante ao ServiceMonitor, mas, como o nome sugere, ele se destina a monitorar pods individuais. Aqui está a configuração para o concierge-app:
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: concierge-app
+  namespace: kafka-logging
+  labels:
+    helm.sh/chart: quarkus-app-chart-1.0.3
+    app.kubernetes.io/name: concierge-app
+    ...
+spec:
+  namespaceSelector:
+    matchNames:
+      - helm-test
+  podMetricsEndpoints:
+    - interval: 15s
+      path: /q/metrics
+      targetPort: 8080
+      scheme: http
+  selector:
+    matchLabels:
+      deploymentconfig: concierge-app
+```
+Novamente, estamos instruindo o Prometheus para coletar métricas do endpoint /q/metrics a cada 15 segundos, mas, neste caso, diretamente dos pods.
+
+Com essas definições em vigor, o OpenShift, juntamente com o Prometheus, pode automaticamente descobrir e monitorar as métricas do concierge-app.
+
+4. **Visualização e Alertas**:
+Com as métricas sendo coletadas pelo Prometheus, é essencial ter ferramentas que permitam visualizar essas métricas e configurar alertas para monitorar de perto a saúde e o desempenho do sistema. Grafana é uma plataforma de análise e monitoramento amplamente utilizada para visualizar métricas, enquanto PrometheusRules pode ser usada para definir condições de alerta com base nas métricas coletadas.
+#### Dashboards Grafana
+  - **Repositório dos Dashboards**: Este repositório contém configurações de dashboards Grafana personalizadas para monitoramento de níveis de serviço e métricas de SRE (Engenharia de Confiabilidade do Site). Está localizado [aqui](https://github.com/firefighters-sre/grafana-dashboards).
+  - **Dashboards Disponíveis**:
+    - [Service Levels Dashboard](https://github.com/firefighters-sre/grafana-dashboards/blob/main/grafana-servicelevels-dashboard.json): Este painel oferece insights sobre os níveis de serviço do aplicativo ou sistema. Inclui métricas como SLIs, SLOs e taxas de erro.
+    - [SRE Dashboard](https://github.com/firefighters-sre/grafana-dashboards/blob/main/grafana-sre-dashboard.json): Feito para equipes de SRE, este painel fornece uma visão geral da confiabilidade do sistema, taxas de erro e outras métricas-chave de SRE.
+#### Regras do Prometheus (PrometheusRules)
+As regras do Prometheus são configurações que definem condições sob as quais alertas serão enviados. As regras para o `concierge-app` estão definidas como:
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: concierge-app-slos
+  namespace: kafka-logging
+  labels:
+    role: alert-rules
+    app: prometheus
+spec:
+  groups:
+  - name: concierge-app.slos.rules
+    rules:
+    # Availability: Ensures that the application has an uptime of 99.9% over a 10-minute window.
+    - alert: concierge-app Availability Below Threshold
+      annotations:
+        message: 'concierge-app in namespace helm-test has been unavailable for more than 0.1% in the last 10 minutes.'
+      expr: (1 - avg_over_time(up{namespace="helm-test", app="concierge-app"}[10m])) > 0.001
+      for: 1m
+      labels:
+        severity: warning
+
+    # API Response Time: Average response time for API requests should be under 200ms.
+    - alert: concierge-app High API Response Time
+      annotations:
+        message: 'concierge-app in namespace helm-test has an average response time of more than 200ms in the last 10 minutes.'
+      expr: rate(http_request_duration_seconds_sum{namespace="helm-test", app="concierge-app"}[10m]) / rate(http_request_duration_seconds_count{namespace="helm-test", app="concierge-app"}[10m]) > 0.2
+      for: 10m
+      labels:
+        severity: warning
+
+    # Error Rate: Less than 0.1% of all API requests should result in errors (4xx and 5xx responses).
+    - alert: concierge-app High Error Rate
+      annotations:
+        message: 'concierge-app in namespace helm-test has an error rate of more than 0.1% in the last 10 minutes.'
+      expr: rate(http_requests_total{namespace="helm-test", app="concierge-app", status=~"4..|5.."}[10m]) / rate(http_requests_total{namespace="helm-test", app="concierge-app"}[10m]) > 0.001
+      for: 10m
+      labels:
+        severity: warning
+```
+
+Estas regras definem condições para alertas como disponibilidade do aplicativo, tempo de resposta da API e taxas de erro. Uma vez que estas condições são atendidas, alertas são disparados.
+
+Monitorar o tempo de processamento dos eventos do lobby é crucial para garantir que o serviço esteja respondendo de maneira eficiente. Qualquer atraso ou inconsistência pode ser rapidamente identificado e resolvido antes de se tornar um problema maior.
