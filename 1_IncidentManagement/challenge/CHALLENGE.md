@@ -1,4 +1,4 @@
-## Planejando a Resposta a um Incidente: Guia da Atividade
+## 1. Planejando a Resposta a um Incidente: Guia da Atividade
 
 🔥 **Emergência Simulada**: Uma explosão no elevador causou um incêndio. A área afetada está marcada em vermelho no mapa.
 

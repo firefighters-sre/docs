@@ -1,4 +1,4 @@
-## 1. Planejando a Resposta a um Incidente: Atividade Simplificada
+## 1. Planejando a Resposta a um Incidente: Atividade PREP
 
 ### Objetivo 🎯
 Praticar os conceitos de gerenciamento de incidentes, focando na definição de rotas de evacuação e na comunicação eficaz durante uma emergência.
