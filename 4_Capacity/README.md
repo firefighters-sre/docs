@@ -1,32 +1,96 @@
-#### 4. "Gestão de Capacidade, Segurança e Otimização de Evacuação"
-- **Horário de Início**: 13:30
-- **Horário de Término**: 14:30
-- **Formato**: ATIVIDADE, OPENSHIFT
-- **Tags SRE**: Gestão de Capacidade, Segurança, Automação, Otimização de Evacuação, 9S de Disponibilidade
-- **Nível na Hierarquia SRE**: Capacidade + Testes + Procedimentos de Release + Reduzir Toil + 9S de Disponibilidade
-- **Descrição**: Nesta sessão, os participantes trabalharão na gestão eficaz da capacidade do edifício e na alocação de recursos durante situações de emergência. Além disso, eles irão simular exercícios de segurança automatizados e otimizar rotas de evacuação.
+#### 4. "Automação, Gestão de Capacidade e Otimização de Evacuação"
+A Engenharia de Confiabilidade (SRE) representa uma abordagem transformadora para a gestão de sistemas em grande escala. Ela não apenas otimiza a operação, mas também redefine como vemos a confiabilidade, a performance e a entrega de sistemas.
 
-##### 5.1 ATIVIDADE - Definindo 9S de Disponibilidade no Complexo SkyTower
-- **Desafio**: Utilizando um cenário fictício do "Complexo SkyTower", os participantes terão que definir os 9S de disponibilidade de seu sistema de segurança e elevadores, considerando um orçamento específico.
+## 4.1 A Fundamentação da Automação em Engenharia de Confiabilidade (SRE)
+A automação é um elemento central na Engenharia de Confiabilidade (SRE), permitindo:
+- **Consistência**: A automação garante que ações repetidas sejam executadas da mesma forma, evitando erros humanos e melhorando a confiabilidade.
+- **Plataforma Extensível**: Sistemas automatizados podem ser estendidos para acomodar novas funções e adaptar-se a diferentes sistemas, tornando-os mais versáteis.
+- **Reparos Mais Rápidos**: A capacidade de detectar e corrigir problemas de forma automática reduz significativamente o tempo de inatividade.
+- **Economia de Tempo**: Libera engenheiros e operadores para se concentrarem em tarefas mais estratégicas e inovadoras.
+
+### Conceitos Chave
+- **Automação Precisa**: Implementar automação de forma pensada, garantindo que ela resolva problemas reais e não crie novos desafios.
+- **Sistemas Autônomos**: A meta final da automação, onde os sistemas são projetados para operar com mínima intervenção humana.
+- **Consistência**: A garantia de que as ações são executadas da mesma forma todas as vezes, melhorando a confiabilidade e a previsibilidade.
+- **Gestão de Capacidade**: Monitorar e garantir que os sistemas tenham os recursos necessários para atender à demanda, equilibrando a eficiência e a disponibilidade.
+- **9s de Disponibilidade**: Um padrão para medir a disponibilidade de um sistema. Quanto mais 9s, mais disponível é o sistema.
+
+### Automação na Prática
+A automação não é apenas sobre escrever scripts ou usar ferramentas. É sobre compreender profundamente os processos, identificar áreas de melhoria e implementar soluções que tornem os sistemas mais eficientes, confiáveis e autônomos.
+
+### A Importância da Medição e Monitoramento
+Assim como a análise pós-incidente, a automação também requer uma abordagem metódica. É crucial medir e monitorar a eficácia da automação, garantir que ela atenda às expectativas e fazer ajustes conforme necessário. Isso garante que a automação continue relevante e eficaz à medida que os sistemas e os requisitos evoluem.
+
+### A Força da Automação em SRE
+
+A automação é considerada um multiplicador de força em SRE, mas não é uma panaceia por si só. A automação sem reflexão pode criar tantos problemas quanto resolve. O verdadeiro valor da automação vem da consistência que ela traz. Uma ação realizada manualmente centenas de vezes terá variações, enquanto uma máquina pode realizar a mesma ação com precisão todas as vezes. Esta consistência evita erros, problemas de qualidade de dados e problemas de confiabilidade.
+
+Adicionalmente, a automação não se limita à consistência. Bem projetados, os sistemas automáticos também oferecem uma plataforma extensível, centralizando erros, permitindo correções rápidas, e proporcionando uma operação contínua. Uma plataforma automatizada pode exportar métricas, proporcionando insights valiosos sobre processos e desempenho.
+
+### Disponibilidade
+
+A disponibilidade é uma métrica fundamental em SRE. Representa a proporção de tempo que um sistema está operacional e acessível. Para garantir que os sistemas atendam aos padrões de disponibilidade, é vital medir e monitorar essa métrica regularmente, correlacionando-a com a percepção do usuário e os objetivos de negócios.
+
+A seguir, uma tabela demonstrando os níveis de disponibilidade em termos de "9s" e o tempo de indisponibilidade associado:
+
+| Nível de Disponibilidade | Indisponibilidade por ano | Indisponibilidade por mês | Indisponibilidade por dia |
+|--------------------------|---------------------------|---------------------------|---------------------------|
+| 90% (um 9)               | 36,5 dias                 | 3 dias                    | 2,4 horas                 |
+| 99% (dois 9s)            | 3,65 dias                 | 7,2 horas                 | 14,4 minutos              |
+| 99,9% (três 9s)          | 8,76 horas                | 43,2 minutos              | 1,44 minutos              |
+| 99,99% (quatro 9s)       | 52,6 minutos              | 4,32 minutos              | 8,64 segundos             |
+| 99,999% (cinco 9s)       | 5,26 minutos              | 25,9 segundos             | 0,87 segundos             |
+
+Estes números demonstram como cada aumento no nível de disponibilidade exige uma redução significativa no tempo de inatividade permitido. A escolha do nível de disponibilidade alvo depende do serviço específico, das expectativas do usuário e dos objetivos de negócios.
+
+##### 4.2 Abordagem Prática da Automação em SRE
+A prática da automação em SRE é essencial para garantir sistemas escaláveis e confiáveis. Através de um exercício prático, os participantes terão a oportunidade de experimentar a implementação da automação, entender seus desafios e benefícios e desenvolver habilidades práticas em automação.
+
+#### ATIVIDADE - Automação no Complexo SkyTower
+- **Desafio**: No ambiente simulado do "Complexo SkyTower", os participantes serão desafiados a identificar processos que podem ser automatizados, projetar e implementar soluções de automação.
+- **Passo-a-Passo**:
+  1. **Identificação de Processos**: Comece identificando tarefas repetitivas ou processos que são candidatos à automação dentro do Complexo SkyTower.
+  2. **Projeto da Solução**: Com os processos em mãos, os participantes projetarão uma solução de automação, considerando as ferramentas disponíveis e as necessidades específicas do complexo.
+  3. **Implementação**: Com um projeto definido, os participantes implementarão sua solução, testando-a em um ambiente controlado do Complexo SkyTower.
+  4. **Medição e Feedback**: Após a implementação, avalie a eficácia da solução, colete feedback e faça ajustes conforme necessário.
+  5. **Apresentação das Soluções**: Cada grupo compartilhará sua abordagem, discutindo os desafios enfrentados, as soluções implementadas e as lições aprendidas.
+
+#### ATIVIDADE - Definindo 9S de Disponibilidade no Complexo SkyTower
+- **Desafio**: Ainda dentro do cenário do "Complexo SkyTower", os participantes agora terão o desafio de definir os 9S de disponibilidade para o sistema de segurança e elevadores, considerando um orçamento específico e a importância destes sistemas para o funcionamento do complexo.
 - **Passo-a-Passo**:
   1. **Contextualização do Complexo SkyTower**:
-     - O "Complexo SkyTower" é um conjunto de três edifícios corporativos interconectados no coração da cidade. 
-     - O sistema de segurança é vital, controlando o acesso de milhares de pessoas diariamente, além de gerenciar os elevadores inteligentes que otimizam o transporte entre os andares.
+     - Entenda o contexto e a importância dos sistemas de segurança e elevadores dentro do Complexo SkyTower.
   2. **Introdução aos 9S de Disponibilidade**:
-     - Explicação sobre o que significa cada 'nove' em termos de tempo de inatividade por ano, mês, semana e dia.
-     - Discussão sobre a importância de atingir altos níveis de disponibilidade em sistemas críticos como os do SkyTower.
-  3. **Definindo o Orçamento de Erro**:
-     - Os participantes recebem um orçamento fictício de $500.000, que representa o custo operacional do sistema de segurança e elevadores por ano.
-     - Cada minuto de inatividade do sistema custa ao Complexo $1.000 em perdas operacionais.
-     - Os participantes devem calcular o custo total de inatividade com base nos diferentes níveis de disponibilidade (por exemplo, 99%, 99,9%, 99,99%).
-  4. **Impacto de Não Cumprir os 9S**:
-     - Discussão sobre o impacto operacional e de segurança de falhas no sistema.
-     - E se um diretor estiver preso no elevador durante uma falha? E se uma falha de segurança permitir o acesso de pessoas não autorizadas?
-  5. **Tomada de Decisão**:
-     - Com os dados em mãos, os participantes devem decidir:
-       - Quanto do orçamento devem alocar para melhorias no sistema, visando aumentar a disponibilidade.
-       - Quais áreas são prioritárias (por exemplo, redundância de sistema, treinamento da equipe, infraestrutura melhorada).
-     - A ideia é equilibrar o orçamento disponível com o nível de disponibilidade desejado, levando em consideração os riscos e impactos.
-  6. **Apresentação das Soluções**:
-     - Cada grupo apresenta sua estratégia, justificando suas escolhas e defendendo a eficácia de sua abordagem perante os desafios apresentados.
-  
+     - Aprenda sobre o que significa cada 'nove' em termos de tempo de inatividade por ano, mês, semana e dia.
+     - Discuta a importância de atingir altos níveis de disponibilidade, especialmente em sistemas críticos como os do SkyTower.
+
+##### 4.3 Plataforma e Ferramentas
+
+A Engenharia de Confiabilidade de Site (SRE) é potencializada pelo uso adequado de plataformas e ferramentas. Elas permitem a automação, observabilidade e escalabilidade. No contexto do "firefighters SRE", vamos explorar a implementação de práticas SRE usando Kubernetes, uma plataforma de orquestração de contêineres, e OpenShift, uma plataforma Kubernetes empresarial.
+
+#### ATIVIDADE - Implementando Probes em Kubernetes no Sistema "firefighters SRE"
+- **Desafio**: Usando o ambiente OpenShift, os participantes aprenderão a automatizar exercícios de segurança e otimizar rotas de evacuação.
+- **Passo-a-Passo**:
+  1. **Introdução a Readiness e Liveness Probes**: 
+     - Estas são ferramentas integradas em Kubernetes para verificar a saúde de um contêiner. 
+     - O `readinessProbe` verifica se o contêiner está pronto para receber solicitações. 
+     - O `livenessProbe` verifica se o contêiner está funcionando conforme o esperado durante sua execução.
+     - Eles são essenciais para garantir que apenas contêineres saudáveis recebam tráfego e que os contêineres problemáticos sejam reiniciados.
+  2. **Implementação de Probes**: 
+     - Utilizando o ambiente OpenShift, os participantes serão guiados para adicionar `Readiness` e `Liveness probes` ao `mobility-app`.
+```yaml
+      readinessProbe:
+        httpGet:
+          path: /q/health/ready
+          port: 8080
+          scheme: HTTP
+      livenessProbe:
+        httpGet:
+          path: /q/health/live
+          port: 8080
+          scheme: HTTP
+```
+  3. **Simulação de Falhas no `mobility-app`**:
+      - Crie um cenário em que o building-app enfrenta problemas e não está pronto para receber tráfego ou está falhando durante sua execução.
+  4. **Validação e Observação**:
+     - Com as probes implementadas, os participantes observarão como o Kubernetes reage quando detecta falhas, garantindo que o tráfego seja encaminhado apenas para pods saudáveis.

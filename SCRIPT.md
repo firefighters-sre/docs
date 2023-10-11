@@ -168,6 +168,7 @@
 - **Tags SRE**: Design de Sistema, Consenso Distribuído, Paxos, Alta Disponibilidade, Integridade de Dados
 - **Nível na Hierarquia SRE**: Development
 - **Descrição**: Nesta sessão, os participantes serão desafiados a projetar um sistema em larga escala que possa lidar com estado crítico e consenso distribuído.
+- 1. Demonstração de como o microserviço `mobility-app` otimiza as rotas com base em dados em tempo real.
   6.   5. Discussão sobre o uso de `HPA (Horizontal Pod Autoscaling)` e budgets de interrupção de pod para garantir a resiliência e eficiência das aplicações.
   6. **HPA e KEDA:** Uso do `HPA` (Horizontal Pod Autoscaler) e `KEDA` para escalabilidade dinâmica conforme a demanda durante evacuações.
 
