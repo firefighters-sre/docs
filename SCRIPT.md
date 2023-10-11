@@ -159,6 +159,9 @@
   3. **Simulação de Falhas no `mobility-app`**: Criar um cenário onde o `mobility-app` enfrenta problemas e não está pronto para receber tráfego ou está falhando durante sua execução.
   4. **Implementação de Probes**: Os participantes serão guiados para adicionar Readiness e Liveness probes ao `mobility-app`.
   5. **Validação e Observação**: Após a implementação, os participantes poderão observar como o Kubernetes reage às falhas e como os probes ajudam a garantir que o tráfego só seja enviado para pods saudáveis.
+  6.   5. Discussão sobre o uso de `HPA (Horizontal Pod Autoscaling)` e budgets de interrupção de pod para garantir a resiliência e eficiência das aplicações.
+  6. **HPA e KEDA:** Uso do `HPA` (Horizontal Pod Autoscaler) e `KEDA` para escalabilidade dinâmica conforme a demanda durante evacuações.
+
 
 #### 6. "Design de Sistema em Larga Escala" (Opcional)
 - **Horário de Início**: [DEFINIR HORA]
