@@ -39,4 +39,6 @@ Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu u
 Um vazamento na caixa d'água levou à inundação do último andar, e a água entrou em contato com a fiação elétrica, causando um curto-circuito.
 
 #### Medidas Tomadas:
-1. Deslig
+1. Desligar a eletricidade do andar para evitar mais danos e garantir a segurança.
+2. Isolar a área afetada.
+3. Utilizar equipamento de drenagem para remover a água acumulada.
