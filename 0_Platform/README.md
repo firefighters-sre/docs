@@ -137,6 +137,47 @@ To deploy the individual microservices, you'll need to clone their repositories 
 
 After deploying the Helm charts, the microservices should be up and running in your Kubernetes cluster. You can verify the deployment status using `kubectl get pods`.
 
+### Configuring PostgreSQL Database for Building Microservice
+
+The Building Microservice (`building-app`) requires a PostgreSQL database for persistent storage. Here's how you can set it up:
+
+#### Deploying PostgreSQL on OpenShift
+
+1. **Create PostgreSQL Deployment**:
+   
+   OpenShift provides templates to deploy PostgreSQL. You can instantiate one of these templates to deploy a PostgreSQL instance:
+
+   ```bash
+   oc new-app postgresql-persistent --param POSTGRESQL_USER=userWPM --param POSTGRESQL_PASSWORD=Oiu5HI4nBLDbYtHo --param POSTGRESQL_DATABASE=firefighters
+   ```
+
+2. **Verify Deployment**:
+
+   Check if the PostgreSQL pod is running:
+
+   ```bash
+   oc get pods | grep postgresql
+   ```
+
+#### Connecting Building Microservice to PostgreSQL
+
+When deploying the Building Microservice (`building-app`), the connection details to PostgreSQL are provided via environment variables. The Helm chart for `building-app` should have these environment variables already defined:
+
+```yaml
+env:
+  - name: POSTGRESQL_JDBC_URL
+    value: 'jdbc:postgresql://postgresql:5432/firefighters'
+  - name: POSTGRESQL_USER
+    value: userWPM
+  - name: POSTGRESQL_PASSWORD
+    value: Oiu5HI4nBLDbYtHo
+```
+
+With the PostgreSQL database in place and the Building Microservice correctly configured, the microservice will be able to connect to the database upon deployment, ensuring data persistence and relational data management for the application.
+
+**Note**: Ensure proper security practices are followed. The above demonstration uses hardcoded credentials for simplicity. In a real-world scenario, sensitive data like database passwords should be stored securely, for instance, using OpenShift secrets or external secret management tools.
+
+
 ## Configuring HPA, PDB, SLOs, and SLAs
 
 Using the `.chart/values.yaml` file, you can enable or disable various features and configurations for your application.
