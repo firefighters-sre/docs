@@ -78,19 +78,19 @@ A Engenharia de Confiabilidade de Site (SRE) é potencializada pelo uso adequado
      - Eles são essenciais para garantir que apenas contêineres saudáveis recebam tráfego e que os contêineres problemáticos sejam reiniciados.
   2. **Implementação de Probes**: 
      - Utilizando o ambiente OpenShift, os participantes serão guiados para adicionar `Readiness` e `Liveness probes` ao `mobility-app`.
-```yaml
-      readinessProbe:
-        httpGet:
-          path: /q/health/ready
-          port: 8080
-          scheme: HTTP
-      livenessProbe:
-        httpGet:
-          path: /q/health/live
-          port: 8080
-          scheme: HTTP
-```
-  3. **Simulação de Falhas no `mobility-app`**:
-      - Crie um cenário em que o building-app enfrenta problemas e não está pronto para receber tráfego ou está falhando durante sua execução.
+      ```yaml
+            readinessProbe:
+            httpGet:
+               path: /q/health/ready
+               port: 8080
+               scheme: HTTP
+            livenessProbe:
+            httpGet:
+               path: /q/health/live
+               port: 8080
+               scheme: HTTP
+      ```
+  3. **Simulação de Falhas no `mobility-app` / Alteração do Endpoint do Liveness Probe**:
+      - Modifique o endpoint que o livenessProbe verifica. Se, por exemplo, o livenessProbe verifica /q/health/live, os participantes devem alterar a rota no aplicativo para um endpoint que não exista ou esteja retornando erros. Isso força o probe a falhar e os participantes podem observar como o sistema reage a essa falha.
   4. **Validação e Observação**:
      - Com as probes implementadas, os participantes observarão como o Kubernetes reage quando detecta falhas, garantindo que o tráfego seja encaminhado apenas para pods saudáveis.
