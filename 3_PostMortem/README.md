@@ -1,9 +1,3 @@
-##### 2.3 Plataforma e Ferramentas
-
-### Ferramentas de Monitoramento e Alertas
-Em ambientes de tecnologia que operam em grande escala e estão em constante evolução, incidentes e interrupções são inevitáveis. Na realidade, a questão não é se ocorrerão incidentes, mas quando ocorrerão. A chave para a eficiência operacional não reside apenas na prevenção de incidentes, mas também em aprender com eles quando ocorrem.
-Uma **postmortem**, frequentemente referida como postmortem, é uma ferramenta essencial neste processo de aprendizado. Trata-se de um registro escrito de um incidente, abordando seu impacto, as ações tomadas para mitigá-lo, suas causas raiz e as ações subsequentes para evitar reincidências.
-
 ## 3.1 A Fundamentação da Análise Pós-Incidente em Engenharia de Confiabilidade (SRE)
 O postmortem é uma ferramenta central na Engenharia de Confiabilidade (SRE), permitindo:
 - **Aprender com erros**: Cada incidente oferece uma oportunidade única de aprendizado. Compreender o que deu errado e por quê é o primeiro passo para a prevenção.
