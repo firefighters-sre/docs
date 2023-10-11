@@ -107,6 +107,7 @@ To deploy the individual microservices, you'll need to clone their repositories 
 2. Navigate to the cloned directory and deploy the Helm chart:
    ```bash
    cd concierge-app
+   helm dependency update .chart
    helm template .chart/ | oc apply -f-
    ```
 
@@ -118,6 +119,7 @@ To deploy the individual microservices, you'll need to clone their repositories 
 2. Navigate to the cloned directory and deploy the Helm chart:
    ```bash
    cd mobility-app
+   helm dependency update .chart
    helm template .chart/ | oc apply -f-
    ```
 
@@ -129,6 +131,7 @@ To deploy the individual microservices, you'll need to clone their repositories 
 2. Navigate to the cloned directory and deploy the Helm chart:
    ```bash
    cd building-app
+   helm dependency update .chart
    helm template .chart/ | oc apply -f-
    ```
 
