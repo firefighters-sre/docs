@@ -10,11 +10,15 @@ Antes de mergulhar nos detalhes, é vital entender os princípios centrais:
 2. **Papéis Bem Definidos**: Cada pessoa envolvida deve saber suas responsabilidades.
 3. **Documentação em Tempo Real**: Registre as ações, decisões e etapas de depuração conforme acontecem.
 4. **Declare Incidentes Precocemente**: Melhor comunicar demais do que de menos.
-
 ## **O que é um Incidente?**
 Um incidente refere-se a qualquer evento inesperado que interrompe ou reduz a qualidade de um serviço, afetando adversamente a experiência dos usuários. Pode variar desde falhas sutis, como degradação de desempenho, até interrupções completas do serviço. Um *incidente maior*, por outro lado, é uma situação mais grave, geralmente envolvendo várias equipes para sua resolução devido ao seu impacto significativo na operação normal do sistema ou na experiência do cliente.
 
 ## **Sistema de Comando de Incidentes (ICS)**
+
+![ICS](img/ICS_Structure.png)
+
+*(Fonte: Federal Emergency Management Agency – ICS Resource Center)*
+
 Originado entre bombeiros na Califórnia dos anos 70 para combater incêndios florestais, o ICS é um framework de gerenciamento de resposta a emergências que permite uma resposta coordenada e eficaz. A beleza do ICS reside na sua estrutura modular, o que significa que ele pode ser escalado ou reduzido dependendo das necessidades do incidente. 
 
 Os princípios fundamentais do ICS incluem:
