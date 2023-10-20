@@ -7,16 +7,6 @@
 ![Mapa do Andar](./../img/mapa.jpg)
 
 **Instruções**:
-1. **Estabeleça Rotas de Evacuação**:
-    - Use o mapa fornecido acima.
-    - Planeje rotas de evacuação seguras.
-    - Marque suas rotas com post-its no quadro.
-
-### FASE 2 - RESPOSTA À EMERGÊNCIA
-
-![Mapa do Andar com Obstáculos Pós-Explosão](./../img/mapa-jogo.jpg)
-
-**Instruções**:
 1. **Determine Responsabilidades**:
     - Designe um IC (Incident Commander), o principal responsável pela coordenação e decisões estratégicas durante o gerenciamento de um incidente.
     - O IC deve listar suas principais responsabilidades em post-its.
@@ -36,5 +26,21 @@
     - O Ops Lead deve listar os recursos técnicos necessários.
     - Use post-its para registrar as ações específicas para resolver o incidente.
 
+### FASE 2 - RESPOSTA À EMERGÊNCIA
+
+![Mapa do Andar com Obstáculos Pós-Explosão](./../img/mapa-jogo.jpg)
+
+**Instruções**:
+
+1. **Definição da Severidade do Incidente:**
+   - Antes de qualquer ação, é crucial determinar a gravidade do incidente. A severidade pode variar de 1 (mais grave) a 5 (menos grave).
+   - Para esta simulação, o incidente é categorizado como SEV-1 devido ao potencial risco imediato à vida.
+   - A severidade determina a urgência da resposta e a quantidade de recursos alocados para gerenciar a situação.
+
+2. **Estabeleça Rotas de Evacuação**:
+    - Use o mapa fornecido acima.
+    - Planeje rotas de evacuação seguras.
+    - Marque suas rotas com post-its no quadro.
+
 **Resultado Esperado**:
-Um plano claro de evacuação e comunicação durante a emergência, visualizado com post-its no quadro.
+Ao final desta atividade, cada equipe deve ter um plano claro de evacuação e comunicação durante a emergência, visualizado com post-its no quadro. Este plano deve incluir rotas de evacuação, responsabilidades de cada membro da equipe e protocolos de comunicação.
