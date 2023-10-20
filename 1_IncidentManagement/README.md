@@ -211,3 +211,17 @@ Este teste valida a capacidade do serviço `concierge-app` de enviar registros d
    Finalmente, o teste valida se os dados consumidos do tópico Kafka correspondem aos dados enviados originalmente, verificando o ID da pessoa, o destino e a rota preferida.
 
 Este teste garante que o serviço `concierge-app` esteja corretamente integrado com o Kafka, sendo capaz de produzir e consumir mensagens conforme esperado.
+
+## RECAP
+
+### Severidade do Incidente
+A severidade de um incidente refere-se à sua gravidade, variando de 1 (mais grave) a 5 (menos grave). Determina a urgência da resposta e os recursos necessários.
+
+### Papéis e Responsabilidades
+Em resposta a incidentes, é crucial ter papéis claramente definidos para evitar sobreposição de responsabilidades e garantir eficácia.
+
+### Comunicação
+A comunicação clara e eficaz é fundamental durante um incidente. Isso evita mal-entendidos e garante que todos estejam cientes do progresso e das ações necessárias.
+
+### Planejamento e Ação
+Ter um plano claro e ações definidas é crucial. Isso inclui rotas de evacuação em caso de emergências físicas e planos de recuperação para incidentes técnicos.
