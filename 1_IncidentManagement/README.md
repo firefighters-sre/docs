@@ -122,30 +122,45 @@ O tráfego aéreo é uma dança complexa que exige coordenação precisa entre p
 4. **Priorização**: Voos em situação de emergência são priorizados para garantir a segurança de todos.
 5. **Coordenação com Outros Entes**: Em caso de emergências maiores, controladores podem precisar coordenar com outros aeroportos ou serviços de emergência.
 6. **Análise Pós-Incidente**: Após qualquer incidente, uma análise é feita para entender o que aconteceu e como melhorar no futuro.
+## 1.2 Troubleshooting com OpenShift
+### A Visão de Topologia do OpenShift
+OpenShift oferece uma visão de topologia que permite aos usuários visualizar e gerenciar as aplicações implantadas. Esta visão mostra todos os recursos relacionados, como pods, serviços e rotas, em uma representação gráfica interativa.
+  1. **Navegação**: Acesse a console do OpenShift e vá até a guia "Topologia" na seção "Desenvolvedor".
+  2. **Visualização**: Aqui, você pode ver todas as aplicações em diferentes estágios de implantação, de containers em construção até os ativos.
+  3. **Interação**: Clique em qualquer elemento para obter detalhes específicos, logs ou escalar o número de pods.
 
-## 1.2 Plataformas e Ferramentas
-- **Passo-a-Passo**:
-  1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.
-    - **Stack Tecnológica**:
-       - Microserviços: Quarkus
-       - Plataforma de Mensagens: AMQ Streams (Kafka) e Red Hat Fuse (Apache Camel)
-       - Banco de Dados: PostgreSQL
-       - Implantação: OpenShift (Kubernetes com Helm charts)
-       - Monitoramento e Rastreamento: Prometheus, Jaeger e Grafana
-    - **Microserviços**:
-       - 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia a entrada e saída de indivíduos do edifício.
-       - 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora e gerencia a utilização de escadas e elevadores.
-       - 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
-    - **Tópicos Kafka**:
-       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
-       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
-       - `Entrance (entrance)`: Manipula eventos pós-processamento do Lobby, marcando a entrada de indivíduos no edifício.
-       - `Elevator (elevator)`: Captura eventos associados às operações do elevador.
-       - `Stairs (stairs)`: Coleta dados sobre o uso de escadas.
-       - `Exit (exit)`: Coleta eventos relacionados à saída de indivíduos do edifício.
-       - `External (external)`: Coleta eventos originados de sistemas ou dispositivos externos ao edifício.
-  2. **Testes Unitários com Quarkus**:
-    - Demonstração de como configurar e executar `testes unitários` na aplicação quarkus `concierge-app`.
+### Visualizando Eventos no OpenShift**:
+Os eventos no OpenShift fornecem informações sobre o que está acontecendo dentro do cluster. Eles podem mostrar detalhes sobre operações de criação, atualizações ou erros.
+  1. **Acesso**: Na console do OpenShift, navegue até a guia "Administração" e selecione "Eventos".
+  2. **Filtragem**: Utilize os filtros para ver eventos específicos ou de determinados recursos.
+  3. **Detalhes**: Clique em um evento para obter informações mais detalhadas sobre o que causou o evento e quais recursos estão envolvidos.
+
+### Visualizando Logs no OpenShift**:
+Logs são essenciais para entender o comportamento de suas aplicações e para diagnosticar problemas.
+  1. **Acesso aos Logs de um Pod**: Vá até a visão de pods e selecione o pod desejado. Na página de detalhes do pod, você encontrará uma guia "Logs".
+  2. **Visualização**: Os logs do container serão exibidos em tempo real, permitindo que você veja a atividade recente.
+  3. **Streaming**: Ative a opção "Stream logs" para visualizar logs em tempo real, o que é útil para diagnosticar problemas em aplicações ativas.
+
+### Introdução a Readiness e Liveness Probes**Introdução a Readiness e Liveness Probes**:
+Probes são ferramentas integradas em Kubernetes para verificar a saúde de um container. O `readinessProbe` verifica se o container está pronto para receber solicitações, enquanto que o `livenessProbe` verifica se o container está funcionando conforme o esperado durante sua execução. Ambos são essenciais para garantir que apenas containers saudáveis recebam tráfego e que os containers problemáticos sejam reiniciados.
+  1. **Implementação de Probes**:
+     - Utilizando o ambiente OpenShift, os participantes serão guiados para adicionar `Readiness` e `Liveness probes` ao `mobility-app`.
+      ```yaml
+            readinessProbe:
+            httpGet:
+               path: /q/health/ready
+               port: 8080
+               scheme: HTTP
+            livenessProbe:
+            httpGet:
+               path: /q/health/live
+               port: 8080
+               scheme: HTTP
+      ```
+  2. **Simulação de Falhas no `mobility-app` / Alteração do Endpoint do Liveness Probe**:
+      - Modifique o endpoint que o livenessProbe verifica. Se, por exemplo, o livenessProbe verifica /q/health/live, os participantes devem alterar a rota no aplicativo para um endpoint que não exista ou esteja retornando erros. Isso força o probe a falhar e os participantes podem observar como o sistema reage a essa falha.
+  3. **Validação e Observação**:
+     - Com as probes implementadas, os participantes observarão como o Kubernetes reage quando detecta falhas, garantindo que o tráfego seja encaminhado apenas para pods saudáveis.
 ### Testes Unitários com Quarkus
 Além dos testes unitários padrão, um dos testes a ser observado é o `testAccess` no arquivo [`AccessLogResourceTest.java`](
 https://github.com/firefighters-sre/concierge-app/blob/main/src/test/java/com/redhat/quarkus/resources/AccessLogResourceTest.java). Vamos detalhar este teste:

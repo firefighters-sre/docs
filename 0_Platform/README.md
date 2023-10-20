@@ -226,3 +226,24 @@ prometheus:
   servicemonitor:
     enabled: true
 ```
+## 1.2 Plataformas e Ferramentas
+- **Passo-a-Passo**:
+  1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.
+    - **Stack Tecnológica**:
+       - Microserviços: Quarkus
+       - Plataforma de Mensagens: AMQ Streams (Kafka) e Red Hat Fuse (Apache Camel)
+       - Banco de Dados: PostgreSQL
+       - Implantação: OpenShift (Kubernetes com Helm charts)
+       - Monitoramento e Rastreamento: Prometheus, Jaeger e Grafana
+    - **Microserviços**:
+       - 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia a entrada e saída de indivíduos do edifício.
+       - 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora e gerencia a utilização de escadas e elevadores.
+       - 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
+    - **Tópicos Kafka**:
+       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
+       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
+       - `Entrance (entrance)`: Manipula eventos pós-processamento do Lobby, marcando a entrada de indivíduos no edifício.
+       - `Elevator (elevator)`: Captura eventos associados às operações do elevador.
+       - `Stairs (stairs)`: Coleta dados sobre o uso de escadas.
+       - `Exit (exit)`: Coleta eventos relacionados à saída de indivíduos do edifício.
+       - `External (external)`: Coleta eventos originados de sistemas ou dispositivos externos ao edifício.
