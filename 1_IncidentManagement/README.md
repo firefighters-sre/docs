@@ -133,13 +133,13 @@ OpenShift oferece uma visão de topologia que permite aos usuários visualizar e
   2. **Visualização**: Aqui, você pode ver todas as aplicações em diferentes estágios de implantação, de containers em construção até os ativos.
   3. **Interação**: Clique em qualquer elemento para obter detalhes específicos, logs ou escalar o número de pods.
 
-### Visualizando Eventos no OpenShift**:
+### Visualizando Eventos no OpenShift
 Os eventos no OpenShift fornecem informações sobre o que está acontecendo dentro do cluster. Eles podem mostrar detalhes sobre operações de criação, atualizações ou erros.
   1. **Acesso**: Na console do OpenShift, navegue até a guia "Administração" e selecione "Eventos".
   2. **Filtragem**: Utilize os filtros para ver eventos específicos ou de determinados recursos.
   3. **Detalhes**: Clique em um evento para obter informações mais detalhadas sobre o que causou o evento e quais recursos estão envolvidos.
 
-### Visualizando Logs no OpenShift**:
+### Visualizando Logs no OpenShift
 Logs são essenciais para entender o comportamento de suas aplicações e para diagnosticar problemas.
   1. **Acesso aos Logs de um Pod**: Vá até a visão de pods e selecione o pod desejado. Na página de detalhes do pod, você encontrará uma guia "Logs".
   2. **Visualização**: Os logs do container serão exibidos em tempo real, permitindo que você veja a atividade recente.
