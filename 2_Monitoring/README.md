@@ -10,16 +10,62 @@ O monitoramento é a espinha dorsal da Engenharia de Confiabilidade (SRE). Ele n
 - **Visualização clara** do estado e comportamento do sistema.
 - **Análise de tendências**, auxiliando no planejamento de longo prazo.
 - **Comparação de métricas** para avaliar impactos de mudanças ou experimentos.
-
-### SLIs, SLOs e SLAs: Medindo e Definindo a Confiabilidade
-- **SLIs (Indicadores de Nível de Serviço)**: Métricas específicas que refletem a qualidade do serviço.
-- **SLOs (Objetivos de Nível de Serviço)**: Metas estabelecidas para os SLIs, indicando o desempenho desejado.
-- **SLAs (Acordos de Nível de Serviço)**: Compromissos formais relacionados ao nível de serviço fornecido.
-
 ### Conceitos Chave
+
 - **SLIs (Indicadores de Nível de Serviço)**: São métricas específicas e quantificáveis que representam aspectos essenciais da qualidade do serviço, como tempo de resposta e taxa de erro.
 - **SLOs (Objetivos de Nível de Serviço)**: São metas ou limites estabelecidos para os SLIs. Representam o nível mínimo aceitável de desempenho ou confiabilidade de um serviço.
 - **SLAs (Acordos de Nível de Serviço)**: São compromissos contratuais que descrevem o nível de serviço esperado, normalmente associados a penalidades ou recompensas.
+
+#### SLIs (Indicadores de Nível de Serviço)
+SLIs são métricas específicas e quantificáveis escolhidas para representar a qualidade e o desempenho de um serviço. Eles são vitais para compreender a experiência do usuário e identificar áreas de melhoria. Por exemplo:
+
+- **Latência**: O tempo que leva para uma solicitação ser processada.
+- **Taxa de Erro**: A porcentagem de todas as solicitações que resultam em um erro.
+- **Taxa de Tráfego**: O número de solicitações por segundo.
+
+
+O cálculo do SLI depende da métrica específica em questão. No exemplo da disponibilidade, o SLI seria calculado da seguinte forma:
+
+\[
+\text{SLI (Disponibilidade)} = \frac{\text{Total de minutos o serviço esteve disponível}}{\text{Total de minutos no período de medição}} \times 100
+\]
+
+#### SLOs (Objetivos de Nível de Serviço)
+SLOs são metas estabelecidas para os SLIs. Eles definem as expectativas de desempenho e confiabilidade. Por exemplo:
+
+- **Latência**: 95% das solicitações devem ser processadas em menos de 200ms.
+- **Taxa de Erro**: Menos de 0,1% das solicitações devem resultar em erros.
+- **Disponibilidade**: O serviço deve estar disponível 99,9% do tempo.
+
+#### SLAs (Acordos de Nível de Serviço)
+SLAs são acordos formais, muitas vezes estabelecidos entre provedores de serviço e clientes. Eles especificam os níveis de serviço esperados e podem incluir penalidades para os casos em que os SLOs não são atendidos. Por exemplo, um SLA pode estipular:
+
+- Se a latência exceder 200ms por mais de 0,1% das solicitações em um mês, o cliente receberá créditos de serviço.
+- Se o serviço tiver uma disponibilidade inferior a 99,9% em um mês, poderá haver reembolsos ou outros tipos de compensação para o cliente.
+
+### Escolhendo os Indicadores Corretos
+Escolher os SLIs corretos é fundamental para o monitoramento eficaz. Os SLIs devem refletir de maneira precisa e objetiva o que os usuários realmente experimentam.
+
+#### Dicas para Escolher SLIs Corretos:
+- **Orientado ao Usuário**: Métricas que afetam diretamente a experiência do usuário, como latência de resposta ou taxa de erros.
+- **Quantificável e Mensurável**: O SLI deve ser algo que pode ser medido de forma confiável e consistente.
+- **Abrangente**: O SLI deve cobrir uma ampla gama de casos de uso.
+
+### 2.3 Estabelecendo SLOs de Maneira Efetiva
+Os SLOs representam as metas que queremos atingir com base nos SLIs.
+
+#### Dicas para Definir SLOs Corretamente:
+- **Colaboração**: Converse com stakeholders para estabelecer SLOs.
+- **Histórico de Desempenho**: Analise o desempenho histórico do serviço.
+- **Flexibilidade**: SLOs podem precisar ser ajustados conforme o sistema evolui.
+
+### Entendendo e Utilizando o Error Budget
+O "Error Budget" é a quantidade de tempo ou número de eventos que um serviço pode ficar fora do SLO sem violar o SLA.
+
+#### Benefícios do Error Budget:
+- **Incentiva Inovação com Responsabilidade**: Permite mudanças, desde que não excedam o orçamento de erro.
+- **Equilíbrio entre Estabilidade e Agilidade**: Equipes podem decidir acelerar ou desacelerar lançamentos com base em quanto do seu orçamento de erro elas consumiram.
+- **Melhor Planejamento de Recursos**: Se um serviço estiver consistentemente ficando dentro de seu orçamento de erro, isso pode indicar que está superdimensionado.
 
 ### Monitoramento na Prática
 O monitoramento eficaz não se trata apenas de coletar métricas. Envolve interpretar esses dados, tomar decisões informadas e agir proativamente para garantir a saúde contínua dos sistemas. Através de atividades práticas, os participantes aprenderão a estabelecer um monitoramento robusto, definindo SLIs, SLOs e SLAs para serviços críticos, e a responder a incidentes usando dados de monitoramento.
@@ -34,17 +80,6 @@ Ao monitorar sistemas voltados para o usuário, é essencial focar nos "4 SRE Go
 4. **Saturação**: Mostra quão "cheio" está o seu serviço, destacando os recursos mais restritos.
 
 Ao medir e alertar com base nesses quatro sinais, podemos garantir que o sistema esteja bem monitorado e que quaisquer problemas sejam rapidamente identificados e resolvidos.
-
-##### 2.2 Abordagem Prática
-- **Desafio**: Estabelecer um monitoramento efetivo para os serviços essenciais do edifício, tais como a disponibilidade de elevadores e as condições ambientais.
-- **Passo-a-Passo**:
-  1. **Definição do Cenário**: Grupos são apresentados a um cenário específico relacionado ao edifício, como uma falha no sistema de elevadores ou uma mudança nas condições ambientais.
-         - 🚨 **Alerta**: O cenário específico ainda precisa ser definido e elaborado.
-  2. **Identificação de KPIs**: Discussão colaborativa sobre quais indicadores-chave de desempenho (KPIs) são críticos para o cenário apresentado. Exemplos podem incluir tempo médio de resposta de um elevador ou qualidade do ar no edifício.
-  3. **Estabelecimento de SLIs e SLOs**: Com base nos KPIs, os grupos discutem e definem os Indicadores de Nível de Serviço (SLIs) que representam medidas quantitativas de qualidade. Em seguida, definem os Objetivos de Nível de Serviço (SLOs), que são metas específicas associadas aos SLIs.
-  4. **Simulação de Monitoramento em Tempo Real**:
-     - **Criação de um Dashboard Físico**: Utilizando um quadro, os participantes criam um dashboard que represente visualmente os SLIs e SLOs definidos.
-  5. **Reflexão e Feedback**: Após a simulação, os grupos refletem sobre a eficácia de seus SLIs, SLOs e sua resposta aos comandos. Discussões podem abordar melhorias, lacunas identificadas e a aplicação dos "4 Sinais Dourados" no contexto do cenário.
 
 ##### 2.3 Plataforma e Ferramentas
 
