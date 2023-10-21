@@ -16,6 +16,7 @@ O monitoramento é a espinha dorsal da Engenharia de Confiabilidade (SRE). Ele n
 - **SLOs (Objetivos de Nível de Serviço)**: São metas ou limites estabelecidos para os SLIs. Representam o nível mínimo aceitável de desempenho ou confiabilidade de um serviço.
 - **SLAs (Acordos de Nível de Serviço)**: São compromissos contratuais que descrevem o nível de serviço esperado, normalmente associados a penalidades ou recompensas.
 
+![SLIs, SLOs, SLAs](img/slis-slos-slas.jpeg)
 #### SLIs (Indicadores de Nível de Serviço)
 SLIs são métricas específicas e quantificáveis escolhidas para representar a qualidade e o desempenho de um serviço. Eles são vitais para compreender a experiência do usuário e identificar áreas de melhoria. Por exemplo:
 
@@ -48,7 +49,7 @@ Escolher os SLIs corretos é fundamental para o monitoramento eficaz. Os SLIs de
 - **Quantificável e Mensurável**: O SLI deve ser algo que pode ser medido de forma confiável e consistente.
 - **Abrangente**: O SLI deve cobrir uma ampla gama de casos de uso.
 
-### 2.3 Estabelecendo SLOs de Maneira Efetiva
+### Estabelecendo SLOs de Maneira Efetiva
 Os SLOs representam as metas que queremos atingir com base nos SLIs.
 
 #### Dicas para Definir SLOs Corretamente:
@@ -56,19 +57,54 @@ Os SLOs representam as metas que queremos atingir com base nos SLIs.
 - **Histórico de Desempenho**: Analise o desempenho histórico do serviço.
 - **Flexibilidade**: SLOs podem precisar ser ajustados conforme o sistema evolui.
 
-### Entendendo e Utilizando o Error Budget
-O "Error Budget" é a quantidade de tempo ou número de eventos que um serviço pode ficar fora do SLO sem violar o SLA.
+### Error Budget: Uma Métrica para a Confiabilidade
+O conceito de "Error Budget" é central para a Engenharia de Confiabilidade do Site (SRE). Ele representa a quantidade de tempo ou o número de erros que um serviço é permitido ter, de acordo com seu SLO. Em outras palavras, se um serviço tem um SLO de 99,9% de disponibilidade, ele tem um "Error Budget" de 0,1% de tempo de inatividade permitido.
 
-#### Benefícios do Error Budget:
-- **Incentiva Inovação com Responsabilidade**: Permite mudanças, desde que não excedam o orçamento de erro.
-- **Equilíbrio entre Estabilidade e Agilidade**: Equipes podem decidir acelerar ou desacelerar lançamentos com base em quanto do seu orçamento de erro elas consumiram.
-- **Melhor Planejamento de Recursos**: Se um serviço estiver consistentemente ficando dentro de seu orçamento de erro, isso pode indicar que está superdimensionado.
+#### Como calcular o Error Budget:
+Error Budget = 100% - SLO
+
+Para um SLO de 99,9% de disponibilidade, o Error Budget seria:
+Error Budget = 100% - 99,9% = 0,1%
+
+#### Utilizando o Error Budget:
+1. **Inovação vs. Estabilidade**: O Error Budget proporciona um equilíbrio entre a estabilidade do serviço e a velocidade de inovação.
+2. **Priorizando o Trabalho**: Se um serviço está se aproximando de esgotar seu Error Budget, a equipe pode decidir congelar lançamentos ou mudanças e focar em estabilização.
+3. **Comunicação com Stakeholders**: Um Error Budget fornece uma métrica clara e objetiva para comunicar a saúde e confiabilidade do serviço a stakeholders.
+4. **Decisões Baseadas em Dados**: Ao monitorar o consumo do Error Budget, as equipes podem tomar decisões informadas sobre riscos, investimentos em confiabilidade e a velocidade das mudanças.
+
+#### Quando utilizar o Error Budget:
+- **Planejamento de Releases**: Antes de fazer grandes lançamentos ou mudanças, verifique o Error Budget.
+- **Revisões de Incidentes**: Após incidentes significativos, avalie o impacto no Error Budget.
+- **Planejamento de Recursos**: Se um serviço estiver consistentemente esgotando seu Error Budget, pode ser um indicador de que mais recursos são necessários.
+- **Negociações de SLO/SLA**: O Error Budget pode ser usado como uma ferramenta de negociação ao discutir ou revisar SLOs e SLAs.
+
+### Consequências de Exaurir o Error Budget
+Quando o Error Budget de um serviço é exaurido ou está próximo de ser gasto, é um indicativo claro de que a confiabilidade do serviço está em risco. Aqui estão algumas ações e consequências típicas que ocorrem quando o Error Budget é gasto:
+
+1. **Congelamento de Lançamentos de Recursos (Feature Freeze)**: Para proteger a confiabilidade do serviço e seus usuários, as equipes podem decidir congelar todos os novos lançamentos de recursos até que a saúde do serviço seja restaurada e o Error Budget seja recuperado.
+2. **Priorização de Itens Pós-Mortem**: A análise pós-incidente (ou pós-mortem) é crucial para entender a causa raiz dos incidentes e identificar medidas corretivas. Quando o Error Budget é gasto, os itens de ação identificados em revisões pós-incidente tornam-se uma prioridade máxima.
+3. **Melhorando o Monitoramento e Observabilidade**: A exaustão do Error Budget frequentemente destaca áreas onde o monitoramento e a observabilidade são insuficientes. Pode ser necessário implementar monitores, alertas adicionais ou ferramentas de diagnóstico para melhorar a visibilidade do sistema e permitir uma resposta mais proativa a futuros incidentes.
+4. **Moratória de Novos Recursos**: Até que o Error Budget seja recuperado, a equipe deve se abster de lançar novos recursos. Isso permite que a equipe se concentre totalmente em restaurar a confiabilidade do serviço.
+5. **Reestruturação do Fluxo de Trabalho da Equipe**: Os itens de ação das revisões pós-incidente são elevados na lista de prioridades da equipe, garantindo que os problemas identificados sejam abordados prontamente.
+
+A gestão eficaz do Error Budget, juntamente com a resposta apropriada quando ele é gasto, é vital para manter a confiabilidade do serviço e a confiança dos usuários e stakeholders.
+
+### Onde Gastamos o Error Budget?
+
+O Error Budget representa uma quantia "aceitável" de indisponibilidade ou degradação do serviço. Aqui estão algumas áreas comuns onde o Error Budget pode ser "gasto":
+
+1. **Lançamentos de Novos Recursos (Feature Releases)**: Introduzir novas funcionalidades ou mudanças pode, por vezes, resultar em problemas não previstos que afetam a disponibilidade ou desempenho.
+2. **Planejamento de Mudanças nos Sistemas**: Atualizações, manutenções ou outras mudanças planejadas nos sistemas podem consumir parte do Error Budget se não forem executadas perfeitamente.
+3. **Falha Inevitável**: Falhas em componentes de hardware, problemas de rede ou interrupções de provedores externos podem ocorrer, afetando a disponibilidade.
+4. **Tempo de Inatividade Planejado**: Manutenções ou atualizações planejadas que resultam em tempo de inatividade programado consomem o Error Budget.
+5. **Experimentos**: Testar novas abordagens, arquiteturas ou tecnologias pode ter um impacto temporário na confiabilidade.
+
+É vital entender e monitorar onde o Error Budget está sendo gasto para fazer ajustes e melhorias contínuas, garantindo a confiabilidade do serviço.
 
 ### Monitoramento na Prática
 O monitoramento eficaz não se trata apenas de coletar métricas. Envolve interpretar esses dados, tomar decisões informadas e agir proativamente para garantir a saúde contínua dos sistemas. Através de atividades práticas, os participantes aprenderão a estabelecer um monitoramento robusto, definindo SLIs, SLOs e SLAs para serviços críticos, e a responder a incidentes usando dados de monitoramento.
 
 ### 4 SRE Golden Signals
-
 Ao monitorar sistemas voltados para o usuário, é essencial focar nos "4 SRE Golden Signals", que são:
 
 1. **Latência**: Refere-se ao tempo necessário para atender a uma solicitação. É crucial diferenciar entre a latência de solicitações bem-sucedidas e falhas.
@@ -78,10 +114,21 @@ Ao monitorar sistemas voltados para o usuário, é essencial focar nos "4 SRE Go
 
 Ao medir e alertar com base nesses quatro sinais, podemos garantir que o sistema esteja bem monitorado e que quaisquer problemas sejam rapidamente identificados e resolvidos.
 
-##### 2.3 Plataforma e Ferramentas
+### Alertas
+Alertas são notificações ou avisos que são acionados quando uma métrica específica (como um SLI) ultrapassa um limite definido. Por exemplo, se a latência de um serviço exceder 500ms ou a taxa de erro superar 1%, um alerta pode ser disparado para notificar a equipe de operações.
+
+Estabelecer alertas eficazes requer:
+1. **Granularidade**: Alertas devem ser específicos o suficiente para indicar o problema real sem causar muitos falsos positivos.
+2. **Urgência**: Nem todos os alertas são críticos. É importante classificar alertas com base na gravidade do problema.
+3. **Ação**: Um alerta deve fornecer informações suficientes para que a equipe possa agir e resolver o problema.
+### Dashboards
+Dashboards são painéis visuais que exibem métricas e KPIs (Indicadores Chave de Performance) em tempo real. Eles são essenciais para o monitoramento pois:
+1. **Visualização**: Permitem que as equipes vejam rapidamente o estado atual do sistema.
+2. **Tendências**: Dashboards ajudam a identificar tendências ao longo do tempo, permitindo uma resposta proativa.
+3. **Correlação**: Ao visualizar várias métricas juntas, é possível identificar correlações entre diferentes partes do sistema.
+## 2.2 Plataforma e Ferramentas
 
 ### Ferramentas de Monitoramento e Alertas
-
 Ao coletar métricas de aplicações e sistemas, é essencial ter ferramentas robustas que não apenas armazenem e visualizem esses dados, mas também forneçam mecanismos eficazes de alerta para situações anômalas. Aqui, descrevemos três ferramentas centrais usadas para esses propósitos:
 
 - **Prometheus**:
