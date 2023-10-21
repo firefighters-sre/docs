@@ -165,52 +165,6 @@ Probes são ferramentas integradas em Kubernetes para verificar a saúde de um c
       - Modifique o endpoint que o livenessProbe verifica. Se, por exemplo, o livenessProbe verifica /q/health/live, os participantes devem alterar a rota no aplicativo para um endpoint que não exista ou esteja retornando erros. Isso força o probe a falhar e os participantes podem observar como o sistema reage a essa falha.
   3. **Validação e Observação**:
      - Com as probes implementadas, os participantes observarão como o Kubernetes reage quando detecta falhas, garantindo que o tráfego seja encaminhado apenas para pods saudáveis.
-### Testes Unitários com Quarkus
-Além dos testes unitários padrão, um dos testes a ser observado é o `testAccess` no arquivo [`AccessLogResourceTest.java`](
-https://github.com/firefighters-sre/concierge-app/blob/main/src/test/java/com/redhat/quarkus/resources/AccessLogResourceTest.java). Vamos detalhar este teste:
-##### testAccess: Verificando a Integração com Kafka
-Este teste valida a capacidade do serviço `concierge-app` de enviar registros de acesso ao tópico Kafka `entrance` e, em seguida, consumir esses registros para verificação.
-
-1. **Inicialização e Subscrição ao Tópico Kafka**:
-    ```java
-    logConsumer.subscribe(Collections.singleton("entrance"));
-    ```
-   O teste começa se inscrevendo no tópico Kafka `entrance` para ouvir as mensagens que serão produzidas.
-
-2. **Preparação dos Dados**:
-    ```java
-    AccessLog logToSend = new AccessLog(1L, "1");
-    ```
-   Um novo objeto `AccessLog` é criado para simular um registro de acesso que será enviado ao tópico Kafka.
-
-3. **Chamada ao Endpoint e Envio de Dados**:
-    ```java
-    given()
-      .when()
-      .contentType(ContentType.JSON)
-      .body(logToSend)
-      .post("/access")
-      .then()
-      .statusCode(204);
-    ```
-   Aqui, o endpoint `/access` é chamado com o objeto `AccessLog` preparado. A resposta esperada é um HTTP 204, indicando sucesso sem retorno.
-
-4. **Consumo e Verificação dos Dados**:
-    ```java
-    ConsumerRecords<String, MoveLog> records = logConsumer.poll(Duration.ofMillis(10000));
-    MoveLog receivedLog = records.records("entrance").iterator().next().value();
-    ```
-   O teste aguarda até 10 segundos para consumir a mensagem do tópico `entrance`. Uma vez consumida, ele extrai o valor da mensagem como um objeto `MoveLog`.
-
-5. **Validação**:
-    ```java
-    assertEquals(logToSend.getPersonId(), receivedLog.getPersonId());
-    assertEquals(logToSend.getDestination(), receivedLog.getDestination());
-    assertEquals("elevator", receivedLog.getPreferredRoute());
-    ```
-   Finalmente, o teste valida se os dados consumidos do tópico Kafka correspondem aos dados enviados originalmente, verificando o ID da pessoa, o destino e a rota preferida.
-
-Este teste garante que o serviço `concierge-app` esteja corretamente integrado com o Kafka, sendo capaz de produzir e consumir mensagens conforme esperado.
 
 ## RECAP
 
@@ -225,3 +179,12 @@ A comunicação clara e eficaz é fundamental durante um incidente. Isso evita m
 
 ### Planejamento e Ação
 Ter um plano claro e ações definidas é crucial. Isso inclui rotas de evacuação em caso de emergências físicas e planos de recuperação para incidentes técnicos.
+
+### Links Úteis
+
+- [NIST SP 800-061r1: Computer Security Incident Handling Guide (2008)](https://csrc.nist.rip/library/NIST%20SP%20800-061r1%20Computer%20Security%20Incident%20Handling%20Guide,%202008-05.pdf)
+- [PagerDuty: Incident Response](https://response.pagerduty.com/)
+- [Google SRE: Incident Response](https://sre.google/workbook/incident-response/)
+- [Google SRE: Managing Incidents](https://sre.google/sre-book/managing-incidents/)
+- [IBM: What is Incident Management?](https://www.ibm.com/blog/what-is-incident-management/)
+- [Medium: SRE 101 - Minimizing Downtime with Effective Incident Management](https://medium.com/@megawan/sre-101-minimizing-downtime-with-effective-incident-management-9a5ace51644b)
