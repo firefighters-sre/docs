@@ -312,3 +312,23 @@ spec:
 Estas regras definem condições para alertas como disponibilidade do aplicativo, tempo de resposta da API e taxas de erro. Uma vez que estas condições são atendidas, alertas são disparados.
 
 Monitorar o tempo de processamento dos eventos do lobby é crucial para garantir que o serviço esteja respondendo de maneira eficiente. Qualquer atraso ou inconsistência pode ser rapidamente identificado e resolvido antes de se tornar um problema maior.
+
+## RECAP
+### KPIs e Métricas
+Identificar Indicadores-Chave de Desempenho (KPIs) é crucial para entender e medir o desempenho de serviços essenciais, como elevadores e condições ambientais.
+
+### Confiabilidade e Disponibilidade
+Um objetivo-chave do monitoramento é garantir que os serviços mantenham níveis predefinidos de confiabilidade e disponibilidade, cumprindo as expectativas dos usuários e dos negócios.
+
+### Detecção e Ação Proativa
+O monitoramento eficaz não se trata apenas de observação, mas de agir proativamente. Ele permite que as equipes identifiquem e resolvam rapidamente quaisquer problemas, minimizando o impacto sobre os usuários e a integridade do sistema.
+
+### SLIs e SLOs
+Estes são definidos com base nos KPIs e estabelecem metas claras para o desempenho do serviço. Eles ajudam a garantir que os serviços atendam a um padrão mínimo.
+
+### Visualização e Dashboards
+Uma representação visual das métricas, SLIs e SLOs permite uma fácil interpretação do desempenho e ajuda a identificar rapidamente quaisquer problemas ou áreas de melhoria.
+
+### SLAs
+Acordos de Nível de Serviço (SLAs) definem as consequências ou compensações caso os SLOs não sejam atendidos. Eles garantem responsabilidade e incentivam o cumprimento dos padrões estabelecidos.
+
