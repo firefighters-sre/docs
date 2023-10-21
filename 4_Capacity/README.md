@@ -68,6 +68,53 @@ A prática da automação em SRE é essencial para garantir sistemas escaláveis
 
 A Engenharia de Confiabilidade de Site (SRE) é potencializada pelo uso adequado de plataformas e ferramentas. Elas permitem a automação, observabilidade e escalabilidade. No contexto do "firefighters SRE", vamos explorar a implementação de práticas SRE usando Kubernetes, uma plataforma de orquestração de contêineres, e OpenShift, uma plataforma Kubernetes empresarial.
 
+### Testes Unitários com Quarkus
+Além dos testes unitários padrão, um dos testes a ser observado é o `testAccess` no arquivo [`AccessLogResourceTest.java`](
+https://github.com/firefighters-sre/concierge-app/blob/main/src/test/java/com/redhat/quarkus/resources/AccessLogResourceTest.java). Vamos detalhar este teste:
+##### testAccess: Verificando a Integração com Kafka
+Este teste valida a capacidade do serviço `concierge-app` de enviar registros de acesso ao tópico Kafka `entrance` e, em seguida, consumir esses registros para verificação.
+
+1. **Inicialização e Subscrição ao Tópico Kafka**:
+    ```java
+    logConsumer.subscribe(Collections.singleton("entrance"));
+    ```
+   O teste começa se inscrevendo no tópico Kafka `entrance` para ouvir as mensagens que serão produzidas.
+
+2. **Preparação dos Dados**:
+    ```java
+    AccessLog logToSend = new AccessLog(1L, "1");
+    ```
+   Um novo objeto `AccessLog` é criado para simular um registro de acesso que será enviado ao tópico Kafka.
+
+3. **Chamada ao Endpoint e Envio de Dados**:
+    ```java
+    given()
+      .when()
+      .contentType(ContentType.JSON)
+      .body(logToSend)
+      .post("/access")
+      .then()
+      .statusCode(204);
+    ```
+   Aqui, o endpoint `/access` é chamado com o objeto `AccessLog` preparado. A resposta esperada é um HTTP 204, indicando sucesso sem retorno.
+
+4. **Consumo e Verificação dos Dados**:
+    ```java
+    ConsumerRecords<String, MoveLog> records = logConsumer.poll(Duration.ofMillis(10000));
+    MoveLog receivedLog = records.records("entrance").iterator().next().value();
+    ```
+   O teste aguarda até 10 segundos para consumir a mensagem do tópico `entrance`. Uma vez consumida, ele extrai o valor da mensagem como um objeto `MoveLog`.
+
+5. **Validação**:
+    ```java
+    assertEquals(logToSend.getPersonId(), receivedLog.getPersonId());
+    assertEquals(logToSend.getDestination(), receivedLog.getDestination());
+    assertEquals("elevator", receivedLog.getPreferredRoute());
+    ```
+   Finalmente, o teste valida se os dados consumidos do tópico Kafka correspondem aos dados enviados originalmente, verificando o ID da pessoa, o destino e a rota preferida.
+
+Este teste garante que o serviço `concierge-app` esteja corretamente integrado com o Kafka, sendo capaz de produzir e consumir mensagens conforme esperado.
+
 #### ATIVIDADE - Implementando Probes em Kubernetes no Sistema "firefighters SRE"
 - **Desafio**: Usando o ambiente OpenShift, os participantes aprenderão a automatizar exercícios de segurança e otimizar rotas de evacuação.
 - **Passo-a-Passo**:

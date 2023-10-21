@@ -1,5 +1,9 @@
 ## 1. Planejando a Resposta a um Incidente: Guia da Atividade
 
+> 1. **Emergência Simulada**: As equipes enfrentam um incidente após uma explosão no elevador de um edifício.
+> 2. **Preparação, Classificação e Resposta**: As equipes primeiro se preparam designando papéis e estabelecendo protocolos; depois, classificam a gravidade do incidente e finalmente planejam rotas de evacuação.
+> 3. **Objetivo Principal**: Aplicar práticas eficazes de gerenciamento de incidentes em um cenário de alta pressão, culminando em um plano de ação claro visualizado no quadro.
+
 🔥 **Emergência Simulada**: Uma explosão no elevador causou um incêndio. A área afetada está marcada em vermelho no mapa.
 
 ### FASE 1 - PREPARAÇÃO ANTES DA CRISE
