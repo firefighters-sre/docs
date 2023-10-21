@@ -21,14 +21,11 @@ SLIs são métricas específicas e quantificáveis escolhidas para representar a
 
 - **Latência**: O tempo que leva para uma solicitação ser processada.
 - **Taxa de Erro**: A porcentagem de todas as solicitações que resultam em um erro.
-- **Taxa de Tráfego**: O número de solicitações por segundo.
-
+- **Taxa de Tráfego**: A porcentagem de solicitações válidas por segundo.
 
 O cálculo do SLI depende da métrica específica em questão. No exemplo da disponibilidade, o SLI seria calculado da seguinte forma:
 
-\[
-\text{SLI (Disponibilidade)} = \frac{\text{Total de minutos o serviço esteve disponível}}{\text{Total de minutos no período de medição}} \times 100
-\]
+`SLI (Disponibilidade)` = (`Total de minutos em que o serviço esteve disponível` / `Total de minutos no período de medição`) x 100%
 
 #### SLOs (Objetivos de Nível de Serviço)
 SLOs são metas estabelecidas para os SLIs. Eles definem as expectativas de desempenho e confiabilidade. Por exemplo:
