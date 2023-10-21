@@ -1,5 +1,9 @@
 ## 2. Monitoramento e Estabelecimento de SLIs, SLOs e SLAs: Guia da Atividade
 
+> 1. **Desafio de Monitoramento**: Após um incidente no edifício, as equipes são encarregadas de criar um sistema de monitoramento robusto para os serviços essenciais.
+> 2. **Identificação, Definição e Visualização**: As equipes identificarão KPIs cruciais, estabelecerão SLIs e SLOs e, em seguida, criarão um dashboard visual para representar essas métricas.
+> 3. **Objetivo Principal**: Desenvolver e visualizar um sistema de monitoramento eficaz, com a opção de discutir potenciais SLAs para garantir a adesão aos padrões estabelecidos.
+
 ### 🚨 Desafio
 Crie um sistema de monitoramento eficaz para os serviços essenciais do edifício, considerando a disponibilidade de elevadores e as condições ambientais.
 
