@@ -5,14 +5,14 @@
 > 3. **Objetivo Principal**: Aplicar práticas eficazes de gerenciamento de incidentes e documentação post-mortem em um cenário realista, culminando em um plano de ação claro e um documento post-mortem bem estruturado.
 
 ### 🚨 Desafio
-Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu um curto circuito nas salas ROXA e LARANJA. Seu desafio é resolver o incidente e documentar as medidas tomadas.
+Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu um curto circuito nas salas ROXA e VERMELHA. Seu desafio é resolver o incidente e documentar as medidas tomadas.
 
 ![Mapa do Andar](./../img/mapa-colorido.jpg)
 
 ### 📋 Instruções
 
 1. **🌊 Contexto**:
-    - Use post-its para listar os principais detalhes da inundação e do curto circuito nas salas ROXA e LARANJA.
+    - Use post-its para listar os principais detalhes da inundação e do curto circuito nas salas ROXA e VERMELHA.
 
 2. **🤝 Divisão em Sub-Grupos**:
     - Se você faz parte do primeiro sub-grupo, sua tarefa é identificar e resolver o incidente.
@@ -45,7 +45,7 @@ Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu u
 #### Descrição do Incidente:
 - **Data e Hora**: [Data] às [Hora]
 - **Duração**: [X] horas
-- **Impacto**: Inundação no último andar, curto circuito nas salas ROXA e LARANJA, comprometendo a circulação no corredor central.
+- **Impacto**: Inundação no último andar, curto circuito nas salas ROXA e VERMELHA, comprometendo a circulação no corredor central.
 
 #### Causa Raiz:
 Um vazamento na caixa d'água levou à inundação do último andar, e a água entrou em contato com a fiação elétrica, causando um curto-circuito.
