@@ -1,0 +1,46 @@
+# Compiled files
+*.o
+*.so
+*.dll
+*.class
+*.pyc
+*.pyo
+*.egg
+*.egg-info
+*.log
+
+# Directories
+__pycache__/
+*.venv/
+*.idea/
+*.vscode/
+node_modules/
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Environment secrets and configurations
+.env
+.secret
+
+# Editor files
+*.iml
+*.sublime*
+
+# Package manager lock files
+yarn.lock
+package-lock.json
+
+# Other
+*.retry
+
