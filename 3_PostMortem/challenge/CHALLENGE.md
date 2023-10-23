@@ -7,8 +7,6 @@
 ### 🚨 Desafio
 Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu um curto circuito nas salas ROXA e VERMELHA. Seu desafio é resolver o incidente e documentar as medidas tomadas.
 
-![Mapa do Andar](./../img/mapa-colorido.jpg)
-
 ### 📋 Instruções
 
 1. **🌊 Contexto**:
