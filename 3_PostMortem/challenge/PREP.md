@@ -12,7 +12,7 @@ Um incidente ocorreu no edifício devido a um problema com a caixa d'água, resu
 ### Passo-a-Passo 📋
 
 1. **🌊 Apresentação do Cenário**:
-    - Descreva o cenário do incidente: Uma inundação no último andar causou um curto circuito nas salas ROXA e LARANJA. A circulação no oeste do corredor central foi comprometida.
+    - Descreva o cenário do incidente: Uma inundação no último andar causou um curto circuito nas salas ROXA e VERMELHA. A circulação no oeste do corredor central foi comprometida.
 
 2. **🤝 Divisão em Sub-Grupos**:
     - Divida o grupo principal em dois sub-grupos. O primeiro sub-grupo ficará na sala e atuará na solução do incidente, enquanto o segundo sub-grupo sairá da sala temporariamente.
