@@ -11,17 +11,25 @@ Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu u
     - Use post-its para listar os principais detalhes da inundação e do curto circuito nas salas ROXA e LARANJA.
 
 2. **🤝 Divisão em Sub-Grupos**:
-    - Se você faz parte do primeiro sub-grupo, sua tarefa é resolver o incidente.
+    - Se você faz parte do primeiro sub-grupo, sua tarefa é identificar e resolver o incidente.
     - Se você faz parte do segundo sub-grupo, aguarde fora da sala até ser chamado novamente.
 
-3. **🔧 Solução do Incidente**:
-    - Trabalhe com seu sub-grupo para resolver o incidente.
+3. **🔎 Investigação do Incidente**:
+    - Consulte os documentos [LOGS.md](./LOGS.md) e [INITIAL_REPORT.md](./INITIAL_REPORT.md) para obter informações detalhadas sobre o incidente.
+    - Analise os logs e o relatório inicial para entender melhor a sequência de eventos e identificar possíveis causas.
+
+4. **🔧 Solução do Incidente**:
+    - Converse com seu sub-grupo para construir possíveis soluções ao incidente.
     - Use post-its para documentar as medidas tomadas, assegurando clareza e concisão.
 
-4. **📝 Utilização da Documentação**:
+5. **📜 Construção do Documento Post-Mortem**:
+    - Com base nas informações coletadas e nas soluções identificadas, construa um documento post-mortem utilizando post-its. 
+    - Organize os post-its de forma a detalhar claramente o que aconteceu, as causas raiz identificadas, as medidas tomadas e as recomendações para evitar futuros incidentes.
+
+6. **📝 Utilização da Documentação**:
     - Se você faz parte do segundo sub-grupo, ao retornar, pegue os post-its produzidos pelo primeiro sub-grupo e tente replicar a solução usando apenas essa documentação.
 
-5. **🔄 Reflexão e Feedback**:
+7. **🔄 Reflexão e Feedback**:
     - Reúna-se com todos os grupos para discutir a eficácia da documentação e compartilhar insights. Use post-its para registrar os principais feedbacks e lições aprendidas.
 
 ---
