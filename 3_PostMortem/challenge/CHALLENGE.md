@@ -1,5 +1,9 @@
 ## 🎯 3. Postmortem e RCA: Guia da Atividade
 
+> 1. **Investigação e Solução**:  As equipes enfrentam um incidente após uma inundação no último andar do edifício, causando curto-circuito nas salas ROXA e LARANJA. As equipes são divididas em sub-grupos. O primeiro sub-grupo concentra-se em investigar a causa raiz, usando logs e relatórios iniciais, e propõe soluções para o incidente. O segundo sub-grupo espera e, em seguida, utiliza a documentação fornecida pelo primeiro sub-grupo para replicar a solução.
+> 2. **Documentação Post-Mortem**: Com base nas descobertas e soluções, o primeiro sub-grupo cria um documento post-mortem detalhando o incidente, a causa raiz, as ações tomadas e as recomendações para o futuro.
+> 3. **Objetivo Principal**: Aplicar práticas eficazes de gerenciamento de incidentes e documentação post-mortem em um cenário realista, culminando em um plano de ação claro e um documento post-mortem bem estruturado.
+
 ### 🚨 Desafio
 Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu um curto circuito nas salas ROXA e LARANJA. Seu desafio é resolver o incidente e documentar as medidas tomadas.
 

@@ -1,5 +1,11 @@
 ## 🎯 5. Elevando os 9s da Disponibilidade: Guia da Atividade
 
+> 1. **Melhoria dos 9s de Disponibilidade**: As equipes são desafiadas a avaliar e melhorar a disponibilidade dos componentes críticos de um prédio após um incidente simulado.
+> 2. **Avaliação e Classificação**: As equipes começam avaliando a infraestrutura atual, identificando os componentes críticos e seus níveis de disponibilidade. Em seguida, elas classificam cada componente com base nos 9s de disponibilidade desejados.
+> 3. **Propostas e Testes**: Com as classificações em mente, as equipes propõem melhorias para aumentar a disponibilidade e, em seguida, desenvolvem testes para validar a eficácia dessas melhorias.
+> 4. **Objetivo Principal**: Utilizar práticas de Engenharia de Confiabilidade (SRE) para elevar os níveis de disponibilidade em um ambiente simulado, culminando em um plano de ação claro visualizado no quadro.
+
+
 ### 🚨 Desafio
 Com base nos incidentes anteriores e nas características do prédio, identifique melhorias na infraestrutura que podem aumentar os 9s de disponibilidade do SLA.
 
