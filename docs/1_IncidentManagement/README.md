@@ -15,7 +15,7 @@ Um incidente refere-se a qualquer evento inesperado que interrompe ou reduz a qu
 
 ## **Sistema de Comando de Incidentes (ICS)**
 
-![ICS](../img/ICS_Structure.png)
+![ICS](../images/ICS_Structure.png)
 
 *(Fonte: Federal Emergency Management Agency – ICS Resource Center)*
 

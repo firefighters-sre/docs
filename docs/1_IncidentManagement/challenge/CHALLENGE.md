@@ -8,7 +8,7 @@
 
 ### FASE 1 - PREPARAÇÃO ANTES DA CRISE
 
-![Mapa do Andar](./../../img/mapa-maisresolucao.svg)
+![Mapa do Andar](./../../images/mapa-maisresolucao.svg)
 
 **Instruções**:
 1. **Determine Responsabilidades**:
@@ -32,7 +32,7 @@
 
 ### FASE 2 - RESPOSTA À EMERGÊNCIA
 
-![Mapa do Andar com Obstáculos Pós-Explosão](./../../img/mapa-fogo.svg)
+![Mapa do Andar com Obstáculos Pós-Explosão](./../../images/mapa-fogo.svg)
 
 **Instruções**:
 

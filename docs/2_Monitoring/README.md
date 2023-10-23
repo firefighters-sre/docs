@@ -16,7 +16,7 @@ O monitoramento é a espinha dorsal da Engenharia de Confiabilidade (SRE). Ele n
 - **SLOs (Objetivos de Nível de Serviço)**: São metas ou limites estabelecidos para os SLIs. Representam o nível mínimo aceitável de desempenho ou confiabilidade de um serviço.
 - **SLAs (Acordos de Nível de Serviço)**: São compromissos contratuais que descrevem o nível de serviço esperado, normalmente associados a penalidades ou recompensas.
 
-![SLIs, SLOs, SLAs](img/slis-slos-slas.jpeg)
+![SLIs, SLOs, SLAs](../images/slis-slos-slas.jpeg)
 #### SLIs (Indicadores de Nível de Serviço)
 SLIs são métricas específicas e quantificáveis escolhidas para representar a qualidade e o desempenho de um serviço. Eles são vitais para compreender a experiência do usuário e identificar áreas de melhoria. Por exemplo:
 
