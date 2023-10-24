@@ -10,8 +10,9 @@ This repository ([https://github.com/quarkus-sre/charts](https://github.com/quar
 2. **Prometheus**: An open-source systems monitoring and alerting toolkit. Collects metrics from configured targets at given intervals, evaluates rule expressions, and can trigger alerts if certain conditions are observed.
 3. **Grafana**: An open-source platform for monitoring and observability. Used for visualizing Prometheus metrics.
 4. **Jaeger**: An end-to-end distributed tracing tool for monitoring and troubleshooting transactions in complex, distributed systems.
-5. **KEDA (Kubernetes Event-Driven Autoscaling)**: Allows for advanced autoscaling, including event-driven scaling.
-6. **Red Hat OpenShift Pipelines**: Provides a Kubernetes-native CI/CD solution based on Tekton, which is part of the CD Foundation.
+
+5. **KEDA (Kubernetes Event-Driven Autoscaling)**: Allows for advanced autoscaling, including event-driven scaling. **!OPTIONAL**
+6. **Red Hat OpenShift Pipelines**: Provides a Kubernetes-native CI/CD solution based on Tekton, which is part of the CD Foundation. **!OPTIONAL**
 
 ### Microservices
 
@@ -25,7 +26,7 @@ This repository ([https://github.com/quarkus-sre/charts](https://github.com/quar
 1. **quarkus-dev**: Houses the Quarkus-based microservices.
 2. **kafka-streaming**: Dedicated to Kafka components, including brokers and topics.
 3. **kafka-logging**: Used for monitoring components like Prometheus and Grafana.
-4. **keda**: Houses KEDA components for event-driven autoscaling.
+4. **openshift-distributed-tracing**: Dedicated to hosting distributed tracing components for monitoring and troubleshooting microservices-based distributed systems.
 
 ## Prerequisites
 
@@ -47,17 +48,12 @@ oc new-project kafka-streaming
 ```bash
 oc new-project kafka-logging
 ```
-4. KEDA: For Kubernetes-based event-driven autoscaling.
-```bash
-oc new-project keda
-```
+
 ### Install Operators
 Install the following operators from the OpenShift OperatorHub:
 - Red Hat Integration AMQ Streams
-- Prometheus Operator
+- Prometheus Operator **(Note: Install in the kafka-logging namespace)**
 - Red Hat OpenShift distributed tracing platform
-- KEDA
-- Red Hat OpenShift Pipelines
 
 ## Install Helm Charts
 1. Clone the repository:
@@ -87,14 +83,42 @@ helm template -f grafana/values.yaml grafana | oc apply -f-
   - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
   - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
   
-1. Jaeger
+4. Jaeger
 ```bash
 helm template -f jaeger/values.yaml jaeger | oc apply -f-
 ```
-5. KEDA
-```bash
-helm template -f keda/values.yaml keda | oc apply -f-
-```
+
+## Validation Steps
+
+1. **AMQ Streams:**
+   - Execute the following command to list all Kafka clusters:
+     ```bash
+     oc get kafka -n kafka-streaming
+     ```
+   - You should see your Kafka cluster listed.
+
+2. **Prometheus:**
+   - Open a web browser and navigate to the URL specified in the Prometheus route. You can obtain the URL by executing:
+     ```bash
+     oc get route prometheus -n kafka-logging -o jsonpath='{.spec.host}'
+     ```
+   - Check the targets in Prometheus UI to ensure they are up.
+
+3. **Grafana:**
+   - Open a web browser and navigate to the URL specified in the Grafana route. You can obtain the URL by executing:
+     ```bash
+     oc get route grafana -n kafka-logging -o jsonpath='{.spec.host}'
+     ```
+   - Login and check that the Prometheus and AlertManager data sources are configured correctly.
+   - Validate that the imported dashboards are available and displaying data.
+
+4. **Jaeger:**
+   - Open a web browser and navigate to the URL specified in the Jaeger route. You can obtain the URL by executing:
+     ```bash
+     oc get route jaeger -n openshift-distributed-tracing -o jsonpath='{.spec.host}'
+     ```
+   - Validate that traces are being collected and displayed.
+
 ## Deploying the Applications
 
 To deploy the individual microservices, you'll need to clone their repositories and apply the respective Helm charts located in the `.chart` folders. Here are the steps for each microservice:
@@ -312,24 +336,3 @@ prometheus:
   servicemonitor:
     enabled: true
 ```
-## 1.2 Plataformas e Ferramentas
-- **Passo-a-Passo**:
-  1. **Visão Geral**: Introdução ao sistema Firefighters SRE, um sistema projetado para simular a gestão e monitoramento de um edifício. Diferentes microserviços são responsáveis por monitorar e gerenciar aspectos específicos, como acesso de pessoas, mobilidade, ambiente e segurança do edifício.
-    - **Stack Tecnológica**:
-       - Microserviços: Quarkus
-       - Plataforma de Mensagens: AMQ Streams (Kafka) e Red Hat Fuse (Apache Camel)
-       - Banco de Dados: PostgreSQL
-       - Implantação: OpenShift (Kubernetes com Helm charts)
-       - Monitoramento e Rastreamento: Prometheus, Jaeger e Grafana
-    - **Microserviços**:
-       - 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia a entrada e saída de indivíduos do edifício.
-       - 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora e gerencia a utilização de escadas e elevadores.
-       - 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
-    - **Tópicos Kafka**:
-       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
-       - `Lobby (lobby)`: Coleta eventos relacionados às atividades no saguão do edifício.
-       - `Entrance (entrance)`: Manipula eventos pós-processamento do Lobby, marcando a entrada de indivíduos no edifício.
-       - `Elevator (elevator)`: Captura eventos associados às operações do elevador.
-       - `Stairs (stairs)`: Coleta dados sobre o uso de escadas.
-       - `Exit (exit)`: Coleta eventos relacionados à saída de indivíduos do edifício.
-       - `External (external)`: Coleta eventos originados de sistemas ou dispositivos externos ao edifício.
