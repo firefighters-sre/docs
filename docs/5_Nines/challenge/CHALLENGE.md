@@ -7,7 +7,7 @@
 
 
 ### 🚨 Desafio
-Com base nos incidentes anteriores e nas características do prédio, identifique melhorias na infraestrutura que podem aumentar os 9s de disponibilidade do SLA.
+Com base nos incidentes anteriores e nas características do prédio, identifique melhorias na infraestrutura que podem aumentar os 9s de disponibilidade do SLA durante uma ocorrência como as precedentes.
 
 ### Componentes Críticos:
 
@@ -20,7 +20,7 @@ Com base nos incidentes anteriores e nas características do prédio, identifiqu
 4. **Sistemas de Alarme e Detecção de Fumaça**: Sensores e dispositivos que alertam sobre a presença de fumaça ou fogo, garantindo tempo para evacuação.
     - Disponibilidade Atual: 99% (2 Noves)
 5. **Sistema de Iluminação de Emergência**: Luzes de emergência que são ativadas automaticamente em situações adversas, garantindo a visibilidade nos corredores e saídas.
-    - Disponibilidade Atual: 99% (1 Nove)
+    - Disponibilidade Atual: 90% (1 Nove)
 ### 📋 Instruções
 
 1. **🏢 Avalie a Infraestrutura Atual**:
@@ -54,6 +54,7 @@ Com base nos incidentes anteriores e nas características do prédio, identifiqu
 
 ## Exemplos de 9s de Disponibilidade
 
+- **90% (1 Nove)**: Permite 36 dias, 12 horas e 43 minutos de tempo de inatividade por ano.
 - **99% (2 Nove)**: Permite 3 dias, 15 horas e 39 minutos de tempo de inatividade por ano.
 - **99.9% (3 Nove)**: Permite 8 horas, 45 minutos e 57 segundos de tempo de inatividade por ano.
 - **99.99% (4 Nove)**: Permite 52 minutos e 35,7 segundos de tempo de inatividade por ano.
