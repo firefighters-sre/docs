@@ -1,8 +1,4 @@
-# Firefighters SRE Workshop Helm Charts
-
-## Overview
-
-This repository ([https://github.com/quarkus-sre/charts](https://github.com/quarkus-sre/charts)) contains Helm charts and deployment configurations for setting up a Quarkus-based microservices environment on OpenShift. The environment includes Kafka for streaming, Prometheus & Grafana for monitoring, and other essential services.
+# Firefighters SRE Workshop Platform
 
 ### Architecture Components
 
@@ -19,7 +15,6 @@ This repository ([https://github.com/quarkus-sre/charts](https://github.com/quar
 1. 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia a entrada e saída de indivíduos do edifício.
 2. 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora e gerencia a utilização de escadas e elevadores.
 3. 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
-
 
 ### Namespaces
 
@@ -287,7 +282,6 @@ With the PostgreSQL database in place and the Building Microservice correctly co
 
 **Note**: Ensure proper security practices are followed. The above demonstration uses hardcoded credentials for simplicity. In a real-world scenario, sensitive data like database passwords should be stored securely, for instance, using OpenShift secrets or external secret management tools.
 
-
 ## Configuring HPA, PDB, SLOs, and SLAs
 
 Using the `.chart/values.yaml` file, you can enable or disable various features and configurations for your application.
@@ -311,7 +305,6 @@ PDB limits the number of concurrently disrupted pods during voluntary disruption
 pdb:
   enabled: true
 ```
-
 ### Service Level Objectives (SLOs) and Service Level Agreements (SLAs)
 
 SLOs define a target level of service that you aim to provide, while SLAs are the formalized commitments regarding the level of service. To configure SLOs and SLAs:
