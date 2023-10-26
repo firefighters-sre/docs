@@ -19,8 +19,6 @@ Crie um sistema de monitoramento eficaz para os serviços essenciais do edifíci
     - Exemplo SLO: O elevador deve estar operacional 99.5% do tempo em uma semana.
 4. **Crie um Dashboard Físico**:
     - Usando o quadro e post-its, crie um "dashboard" que mostre visualmente os SLIs e SLOs definidos.
-5. **Discussão sobre SLAs (Opcional)**:
-    - Discuta os potenciais SLAs (Acordos de Nível de Serviço) que especificariam penalidades ou compensações em caso de falha no atendimento aos SLOs.
 
 **Resultado Esperado**:
 Os grupos devem apresentar um dashboard visual no quadro, utilizando post-its para ilustrar os SLIs e SLOs definidos. O dashboard deve mostrar claramente as métricas escolhidas, os objetivos estabelecidos e, se discutido, os potenciais SLAs.
