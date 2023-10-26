@@ -3,17 +3,17 @@ A resposta a incidentes é um pilar crucial da engenharia moderna de software e 
 
 ## 1.1 Introdução ao Gerenciamento de Incidentes
 Todos desejam que seus serviços funcionem perfeitamente o tempo todo, mas vivemos em um mundo imperfeito onde interrupções ocorrem. Gerenciar um incidente significa coordenar esforços em situações de emergência e assegurar que a comunicação flua entre os participantes e os interessados no progresso do incidente.
-## **Princípios Fundamentais da Resposta a Incidentes**
+## Princípios Fundamentais da Resposta a Incidentes
 Antes de mergulhar nos detalhes, é vital entender os princípios centrais:
 
 1. **Linha Clara de Comando**: Garante que, durante o caos de um incidente, não haja ambiguidade sobre quem toma decisões.
 2. **Papéis Bem Definidos**: Cada pessoa envolvida deve saber suas responsabilidades.
 3. **Documentação em Tempo Real**: Registre as ações, decisões e etapas de depuração conforme acontecem.
 4. **Declare Incidentes Precocemente**: Melhor comunicar demais do que de menos.
-## **O que é um Incidente?**
+## O que é um Incidente?
 Um incidente refere-se a qualquer evento inesperado que interrompe ou reduz a qualidade de um serviço, afetando adversamente a experiência dos usuários. Pode variar desde falhas sutis, como degradação de desempenho, até interrupções completas do serviço. Um *incidente maior*, por outro lado, é uma situação mais grave, geralmente envolvendo várias equipes para sua resolução devido ao seu impacto significativo na operação normal do sistema ou na experiência do cliente.
 
-## **Sistema de Comando de Incidentes (ICS)**
+## Sistema de Comando de Incidentes (ICS)
 
 ![ICS](../images/ICS_Structure.png)
 
@@ -33,12 +33,12 @@ Este sistema foi adaptado pelas empresas de tecnologia para lidar com falhas de 
 - **Comunicar** efetivamente dentro e fora da organização.
 - **Controlar** a resposta ao incidente.
 
-## **Principais Papéis na Resposta a Incidentes**
+## Principais Papéis na Resposta a Incidentes
 1. **Comandante do Incidente (CI)**: A figura central da resposta ao incidente. O CI tem a visão geral da situação, toma decisões estratégicas e garante que os recursos sejam alocados corretamente.
 2. **Líder de Operações (LO)**: Este é o "fazedor". O LO é responsável pela execução das estratégias definidas pelo CI, trabalhando diretamente na resolução do incidente.
 3. **Líder de Comunicações (LC)**: Garante que todas as partes interessadas, internas e externas, sejam informadas sobre o status do incidente e quaisquer impactos associados.
 
-## **Severidade do Incidente**
+## Severidade do Incidente
 A severidade de um incidente ajuda a determinar a urgência e o tipo de resposta necessários:
 
 - **SEV-1**: Incidentes que têm um impacto crítico nos clientes ou na operação do sistema.
@@ -47,27 +47,27 @@ A severidade de um incidente ajuda a determinar a urgência e o tipo de resposta
 - **SEV-4**: Pequenas interrupções que têm soluções de contorno fáceis.
 - **SEV-5**: Problemas mínimos ou estéticos que não afetam a funcionalidade principal.
 
-## **Peacetime x Wartime: Adaptação e Inovação no Gerenciamento de Incidentes**
+## Peacetime x Wartime: Adaptação e Inovação no Gerenciamento de Incidentes
 A ideia de Peacetime e Wartime, embora inicialmente introduzida no contexto da liderança em negócios, tem aplicações interessantes no mundo da resposta a incidentes.
 
-### **Peacetime em Resposta a Incidentes**
+### Peacetime em Resposta a Incidentes
 Durante o **Peacetime**, os sistemas são estáveis e as equipes se concentram na otimização e na preparação. É um momento para treinamento, revisão de processos e melhorias proativas. O foco é na prevenção: 
 
 - Realização de simulações de incidentes.
 - Treinamentos regulares para equipes.
 - Avaliação e aprimoramento de ferramentas e plataformas.
 
-### **Wartime em Resposta a Incidentes**
+### Wartime em Resposta a Incidentes
 **Wartime** é quando um incidente ocorre. A prioridade é a resolução rápida e eficaz do incidente. Os protocolos são mais rígidos, e a comunicação é frequentemente centralizada para evitar desinformação:
 
 - Acionamento imediato de equipes especializadas.
 - Comunicação rápida com stakeholders.
 - Análise post-mortem após a resolução do incidente para aprender e evitar repetições.
 
-## **Conexões com o Mundo Real e Resposta a Incidentes**
+## Conexões com o Mundo Real e Resposta a Incidentes
 A gestão estruturada de incidentes não é exclusividade do universo da tecnologia. Diversos setores críticos têm seus próprios protocolos de resposta a incidentes, demonstrando a universalidade desses princípios. Vejamos como se manifestam em alguns setores vitais:
 
-### **Bombeiros**
+### Bombeiros
 Os bombeiros são a linha de frente quando se trata de emergências, desde incêndios a desastres naturais e resgates. Sua resposta a incidentes é meticulosamente treinada e aprimorada ao longo dos anos. Aqui está uma visão detalhada de como eles respondem a incidentes:
 
 - **Preparação**: De acordo com a National Fire Protection Association (NFPA) dos EUA, os bombeiros são obrigados a passar por um mínimo de 600 horas de treinamento inicial antes de serem considerados operacionais. Esses treinamentos incluem simulações de incêndio reais, treinamento médico de emergência e treinamento de resgate.
@@ -99,7 +99,7 @@ A comunicação é vital. A equipe no local está em constante comunicação com
 **7. Desmobilização e Análise**
 Uma vez que o incidente esteja sob controle, as equipes começam a se desmobilizar. Equipamentos são recolhidos e verificados, e veículos são reabastecidos e preparados para a próxima chamada. Finalmente, muitos departamentos de bombeiros realizam análises pós-incidente para aprender com o evento e melhorar futuras respostas.
 
-### **Equipes Médicas de Emergência**
+### Equipes Médicas de Emergência
 As equipes médicas de emergência (EMT, em inglês) são as primeiras a responder em situações médicas críticas, desde acidentes de trânsito a crises cardíacas em locais públicos. Seu treinamento e protocolos são rigorosos para garantir a prestação de cuidados médicos imediatos e eficazes.
 
 - **Preparação**: Os EMTs passam por um treinamento rigoroso que abrange uma ampla variedade de cenários médicos de emergência, ensinando-os a responder rapidamente e eficazmente.
@@ -113,7 +113,7 @@ As equipes médicas de emergência (EMT, em inglês) são as primeiras a respond
 5. **Transferência de Cuidados**: Ao chegar ao hospital, a responsabilidade é transferida para a equipe médica de plantão.
 6. **Retorno e Preparação**: A equipe retorna à base, preparando-se para a próxima chamada.
 
-### **Pilotos e Controladores de Tráfego Aéreo**
+### Pilotos e Controladores de Tráfego Aéreo
 O tráfego aéreo é uma dança complexa que exige coordenação precisa entre pilotos e controladores de tráfego aéreo. A segurança é primordial, e os protocolos são rigorosamente seguidos para garantir que todos os voos decolem, voem e aterrissem com segurança.
 
 - **Preparação**: Tanto pilotos quanto controladores passam por treinamento intensivo, com foco na segurança e na comunicação eficaz.
