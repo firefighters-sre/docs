@@ -1,8 +1,6 @@
 * [Home](/)
 * [Platform](/0_Platform/)
 * [1. Incident Management](/1_IncidentManagement/)
-  * [Challenge](/1_IncidentManagement/challenge/CHALLENGE.md)
-  * [Prep](/1_IncidentManagement/challenge/PREP.md)
 * [2. Monitoring](/2_Monitoring/)
   * [Challenge](/2_Monitoring/challenge/CHALLENGE.md)
   * [Prep](/2_Monitoring/challenge/PREP.md)
