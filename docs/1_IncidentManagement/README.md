@@ -1,25 +1,25 @@
 # 1. Planejando a Resposta a um Incidente
 A resposta a incidentes é um pilar crucial da engenharia moderna de software e operações. Assegura que, quando problemas surgem, há uma forma estruturada de abordá-los, minimizar impactos e aprender com o ocorrido.
 
-## 1.1 Introdução ao Gerenciamento de Incidentes
+## Introdução ao Gerenciamento de Incidentes
 Todos desejam que seus serviços funcionem perfeitamente o tempo todo, mas vivemos em um mundo imperfeito onde interrupções ocorrem. Gerenciar um incidente significa coordenar esforços em situações de emergência e assegurar que a comunicação flua entre os participantes e os interessados no progresso do incidente.
-## Princípios Fundamentais da Resposta a Incidentes
+
 Antes de mergulhar nos detalhes, é vital entender os princípios centrais:
 
 1. **Linha Clara de Comando**: Garante que, durante o caos de um incidente, não haja ambiguidade sobre quem toma decisões.
 2. **Papéis Bem Definidos**: Cada pessoa envolvida deve saber suas responsabilidades.
 3. **Documentação em Tempo Real**: Registre as ações, decisões e etapas de depuração conforme acontecem.
 4. **Declare Incidentes Precocemente**: Melhor comunicar demais do que de menos.
-## O que é um Incidente?
-Um incidente refere-se a qualquer evento inesperado que interrompe ou reduz a qualidade de um serviço, afetando adversamente a experiência dos usuários. Pode variar desde falhas sutis, como degradação de desempenho, até interrupções completas do serviço. Um *incidente maior*, por outro lado, é uma situação mais grave, geralmente envolvendo várias equipes para sua resolução devido ao seu impacto significativo na operação normal do sistema ou na experiência do cliente.
 
-## Sistema de Comando de Incidentes (ICS)
+### O que é um Incidente?
+Um **incidente** refere-se a qualquer evento inesperado que interrompe ou reduz a qualidade de um serviço, afetando adversamente a experiência dos usuários. Pode variar desde falhas sutis, como degradação de desempenho, até interrupções completas do serviço. Um *incidente maior*, por outro lado, é uma situação mais grave, geralmente envolvendo várias equipes para sua resolução devido ao seu impacto significativo na operação normal do sistema ou na experiência do cliente.
+
+### Sistema de Comando de Incidentes (ICS)
+Originado entre bombeiros na Califórnia dos anos 70 para combater incêndios florestais, o ICS é um framework de gerenciamento de resposta a emergências que permite uma resposta coordenada e eficaz. A beleza do ICS reside na sua estrutura modular, o que significa que ele pode ser escalado ou reduzido dependendo das necessidades do incidente. 
 
 ![ICS](../images/ICS_Structure.png)
 
-*(Fonte: Federal Emergency Management Agency – ICS Resource Center)*
-
-Originado entre bombeiros na Califórnia dos anos 70 para combater incêndios florestais, o ICS é um framework de gerenciamento de resposta a emergências que permite uma resposta coordenada e eficaz. A beleza do ICS reside na sua estrutura modular, o que significa que ele pode ser escalado ou reduzido dependendo das necessidades do incidente. 
+*(Fonte: [Federal Emergency Management Agency – ICS Resource Center](https://training.fema.gov/emiweb/is/icsresource/trainingmaterials/))*
 
 Os princípios fundamentais do ICS incluem:
 
@@ -34,9 +34,9 @@ Este sistema foi adaptado pelas empresas de tecnologia para lidar com falhas de 
 - **Controlar** a resposta ao incidente.
 
 ## Principais Papéis na Resposta a Incidentes
-1. **Comandante do Incidente (CI)**: A figura central da resposta ao incidente. O CI tem a visão geral da situação, toma decisões estratégicas e garante que os recursos sejam alocados corretamente.
-2. **Líder de Operações (LO)**: Este é o "fazedor". O LO é responsável pela execução das estratégias definidas pelo CI, trabalhando diretamente na resolução do incidente.
-3. **Líder de Comunicações (LC)**: Garante que todas as partes interessadas, internas e externas, sejam informadas sobre o status do incidente e quaisquer impactos associados.
+1. **Comandante do Incidente (Incident Commander)**: A figura central da resposta ao incidente. O CI tem a visão geral da situação, toma decisões estratégicas e garante que os recursos sejam alocados corretamente.
+2. **Líder de Operações (Operations Lead)**: Este é o "fazedor". O LO é responsável pela execução das estratégias definidas pelo CI, trabalhando diretamente na resolução do incidente.
+3. **Líder de Comunicações (Communications Lead)**: Garante que todas as partes interessadas, internas e externas, sejam informadas sobre o status do incidente e quaisquer impactos associados.
 
 ## Severidade do Incidente
 A severidade de um incidente ajuda a determinar a urgência e o tipo de resposta necessários:
@@ -126,7 +126,8 @@ O tráfego aéreo é uma dança complexa que exige coordenação precisa entre p
 4. **Priorização**: Voos em situação de emergência são priorizados para garantir a segurança de todos.
 5. **Coordenação com Outros Entes**: Em caso de emergências maiores, controladores podem precisar coordenar com outros aeroportos ou serviços de emergência.
 6. **Análise Pós-Incidente**: Após qualquer incidente, uma análise é feita para entender o que aconteceu e como melhorar no futuro.
-## 1.2 Troubleshooting com OpenShift
+
+## Troubleshooting com OpenShift
 ### A Visão de Topologia do OpenShift
 OpenShift oferece uma visão de topologia que permite aos usuários visualizar e gerenciar as aplicações implantadas. Esta visão mostra todos os recursos relacionados, como pods, serviços e rotas, em uma representação gráfica interativa.
   1. **Navegação**: Acesse a console do OpenShift e vá até a guia "Topologia" na seção "Desenvolvedor".
@@ -166,21 +167,17 @@ Probes são ferramentas integradas em Kubernetes para verificar a saúde de um c
   3. **Validação e Observação**:
      - Com as probes implementadas, os participantes observarão como o Kubernetes reage quando detecta falhas, garantindo que o tráfego seja encaminhado apenas para pods saudáveis.
 
-## RECAP
+## Resumo
 
-### Severidade do Incidente
-A severidade de um incidente refere-se à sua gravidade, variando de 1 (mais grave) a 5 (menos grave). Determina a urgência da resposta e os recursos necessários.
+> **Comunicação**: A comunicação clara e eficaz é fundamental durante um incidente. Isso evita mal-entendidos e garante que todos estejam cientes do progresso e das ações necessárias.
+> 
+> **Papéis e Responsabilidades**: Em resposta a incidentes, é crucial ter papéis claramente definidos para evitar sobreposição de responsabilidades e garantir eficácia.
+>
+> **Planejamento e Ação**: Ter um plano claro e ações definidas é crucial. Isso inclui rotas de evacuação em caso de emergências físicas e planos de recuperação para incidentes técnicos.
+> 
+> **Severidade do Incidente**: A severidade de um incidente refere-se à sua gravidade, variando de 1 (mais grave) a 5 (menos grave). Determina a urgência da resposta e os recursos necessários.
 
-### Papéis e Responsabilidades
-Em resposta a incidentes, é crucial ter papéis claramente definidos para evitar sobreposição de responsabilidades e garantir eficácia.
-
-### Comunicação
-A comunicação clara e eficaz é fundamental durante um incidente. Isso evita mal-entendidos e garante que todos estejam cientes do progresso e das ações necessárias.
-
-### Planejamento e Ação
-Ter um plano claro e ações definidas é crucial. Isso inclui rotas de evacuação em caso de emergências físicas e planos de recuperação para incidentes técnicos.
-
-### Links Úteis
+## Links Úteis
 
 - [NIST SP 800-061r1: Computer Security Incident Handling Guide (2008)](https://csrc.nist.rip/library/NIST%20SP%20800-061r1%20Computer%20Security%20Incident%20Handling%20Guide,%202008-05.pdf)
 - [PagerDuty: Incident Response](https://response.pagerduty.com/)
@@ -188,3 +185,4 @@ Ter um plano claro e ações definidas é crucial. Isso inclui rotas de evacuaç
 - [Google SRE: Managing Incidents](https://sre.google/sre-book/managing-incidents/)
 - [IBM: What is Incident Management?](https://www.ibm.com/blog/what-is-incident-management/)
 - [Medium: SRE 101 - Minimizing Downtime with Effective Incident Management](https://medium.com/@megawan/sre-101-minimizing-downtime-with-effective-incident-management-9a5ace51644b)
+
