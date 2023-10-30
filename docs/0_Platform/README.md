@@ -1,27 +1,19 @@
-# Firefighters SRE Workshop Platform
+# Firefighters SRE Workshop Platform Provisionamento
 
-### Architecture Components
+## Componentes da Arquitetura
 
-1. **Kafka (AMQ Streams)**: A distributed streaming platform for building real-time data pipelines. Used for messaging and data streaming between microservices.
-2. **Prometheus**: An open-source systems monitoring and alerting toolkit. Collects metrics from configured targets at given intervals, evaluates rule expressions, and can trigger alerts if certain conditions are observed.
-3. **Grafana**: An open-source platform for monitoring and observability. Used for visualizing Prometheus metrics.
-4. **Jaeger**: An end-to-end distributed tracing tool for monitoring and troubleshooting transactions in complex, distributed systems.
+1. **Kafka (AMQ Streams)**: Plataforma distribuída para construção de pipelines de dados em tempo real. Usada para mensagens e streaming entre microservices.
+2. **Prometheus**: Ferramenta open-source de monitoramento e alerta. Coleta métricas de targets configurados, avalia expressões de regra e dispara alertas conforme as condições.
+3. **Grafana**: Plataforma open-source para monitoramento e observabilidade. Visualiza métricas do Prometheus.
+4. **Jaeger**: Ferramenta de tracing distribuído para monitorar e solucionar transações em sistemas distribuídos.
+5. **KEDA (Kubernetes Event-Driven Autoscaling)**: Permite autoscaling avançado, incluindo baseado em eventos. **!OPCIONAL**
+6. **Red Hat OpenShift Pipelines**: Solução Kubernetes-native de CI/CD baseada no Tekton, integrante da CD Foundation. **!OPCIONAL**
 
-5. **KEDA (Kubernetes Event-Driven Autoscaling)**: Allows for advanced autoscaling, including event-driven scaling. **!OPTIONAL**
-6. **Red Hat OpenShift Pipelines**: Provides a Kubernetes-native CI/CD solution based on Tekton, which is part of the CD Foundation. **!OPTIONAL**
+## Microservices
 
-### Microservices
-
-1. 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia a entrada e saída de indivíduos do edifício.
-2. 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora e gerencia a utilização de escadas e elevadores.
-3. 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Gerencia informações relacionadas ao edifício, como temperatura, qualidade do ar e ocupação do piso.
-
-### Namespaces
-
-1. **quarkus-dev**: Houses the Quarkus-based microservices.
-2. **kafka-streaming**: Dedicated to Kafka components, including brokers and topics.
-3. **kafka-logging**: Used for monitoring components like Prometheus and Grafana.
-4. **openshift-distributed-tracing**: Dedicated to hosting distributed tracing components for monitoring and troubleshooting microservices-based distributed systems.
+1. 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia entrada e saída de indivíduos do edifício.
+2. 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora uso de escadas e elevadores.
+3. 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Informações do edifício como temperatura e ocupação.
 
 ## Prerequisites
 
@@ -30,302 +22,190 @@
 - OpenShift CLI (`oc`)
 
 ## Quick Start
-### Create Namespaces
-1. Quarkus Development: Houses the Quarkus microservices.
+
+### 1. Namespaces
+
+1. **quarkus-dev**: Aloca microservices Quarkus.
+2. **kafka-streaming**: Para componentes Kafka.
+3. **kafka-logging**: Para monitoramento com Prometheus e Grafana.
+4. **openshift-distributed-tracing**: Para componentes de tracing distribuído. (*Não precisa ser criado!*)
+
+#### 1.1.1 Criar Namespaces
+1. Criando os namespaces no cluster:
+
 ```bash
+# Desenvolvimento Quarkus: Aloca os microservices Quarkus.
 oc new-project quarkus-dev
-```
-2. Kafka Streaming: For Kafka clusters and topics.
-```bash
+
+# Kafka Streaming: Para clusters e tópicos Kafka.
 oc new-project kafka-streaming
-```
-3. Monitoring (Prometheus & Grafana): For logging and monitoring.
-```bash
+
+# Monitoramento (Prometheus & Grafana): Para registro e monitoramento.
 oc new-project kafka-logging
 ```
 
-### Install Operators
-Install the following operators from the OpenShift OperatorHub:
-- Red Hat Integration AMQ Streams
-- Prometheus Operator **(Note: Install in the kafka-logging namespace)**
-- Red Hat OpenShift distributed tracing platform
+2. Validando:
 
-## Install Helm Charts
-1. Clone the repository:
+```bash
+# Verifica se o namespace quarkus-dev foi criado corretamente.
+oc get namespace quarkus-dev
+
+# Verifica se o namespace kafka-streaming foi criado corretamente.
+oc get namespace kafka-streaming
+
+# Verifica se o namespace kafka-logging foi criado corretamente.
+oc get namespace kafka-logging
+```
+
+### 2. Instalar Operators
+Um **Operator** no contexto do OpenShift e Kubernetes é uma forma de empacotar, implantar e gerenciar aplicações Kubernetes. Os Operators seguem os princípios do Kubernetes, especialmente o controle de aplicações, que são implantadas automaticamente. Isso permite que os desenvolvedores e administradores de cluster se concentrem na lógica e nos recursos específicos da aplicação, enquanto o Operator cuida de tarefas comuns e repetitivas.
+
+Para instalar os operators a partir do OperatorHub no OpenShift, siga os passos abaixo:
+
+1. Acesse o console web do OpenShift.
+2. No menu de navegação à esquerda, clique em "Operators" e selecione "OperatorHub".
+3. Use a barra de pesquisa para encontrar e selecionar os operators desejados.
+4. Siga as instruções na tela para instalar cada operator.
+
+Instale os seguintes operators a partir do OperatorHub do OpenShift:
+
+- **Red Hat Integration AMQ Streams**: Fornece uma plataforma de streaming distribuída.
+- **Prometheus Operator**: Ferramenta de monitoramento e alerta. **(Nota: Instale no namespace kafka-logging)**
+- **Red Hat OpenShift distributed tracing platform**: Fornece ferramentas para tracing distribuído.
+
+### 3. Instalar Helm Charts
+
+Helm é uma ferramenta que auxilia na gestão de aplicações Kubernetes através de pacotes chamados "charts". Estes charts definem e fornecem dependências para aplicações Kubernetes de forma consistente.
+
+**Clone o repositório:**
 ```bash
 git clone https://github.com/quarkus-sre/charts
 ```
 
-Navigate to the charts directory to install these charts:
+**Navegue até o diretório dos charts para instalar:**
+```bash
+cd charts
+```
 
-1. AMQ Streams
+1. **AMQ Streams**
 ```bash
 helm template -f amqstreams/values-cluster-with-metrics.yaml amqstreams | oc apply -f-
 ```
-2. Prometheus
+2. **Prometheus**
 ```bash
 helm template -f prometheus/values.yaml prometheus | oc apply -f-
 ```
-3. Grafana
+3. **Grafana**
 ```bash
 helm template -f grafana/values.yaml grafana | oc apply -f-
 ```
-- Configure the Prometheus data source manually in Grafana.
+- Configure manualmente a fonte de dados Prometheus no Grafana.
   - **URL**: `http://prometheus-operated:9090`
-- Configure the AlertManager data source manually in Grafana.
+- Configure manualmente a fonte de dados AlertManager no Grafana.
   - **URL**: `alertmanager:9093`
-- Import Grafana dashboards:
-  - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
-  - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
+- Importe os dashboards do Grafana:
+  - Vá para a seção "Dashboards" no Grafana.
+  - Clique em "Import" e selecione os arquivos JSON:
+    - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
+    - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
   
-4. Jaeger
+4. **Jaeger**
 ```bash
 helm template -f jaeger/values.yaml jaeger | oc apply -f-
 ```
 
-## Validation Steps
+#### Passos de Validação
+
+Após a instalação dos components, é crucial validar se tudo foi configurado corretamente. Siga os passos abaixo para validar cada componente:
 
 1. **AMQ Streams:**
-   - Execute the following command to list all Kafka clusters:
-     ```bash
-     oc get kafka -n kafka-streaming
-     ```
-   - You should see your Kafka cluster listed.
+   - Execute o seguinte comando para listar todos os clusters Kafka:
+   ```bash
+   oc get kafka -n kafka-streaming
+   ```
+   - Você deve ver o seu cluster Kafka listado.
 
 2. **Prometheus:**
-   - Open a web browser and navigate to the URL specified in the Prometheus route. You can obtain the URL by executing:
-     ```bash
-     oc get route prometheus -n kafka-logging -o jsonpath='{.spec.host}'
-     ```
-   - Check the targets in Prometheus UI to ensure they are up.
+   - Abra um navegador e navegue até a URL especificada na rota Prometheus. Você pode obter a URL executando:
+   ```bash
+   oc get route prometheus -n kafka-logging -o jsonpath='{.spec.host}'
+   ```
+   - No UI do Prometheus, verifique os targets para garantir que estejam ativos e coletando métricas.
 
 3. **Grafana:**
-   - Open a web browser and navigate to the URL specified in the Grafana route. You can obtain the URL by executing:
-     ```bash
-     oc get route grafana -n kafka-logging -o jsonpath='{.spec.host}'
-     ```
-   - Login and check that the Prometheus and AlertManager data sources are configured correctly.
-   - Validate that the imported dashboards are available and displaying data.
+   - Abra um navegador e navegue até a URL especificada na rota Grafana. Você pode obter a URL executando:
+   ```bash
+   oc get route grafana -n kafka-logging -o jsonpath='{.spec.host}'
+   ```
+   - Faça login e verifique se as fontes de dados Prometheus e AlertManager estão configuradas corretamente.
+   - Valide se os dashboards importados estão disponíveis e exibindo dados.
 
 4. **Jaeger:**
-   - Open a web browser and navigate to the URL specified in the Jaeger route. You can obtain the URL by executing:
-     ```bash
-     oc get route jaeger -n openshift-distributed-tracing -o jsonpath='{.spec.host}'
-     ```
-   - Validate that traces are being collected and displayed.
-
-## Deploying the Applications
-
-To deploy the individual microservices, you'll need to clone their repositories and apply the respective Helm charts located in the `.chart` folders. Here are the steps for each microservice:
-
-### Access Microservice (concierge-app)
-1. Clone the repository:
+   - Abra um navegador e navegue até a URL especificada na rota Jaeger. Você pode obter a URL executando:
    ```bash
-   git clone https://github.com/firefighters-sre/concierge-app.git
+   oc get route jaeger -n openshift-distributed-tracing -o jsonpath='{.spec.host}'
    ```
-2. Navigate to the cloned directory and deploy the Helm chart:
-   ```bash
-   cd concierge-app
-   helm dependency update .chart
-   helm template .chart/ | oc apply -f-
-   ```
+   - Valide se os traces estão sendo coletados e exibidos no UI do Jaeger.
 
-### Mobility Microservice (mobility-app)
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/firefighters-sre/mobility-app.git
-   ```
-2. Navigate to the cloned directory and deploy the Helm chart:
-   ```bash
-   cd mobility-app
-   helm dependency update .chart
-   helm template .chart/ | oc apply -f-
-   ```
+### 4. Implantando as Aplicações
 
-### Building Microservice (building-app)
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/firefighters-sre/building-app.git
-   ```
-2. Navigate to the cloned directory and deploy the Helm chart:
-   ```bash
-   cd building-app
-   helm dependency update .chart
-   helm template .chart/ | oc apply -f-
-   ```
+Para implantar os microserviços individuais, você precisará clonar seus repositórios e aplicar os respectivos Helm charts localizados nas pastas .chart. Assegure-se de estar no namespace correto (quarkus-dev) antes de prosseguir:
 
-After deploying the Helm charts, the microservices should be up and running in your Kubernetes cluster. You can verify the deployment status using `kubectl get pods`.
-
-### Configuring PostgreSQL Database for Building Microservice
-
-The Building Microservice (`building-app`) requires a PostgreSQL database for persistent storage. Here's how you can set it up:
-
-#### Deploying PostgreSQL on OpenShift
-
-1. **Create PostgreSQL Deployment**:
-   
-   OpenShift provides templates to deploy PostgreSQL. You can instantiate one of these templates to deploy a PostgreSQL instance:
-
-   ```bash
-   oc new-app postgresql-persistent --param POSTGRESQL_USER=userWPM --param POSTGRESQL_PASSWORD=Oiu5HI4nBLDbYtHo --param POSTGRESQL_DATABASE=firefighters
-   ```
-
-2. **Verify Deployment**:
-
-   Check if the PostgreSQL pod is running:
-
-   ```bash
-   oc get pods | grep postgresql
-   ```
-
-## Database Structure
-
-The architecture utilizes PostgreSQL as its primary database, managing multiple tables related to access, building floors, and environmental conditions.
-
-### External Area Database
-
-This database stores information related to the external area of the building, mainly focusing on tracking people's access to the building.
-
-**Tables**:
-
-- **Person**:
-  - **id** (primary key): Unique identifier for each person.
-  - **name**: The name of the person.
-  - **type**: Categorizes the person as a visitor or employee.
-  - **contact**: Contact details for the person (could be a phone number or email).
-
-### SQL Script for External Area Database
-
-```sql
-CREATE DATABASE externaldb;
-
--- Switch to the created database
-\c externaldb;
-
--- Create the AccessLog table
-CREATE TABLE AccessLog (
-    recordId SERIAL PRIMARY KEY,
-    personId INT NOT NULL,
-    entryTime TIMESTAMP NOT NULL,
-    exitTime TIMESTAMP,
-    personType VARCHAR(50) CHECK (personType IN ('visitor', 'employee')),
-    destination VARCHAR(255)
-);
-
--- Create the Person table
-CREATE TABLE Person (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    type VARCHAR(50) CHECK (type IN ('visitor', 'employee')),
-    contact VARCHAR(255)
-);
+```bash
+oc project quarkus-dev
 ```
 
-### Building Database
-
-This database focuses on the internal structure of the building, capturing details about individual floors, environmental conditions, and potential security threats.
-
-**Tables**:
-
-- **FloorData**:
-  - **floor_number** (primary key): Denotes the specific floor within the building.
-  - **people_count**: Tracks the current number of people on the floor.
-  - **structure_quality**: Rates the structural quality on a scale from 1 to 5.
-  - **max_people**: Sets a limit for the maximum number of people allowed on the floor.
-  - **o2_level**: Measures the current oxygen level on the floor.
-  - **co2_level**: Monitors the carbon dioxide level on the floor.
-
-### SQL Script to Create the Database
-
-```sql
-CREATE DATABASE buildingdb;
-
--- Switch to the created database
-\c buildingdb;
-
--- Create the AccessLog table
-CREATE TABLE AccessLog (
-    recordId SERIAL PRIMARY KEY,
-    personId INT NOT NULL,
-    entryTime TIMESTAMP NOT NULL,
-    exitTime TIMESTAMP,
-    personType VARCHAR(50) CHECK (personType IN ('visitor', 'employee')),
-    destination VARCHAR(255)
-);
-
--- Create the FloorData table
-CREATE TABLE FloorData (
-    floor_number INT PRIMARY KEY,
-    people_count INT NOT NULL DEFAULT 0,
-    structure_quality INT CHECK (structure_quality BETWEEN 1 AND 5) NOT NULL,
-    max_people INT NOT NULL,
-    o2_level DECIMAL NOT NULL,
-    co2_level DECIMAL NOT NULL
-);
+Siga os passos para cada microserviço:
+#### Access Microservice (concierge-app)
+1. Clone o repositório:
+```bash
+git clone https://github.com/firefighters-sre/concierge-app.git
 ```
 
-#### Connecting Building Microservice to PostgreSQL
-
-When deploying the Building Microservice (`building-app`), the connection details to PostgreSQL are provided via environment variables. The Helm chart for `building-app` should have these environment variables already defined:
-
-```yaml
-env:
-  - name: POSTGRESQL_JDBC_URL
-    value: 'jdbc:postgresql://postgresql:5432/firefighters'
-  - name: POSTGRESQL_USER
-    value: userWPM
-  - name: POSTGRESQL_PASSWORD
-    value: Oiu5HI4nBLDbYtHo
+2. Navegue até o diretório clonado e implante o Helm chart:
+```bash
+cd concierge-app
+helm dependency update .chart
+helm template .chart/ | oc apply -f-
 ```
 
-With the PostgreSQL database in place and the Building Microservice correctly configured, the microservice will be able to connect to the database upon deployment, ensuring data persistence and relational data management for the application.
-
-**Note**: Ensure proper security practices are followed. The above demonstration uses hardcoded credentials for simplicity. In a real-world scenario, sensitive data like database passwords should be stored securely, for instance, using OpenShift secrets or external secret management tools.
-
-## Configuring HPA, PDB, SLOs, and SLAs
-
-Using the `.chart/values.yaml` file, you can enable or disable various features and configurations for your application.
-
-### Horizontal Pod Autoscaler (HPA)
-
-HPA automatically scales the number of pods in a deployment depending on the CPU or memory usage. To enable HPA:
-
-```yaml
-hpa:
-  enabled: true
-  cpuTarget: 200m
-  memTarget: 300Mi
+#### Mobility Microservice (mobility-app)
+1. Clone o repositório:
+```bash
+git clone https://github.com/firefighters-sre/mobility-app.git
 ```
 
-### Pod Disruption Budget (PDB)
-
-PDB limits the number of concurrently disrupted pods during voluntary disruptions. To enable PDB:
-
-```yaml
-pdb:
-  enabled: true
-```
-### Service Level Objectives (SLOs) and Service Level Agreements (SLAs)
-
-SLOs define a target level of service that you aim to provide, while SLAs are the formalized commitments regarding the level of service. To configure SLOs and SLAs:
-
-```yaml
-prometheus:
-  slos:
-    enabled: true
-    severity: warning
-  slas:
-    enabled: true
-    severity: critical
-  fireincident:
-    slos: true
-    slas: false
+2. Navegue até o diretório clonado e implante o Helm chart:
+```bash
+cd mobility-app
+helm dependency update .chart
+helm template .chart/ | oc apply -f-
 ```
 
-Ensure that the Prometheus ServiceMonitor is enabled to track the SLOs and SLAs:
+#### Configurando o Banco de Dados PostgreSQL para o Building Microservice
+O Building Microservice (building-app) requer um banco de dados PostgreSQL para armazenamento persistente. Veja como configurá-lo:
 
-```yaml
-prometheus:
-  servicemonitor:
-    enabled: true
+**Implantando PostgreSQL no OpenShift**
+1. Criar Implantação PostgreSQL:
+
+```bash
+#O OpenShift fornece modelos para implantar o PostgreSQL. Você pode instanciar um desses modelos para implantar uma instância PostgreSQL:
+oc new-app postgresql-persistent --param POSTGRESQL_USER=userWPM --param POSTGRESQL_PASSWORD=Oiu5HI4nBLDbYtHo --param POSTGRESQL_DATABASE=firefighters
+
+#Verifique se o pod PostgreSQL está em execução:
+oc get pods | grep postgresql
 ```
+
+#### Building Microservice (building-app)
+1. Clone o repositório:
+```bash
+git clone https://github.com/firefighters-sre/building-app.git
+```
+2. Navegue até o diretório clonado e implante o Helm chart:
+```bash
+cd building-app
+helm dependency update .chart
+helm template .chart/ | oc apply -f-
+```
+
+Após implantar os Helm charts, os microserviços devem estar em execução em seu cluster Kubernetes. Você pode verificar o status da implantação usando oc get pods.
