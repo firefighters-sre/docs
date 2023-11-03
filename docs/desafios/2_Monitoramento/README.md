@@ -7,15 +7,18 @@
 ### 🚨 Desafio
 Crie um sistema de monitoramento eficaz para os serviços essenciais do edifício, considerando a disponibilidade de elevadores e as condições ambientais.
 
+> Exemplo de Dashboard: 
+
+![Dashboard](./../../images/dashboard.png)
+
 ### Instruções
 1. **Contexto**:
     - Após um incidente recente, há uma necessidade urgente de melhorar o monitoramento dos serviços do edifício.
-2. **Identifique KPIs**:
-    - Discuta e identifique os KPIs (Indicadores-Chave de Desempenho) críticos para o edifício.
-    - Exemplo: Tempo de espera do elevador, qualidade do ar interno, temperatura média nos corredores.
-3. **Defina SLIs e SLOs**:
-    - Com base nos KPIs, defina SLIs (Indicadores de Nível de Serviço) e estabeleça SLOs (Objetivos de Nível de Serviço) para cada SLI.
-    - Exemplo SLI: Percentual de tempo que o elevador está operacional. 
+2. **Defina SLIs**:
+    - Defina SLIs (Indicadores de Nível de Serviço).
+    - Exemplo SLI: Percentual de tempo que o elevador está operacional.
+3. **Defina SLOs**:
+    - Estabeleça SLOs (Objetivos de Nível de Serviço) para cada SLI.
     - Exemplo SLO: O elevador deve estar operacional 99.5% do tempo em uma semana.
 4. **Crie um Dashboard Físico**:
     - Usando o quadro e post-its, crie um "dashboard" que mostre visualmente os SLIs e SLOs definidos.

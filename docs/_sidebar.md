@@ -2,8 +2,6 @@
 * [Platform](/0_Platform/)
 * [1. Incident Management](/1_IncidentManagement/)
 * [2. Monitoring](/2_Monitoring/)
-  * [Challenge](/2_Monitoring/challenge/CHALLENGE.md)
-  * [Prep](/2_Monitoring/challenge/PREP.md)
 * [3. Post Mortem](/3_PostMortem/)
   * [Challenge](/3_PostMortem/challenge/CHALLENGE.md)
   * [Initial Report](/3_PostMortem/challenge/INITIAL_REPORT.md)
@@ -13,3 +11,6 @@
 * [5. Nines](/5_Nines/)
   * [Challenge](/5_Nines/challenge/CHALLENGE.md)
   * [Prep](/5_Nines/challenge/PREP.md)
+* [Desafios](/desafios)
+  * [Desafio_2](/desafios/2_Monitoramento/README.md)
+
