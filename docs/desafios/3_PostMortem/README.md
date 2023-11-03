@@ -7,31 +7,29 @@
 ### 🚨 Desafio
 Após um incidente com a caixa d'água, o último andar foi inundado e ocorreu um curto circuito nas salas ROXA e VERMELHA. Seu desafio é resolver o incidente e documentar as medidas tomadas.
 
+> **Sua missão é**: Analisando as informações presentes nesse documento, juntamente com a documentação dos arquivos [LOGS.md](/desafios/3_PostMortem/LOGS.md) e [INITIAL_REPORT.md](/desafios/3_PostMortem/INITIAL_REPORT.md), você, junto ao seu sub-grupo, deve construir medidas para solucionar o incidente. Em seguida, essas medidas e informações julgadas importantes sobre o incidente devem ser documentadas da maneira mais clara possível. Ao final da atividade, vocês terão gerado uma documentação de Post-Mortem, que será utilizada pelo segundo grupo para identificar o problema e entender como ele foi solucionado. Então, pensem que outras pessoas utilizarão essa documentação e poder de facilitar a resolução de problemas futuros está nas mãos do seu grupo!
+
 ### 📋 Instruções
 
 1. **🌊 Contexto**:
     - Use post-its para listar os principais detalhes da inundação e do curto circuito nas salas ROXA e VERMELHA.
 
-2. **🤝 Divisão em Sub-Grupos**:
-    - Se você faz parte do primeiro sub-grupo, sua tarefa é identificar e resolver o incidente.
-    - Se você faz parte do segundo sub-grupo, aguarde fora da sala até ser chamado novamente.
-
-3. **🔎 Investigação do Incidente**:
-    - Consulte os documentos [LOGS.md](./LOGS.md) e [INITIAL_REPORT.md](./INITIAL_REPORT.md) para obter informações detalhadas sobre o incidente.
+2. **🔎 Investigação do Incidente**:
+    - Consulte os documentos [LOGS.md](/desafios/3_PostMortem/LOGS.md) e [INITIAL_REPORT.md](/desafios/3_PostMortem/INITIAL_REPORT.md) para obter informações detalhadas sobre o incidente.
     - Analise os logs e o relatório inicial para entender melhor a sequência de eventos e identificar possíveis causas.
 
-4. **🔧 Solução do Incidente**:
+3. **🔧 Solução do Incidente**:
     - Converse com seu sub-grupo para construir possíveis soluções ao incidente.
     - Use post-its para documentar as medidas tomadas, assegurando clareza e concisão.
 
-5. **📜 Construção do Documento Post-Mortem**:
+4. **📜 Construção do Documento Post-Mortem**:
     - Com base nas informações coletadas e nas soluções identificadas, construa um documento post-mortem utilizando post-its. 
     - Organize os post-its de forma a detalhar claramente o que aconteceu, as causas raiz identificadas, as medidas tomadas e as recomendações para evitar futuros incidentes.
 
-6. **📝 Utilização da Documentação**:
+5. **📝 Utilização da Documentação**:
     - Se você faz parte do segundo sub-grupo, ao retornar, pegue os post-its produzidos pelo primeiro sub-grupo e tente replicar a solução usando apenas essa documentação.
 
-7. **🔄 Reflexão e Feedback**:
+6. **🔄 Reflexão e Feedback**:
     - Reúna-se com todos os grupos para discutir a eficácia da documentação e compartilhar insights. Use post-its para registrar os principais feedbacks e lições aprendidas.
 
 ---
