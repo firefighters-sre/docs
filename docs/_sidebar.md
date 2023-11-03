@@ -11,5 +11,6 @@
   * [Prep](/3_PostMortem/challenge/PREP.md)
 * [4. Tests](/4_Tests/)
 * [5. Nines](/5_Nines/)
-  * [Challenge](/5_Nines/challenge/CHALLENGE.md)
   * [Prep](/5_Nines/challenge/PREP.md)
+* [Desafios](/desafios)
+  * [Desafio_4](/desafios/4_Capacidade/README.md)
