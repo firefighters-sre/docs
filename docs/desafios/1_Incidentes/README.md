@@ -6,11 +6,14 @@
 > 
 > 3. **Objetivo Principal**: Aplicar práticas eficazes de gerenciamento de incidentes em um cenário de alta pressão, culminando em um plano de ação claro visualizado no quadro.
 
+# 🚨 Desafio
+Diante de um cenário crítico de explosão em um elevador, você e sua equipe devem dominar as práticas de gerenciamento de emergências, desde a preparação e classificação da crise até a execução de uma resposta eficaz, resultando em um plano de ação claro e preciso.
+
+> **Sua missão é**: Navegar eficientemente através de uma crise simulada, estabelecendo papéis claros, comunicando-se eficazmente e planejando uma evacuação estratégica, aplicando práticas de gerenciamento de incidentes para garantir a segurança e a rápida recuperação do ambiente.
+
 ![Mapa do Andar](./../../images/mapa-maisresolucao.svg)
 
 ## FASE 1 - PREPARAÇÃO ANTES DA CRISE
-
-> **Sua missão é**: Estabelecer a responsabilidade de cada um dos principais papéis na resposta a incidentes com o intuito de diminuir o tempo de resposta em caso de incidente.
 
 ![Tabela de responsabilidades](./../../images/tabela.png)
 
@@ -33,10 +36,7 @@
 
 ## FASE 2 - CLASSIFICAÇÃO DO INCIDENTE
 
-> **Sua missão é**: Classificar o incidente ocorrido e classificá-lo de acordo com seu grau de severidade, ou seja, o quão grave ele foi. Essa atividade é importante pois a urgência da resposta é programada de acordo com a severidade, 
-
 **Instruções**:
-
 1. **Definição da Severidade do Incidente:**
    - É crucial determinar a gravidade do incidente. A severidade pode variar de 1 (mais grave) a 5 (menos grave).
    - A severidade determina a urgência da resposta e a quantidade de recursos alocados para gerenciar a situação.
