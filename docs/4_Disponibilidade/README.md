@@ -1,8 +1,8 @@
-# 5. 9s de Disponibilidade: Medindo a Confiabilidade em SRE
+# 4. 9s de Disponibilidade: Medindo a Confiabilidade em SRE
 
 A Engenharia de Confiabilidade (SRE) vai além da simples manutenção de sistemas; ela redefine a maneira como percebemos e alcançamos a confiabilidade. Um dos indicadores mais reconhecidos de confiabilidade é a medida dos "9s" de disponibilidade.
 
-## 5.1 Entendendo os 9s de Disponibilidade
+## 4.1 Entendendo os 9s de Disponibilidade
 
 O termo "9s" refere-se à porcentagem de tempo que um sistema está operacional e acessível. É uma métrica que quantifica a confiabilidade de um sistema.
 
@@ -23,7 +23,7 @@ O termo "9s" refere-se à porcentagem de tempo que um sistema está operacional 
 
 A busca pelos 9s de disponibilidade não é apenas uma questão técnica; é um compromisso com os usuários e com a missão da empresa. Cada "9" adicional representa uma ordem de magnitude na melhoria da confiabilidade. Uma diferença aparentemente pequena na porcentagem traduz-se em uma diferença significativa no tempo de inatividade ao longo de um ano. No mundo real, isso pode significar milhares de transações ou interações de usuários perdidas.
 
-## 5.3 Os Desafios dos 9s
+## 4.2 Os Desafios dos 9s
 
 Alcançar alta disponibilidade é uma tarefa complexa. Envolve:
 
@@ -51,6 +51,6 @@ Dentro de um grande sistema bancário, existem diversas aplicações que atendem
 
 Ao avaliar o nível adequado de disponibilidade para cada aplicação, os bancos devem considerar o impacto potencial do tempo de inatividade, tanto em termos financeiros quanto na satisfação do cliente. Também é crucial considerar os custos e a complexidade associados ao aumento da disponibilidade.
 
-## 5.3 Conclusão
+## 4.3 Conclusão
 
 Os 9s de disponibilidade são uma representação tangível da confiabilidade em SRE. Eles são um lembrete contínuo da promessa de SREs de entregar sistemas robustos, resilientes e que os usuários podem contar.

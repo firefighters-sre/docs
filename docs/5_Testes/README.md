@@ -1,8 +1,8 @@
-# 4. Testes
+# 5. Testes
 
 Os Engenheiros de Confiabilidade de Site (SREs) têm a vital tarefa de quantificar a confiabilidade dos sistemas sob sua gestão. Testes são essenciais nessa missão.
 
-## 4.1 Testes em SRE: Uma Pedra Angular da Confiabilidade
+## 5.1 Testes em SRE: Uma Pedra Angular da Confiabilidade
 
 Cada teste que passa antes e depois de uma mudança no sistema reduz incertezas. Testes meticulosos antecipam a confiabilidade futura de um site, guiando equipes por caminhos seguros.
 
@@ -32,7 +32,7 @@ Estes garantem que um sistema ao vivo esteja funcionando conforme o esperado, se
 
 Testes que falham geralmente sinalizam falta de confiabilidade. O Tempo Médio para Reparo (MTTR) reflete a rapidez com que um bug é corrigido após ser identificado.
 
-##### 4.2 Plataforma e Ferramentas
+##### 5.2 Plataforma e Ferramentas
 
 A Engenharia de Confiabilidade de Site (SRE) é potencializada pelo uso adequado de plataformas e ferramentas. Elas permitem a automação, observabilidade e escalabilidade. No contexto do "firefighters SRE", vamos explorar a implementação de práticas SRE usando Kubernetes, uma plataforma de orquestração de contêineres, e OpenShift, uma plataforma Kubernetes empresarial.
 
