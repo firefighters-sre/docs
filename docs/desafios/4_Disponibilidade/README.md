@@ -12,7 +12,6 @@ Com base nos incidentes anteriores e nas características do prédio, identifiqu
 > **Sua missão é**: Abaixo, encontram-se alguns componentes com suas disponibilidades atuais já definidas. Sua missão é redefinir essas disponibilidades com base em padrões definidos a partir dos incidentes anteriores. Nota-se que são disponibilizados 15 9's para distribuir dentre os componentes com suas disponibilidades zeradas. Ou seja, você **NÃO DEVE** adicionar 15 9's aos valores já existentes. O que vocês **DEVE** fazer é redefinir as disponibilidades de maneira que, ao final da atividade, sua equipe possua 15 9's totais divididos entre os cinco componentes.
 
 ### Componentes Críticos:
-
 1. **Elevadores**: Equipamentos vitais para transporte vertical, facilitando o acesso e a evacuação dos andares.
     - Disponibilidade Atual: 99.9% (3 Noves)
 2. **Sprinklers (Sistema de Aspersão de Água)**: Atuam automaticamente na presença de fogo, dispersando água para conter ou retardar as chamas.
@@ -26,7 +25,6 @@ Com base nos incidentes anteriores e nas características do prédio, identifiqu
 
 
 ### 📋 Instruções
-
 1. **🏢 Avalie a Infraestrutura Atual**:
     - Relembre os incidentes anteriores e identifique áreas críticas que precisam de melhorias.
     - Use post-its para listar os componentes críticos e coloque-os no quadro.
