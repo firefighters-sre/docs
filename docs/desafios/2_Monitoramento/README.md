@@ -6,9 +6,12 @@
 > 
 > 3. **Objetivo Principal**: Desenvolver e visualizar um sistema de monitoramento eficaz, com a opção de discutir potenciais SLAs para garantir a adesão aos padrões estabelecidos.
 
-## FASE 1 - DEFINIÇÃO DE INDICADORES DE SERVIÇOS
+# 🚨 Desafio
+Confrontados com a tarefa crítica de aprimorar a confiabilidade dos serviços após um incidente, as equipes devem estabelecer métricas de desempenho chave, visualizar objetivos de serviço e considerar acordos de nível de serviço para assegurar a excelência contínua.
 
-> **Sua missão é**: Implementar um sistema robusto de monitoramento para serviços prediais, definindo SLIs e SLOs claros, como o funcionamento contínuo do elevador com um objetivo de 99.5% de operacionalidade semanal.
+> **Sua missão é**: Criar um sistema de monitoramento detalhado e visual para os serviços essenciais do edifício, definindo e alinhando SLIs, SLOs e SLAs, assegurando assim a resiliência e a confiabilidade dos sistemas vitais do edifício.
+
+## FASE 1 - DEFINIÇÃO DE INDICADORES DE SERVIÇOS
 
 **Instruções**:
 1. **Contexto**:
@@ -22,8 +25,6 @@
 
 ## FASE 2 - CONSTRUÇÃO DO DASHBOARD
 
-> **Sua missão é**: Desenvolver um dashboard físico interativo, utilizando quadro e post-its, para exibir de forma clara os SLIs e SLOs estabelecidos, permitindo um acompanhamento tangível e atualizável do desempenho dos serviços do edifício.
-
 **Instruções**:
 1. **Crie um Dashboard Físico**:
     - Usando o quadro e post-its, crie um "dashboard" que mostre visualmente os SLIs e SLOs definidos.
@@ -31,7 +32,6 @@
 Exemplo de Dashboard:
 
 ![Dashboard](./../../images/dashboard.png)
-
 
 **Resultado Esperado**:
 Os grupos devem apresentar um dashboard visual no quadro, utilizando post-its para ilustrar os SLIs e SLOs definidos. O dashboard deve mostrar claramente as métricas escolhidas, os objetivos estabelecidos e, se discutido, os potenciais SLAs.

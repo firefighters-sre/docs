@@ -7,4 +7,7 @@
 * [Desafios]()
   * [1. Planejando a Resposta a um Incidente](/desafios/1_Incidentes/README.md)
   * [2. Definindo e Visualizando SLIs, SLOs, SLAs](/desafios/2_Monitoramento/README.md)
+  * [3. Análise Post Mortem](/desafios/3_PostMortem/README.md)
+    * [3.1 Relatório Inicial](/desafios/3_PostMortem/INITIAL_REPORT.md)
+    * [3.2 Logs](/desafios/3_PostMortem/LOGS.md)
 * [Platforma](/0_Platform/)
