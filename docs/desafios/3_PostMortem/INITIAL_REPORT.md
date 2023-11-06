@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-## Relatório Inicial de Incidente
-=======
 # Relatório Inicial de Incidente
->>>>>>> main
 
 **Data:** 21 de Outubro de 2023  
 **Hora:** 15:00 PM  
