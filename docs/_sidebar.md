@@ -1,10 +1,8 @@
 * [Home](/)
-* [Platform](/0_Platform/)
-* [1. Incident Management](/1_IncidentManagement/)
-* [2. Monitoring](/2_Monitoring/)
-  * [Challenge](/2_Monitoring/challenge/CHALLENGE.md)
-  * [Prep](/2_Monitoring/challenge/PREP.md)
+* [1. Gerenciamento de Incidentes](/1_Incidentes/)
+* [2. Monitoramento](/2_Monitoramento/)
 * [3. Post Mortem](/3_PostMortem/)
+<<<<<<< HEAD
   * [Initial Report](/desafios/3_PostMortem/INITIAL_REPORT.md)
   * [Logs](/desafios/3_PostMortem/LOGS.md)
   * [Prep](/desafios/3_PostMortem/PREP.md)
@@ -14,3 +12,11 @@
   * [Prep](/5_Nines/challenge/PREP.md)
 * [Desafios](/desafios)
   * [Desafio_3](/desafios/3_PostMortem/README.md)
+=======
+* [4. Tests](/4_Tests/)
+* [5. Nines](/5_Nines/)
+* [Desafios]()
+  * [1. Planejando a Resposta a um Incidente](/desafios/1_Incidentes/README.md)
+  * [2. Definindo e Visualizando SLIs, SLOs, SLAs](/desafios/2_Monitoramento/README.md)
+* [Platforma](/0_Platform/)
+>>>>>>> main
