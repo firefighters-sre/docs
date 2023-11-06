@@ -9,13 +9,13 @@
 5. **KEDA (Kubernetes Event-Driven Autoscaling)**: Permite autoscaling avançado, incluindo baseado em eventos. **!OPCIONAL**
 6. **Red Hat OpenShift Pipelines**: Solução Kubernetes-native de CI/CD baseada no Tekton, integrante da CD Foundation. **!OPCIONAL**
 
-## Microservices
+## Microsserviços
 
 1. 🛎️ [**Access Microservice (concierge-app)**](https://github.com/firefighters-sre/concierge-app): Gerencia entrada e saída de indivíduos do edifício.
 2. 🚶‍♂️🔝 [**Mobility Microservice (mobility-app)**](https://github.com/firefighters-sre/mobility-app): Monitora uso de escadas e elevadores.
 3. 🏠 [**Building Microservice (building-app)**](https://github.com/firefighters-sre/building-app): Informações do edifício como temperatura e ocupação.
 
-## Prerequisites
+## Pré-requisitos
 
 - OpenShift Cluster (OCP)
 - Helm 3.x

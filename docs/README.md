@@ -4,15 +4,18 @@ Este repositório é dedicado à documentação do workshop Firefighters SRE, qu
 
 ## 📁 Estrutura do Repositório
 
-- **`/docs`**: Diretório principal contendo toda a documentação do workshop.
+- **`/changelogs`**: Contém registros de mudanças feitas no projeto, incluindo backlog e notas de lançamento.
+- **`/docs`**: Diretório principal com toda a documentação do workshop, estruturada da seguinte forma:
   - **0_Platform**: Introdução à plataforma e às tecnologias utilizadas no workshop.
-  - **1_IncidentManagement**: Aborda a gestão de incidentes, desde a identificação até a resolução.
-  - **2_Monitoring**: Foca nas melhores práticas de monitoramento, permitindo a detecção precoce de problemas e a análise aprofundada de métricas.
-  - **3_PostMortem**: Depois de um incidente, é crucial analisar e documentar o que aconteceu. Esta seção aborda a importância do post-mortem e como conduzir uma análise de causa raiz.
-  - **4_Tests**: Discussão sobre a importância dos testes em um ambiente SRE e como eles podem prevenir incidentes.
-  - **5_Nines**: Explora o conceito de disponibilidade, demonstrando como alcançar altos níveis de uptime e confiabilidade.
-- **`/docs/[TÓPICO]/challenge`**: Subdiretórios presentes em cada seção que fornecem detalhes sobre os desafios específicos enfrentados durante o workshop.
-- **`/docs/images`**: Contêm imagens, gráficos e outros recursos visuais relevantes para a documentação e desafios.
+  - **1_Incidentes**: Aborda a gestão de incidentes, desde a identificação até a resolução.
+  - **2_Monitoramento**: Foca nas melhores práticas de monitoramento, permitindo a detecção precoce de problemas e a análise aprofundada de métricas.
+  - **3_PostMortem**: Discute a importância da análise pós-incidente e como realizar uma análise de causa raiz.
+  - **4_Disponibilidade**: Explora o conceito de disponibilidade, demonstrando como alcançar altos níveis de uptime e confiabilidade.
+  - **5_Testes**: Discute a importância dos testes em um ambiente SRE e como eles podem prevenir incidentes.
+  - **`_sidebar.md`**: Contém a barra lateral de navegação do site da documentação.
+  - **`index.html`**: O arquivo HTML principal para o site de documentação Docsify.
+- **`/docs/desafios`**: Diretórios de desafios que fornecem detalhes sobre os desafios específicos enfrentados durante o workshop.
+- **`/docs/images`**: Contém imagens, diagramas e outros recursos visuais relevantes para a documentação e desafios.
 
 Os módulos do workshop Firefighters SRE são criados usando o **Docsify**. Escreva a documentação em Markdown e use o CLI do Docsify para servi-los. Armazene a documentação de cada módulo no diretório `docs/<numero-do-modulo>`.
 
@@ -58,4 +61,3 @@ Se você deseja contribuir para esta documentação, sinta-se à vontade para fa
 ## 📬 Contato
 
 Para quaisquer perguntas ou feedback, entre em contato com Gabriel Sampaio em gsampaio@redhat.com.
-
