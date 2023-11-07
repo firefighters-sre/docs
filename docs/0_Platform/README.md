@@ -63,9 +63,10 @@ Um **Operator** no contexto do OpenShift e Kubernetes é uma forma de empacotar,
 Para instalar os operators a partir do OperatorHub no OpenShift, siga os passos abaixo:
 
 1. Acesse o console web do OpenShift.
-2. No menu de navegação à esquerda, clique em "Operators" e selecione "OperatorHub".
-3. Use a barra de pesquisa para encontrar e selecionar os operators desejados.
-4. Siga as instruções na tela para instalar cada operator.
+2. Certifique-se de que está na visão de Administrador do OpenShift.
+3. No menu de navegação à esquerda, clique em "Operators" e selecione "OperatorHub".
+4. Use a barra de pesquisa para encontrar e selecionar os operators desejados.
+5. Siga as instruções na tela para instalar cada operator.
 
 Instale os seguintes operators a partir do OperatorHub do OpenShift:
 
@@ -84,7 +85,7 @@ git clone https://github.com/quarkus-sre/charts
 
 **Navegue até o diretório dos charts para instalar:**
 ```bash
-cd charts
+cd charts/charts
 ```
 
 1. **AMQ Streams**
@@ -100,16 +101,43 @@ helm template -f prometheus/values.yaml prometheus | oc apply -f-
 helm template -f grafana/values.yaml grafana | oc apply -f-
 ```
 - Configure manualmente a fonte de dados Prometheus no Grafana.
-  - **URL**: `http://prometheus-operated:9090`
+  - No OpenShift, certifique-se de que está na visão de **Desenvolvedor** e no projeto **kafka-logging**.
+  - Acesse a rota da aplicação Grafana para abrir a plataforma.
+  - Use as credenciais para fazer login no Grafana (**usuário**: admin; **senha**: admin).
+  - Dentro do Grafana, acesse o menu lateral, clique no sessão de Conexões (Connections) e, em seguida, clique em **Data Source**.
+  - Clique em "**Add new data source**".
+  - Escolha a opção **Prometheus**.
+  - Altere o campo URL para conter o valor a seguir:
+    - **URL**: `http://prometheus-operated:9090`
+  - Clique no botão "**Save & Test**"
+  - Se tudo estiver correto, será exibida uma mensagem de sucesso.
+
 - Configure manualmente a fonte de dados AlertManager no Grafana.
-  - **URL**: `alertmanager:9093`
+  - Retorne à página de Data sources.
+  - Clique em "**Add new data source**"
+  - Selecione a opção **AlertManager**
+  - Altere o campo URL para conter o valor a seguir:
+    - **URL**: `alertmanager:9093`
+  - Clique no botão "**Save & Test**"
+  - Se tudo estiver correto, será exibida uma mensagem de sucesso.
+
 - Importe os dashboards do Grafana:
-  - Vá para a seção "Dashboards" no Grafana.
-  - Clique em "Import" e selecione os arquivos JSON:
+  - Em seu terminal, clone o repositório que contêm os arquivos JSON para criação dos Dashboards com o comando a seguir:
+```bash
+git clone https://github.com/firefighters-sre/grafana-dashboards
+```
+  - Acesse o menu lateral do Grafana e vá para a seção "Dashboards".
+  - Clique em "New" e, em seguida, selecione a opção  "Import".
+  - Selecione os arquivos JSON especificados a seguir que estão no diretório **grafana-dashboards** recém clonado.
+  - Por fim, clique no botão **Load**.
+  **Atenção!** Os três passos anteriores serão realizados para cada um dos arquivos a seguir:
     - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
-    - Quarkus SRE Dashboard (grafana-dashboards/sre-quarkus.json)
-  
+    - Quarkus SRE Dashboard (grafana-dashboards/grafana-sre-dashboard.json)
+    - Quarkus Service Levels Dashboard (grafana-dashboards/grafana-servicelevels-dashboard.json)
+
 4. **Jaeger**
+- Em seu terminal, certifique-se de que você se encontra no diretório **charts/charts** e execute o comando a seguir:
+
 ```bash
 helm template -f jaeger/values.yaml jaeger | oc apply -f-
 ```
@@ -128,14 +156,14 @@ Após a instalação dos components, é crucial validar se tudo foi configurado 
 2. **Prometheus:**
    - Abra um navegador e navegue até a URL especificada na rota Prometheus. Você pode obter a URL executando:
    ```bash
-   oc get route prometheus -n kafka-logging -o jsonpath='{.spec.host}'
+   oc get route prometheus-route -n kafka-logging -o jsonpath='{.spec.host}'
    ```
    - No UI do Prometheus, verifique os targets para garantir que estejam ativos e coletando métricas.
 
 3. **Grafana:**
    - Abra um navegador e navegue até a URL especificada na rota Grafana. Você pode obter a URL executando:
    ```bash
-   oc get route grafana -n kafka-logging -o jsonpath='{.spec.host}'
+   oc get route grafana-route -n kafka-logging -o jsonpath='{.spec.host}'
    ```
    - Faça login e verifique se as fontes de dados Prometheus e AlertManager estão configuradas corretamente.
    - Valide se os dashboards importados estão disponíveis e exibindo dados.
@@ -143,7 +171,7 @@ Após a instalação dos components, é crucial validar se tudo foi configurado 
 4. **Jaeger:**
    - Abra um navegador e navegue até a URL especificada na rota Jaeger. Você pode obter a URL executando:
    ```bash
-   oc get route jaeger -n openshift-distributed-tracing -o jsonpath='{.spec.host}'
+   oc get route jaeger-all-in-one-inmemory -n openshift-distributed-tracing -o jsonpath='{.spec.host}'
    ```
    - Valide se os traces estão sendo coletados e exibidos no UI do Jaeger.
 
@@ -206,6 +234,17 @@ git clone https://github.com/firefighters-sre/building-app.git
 cd building-app
 helm dependency update .chart
 helm template .chart/ | oc apply -f-
+```
+
+#### People Microservice (people-app)
+1. Suba a aplicação utilizando o recurso do OpenShift Source-to-Image (S2I) utilizando o comando a seguir:
+``` bash
+oc new-app https://github.com/firefighters-sre/people-app
+```
+
+2. Inicie a build da aplicação com o comando a seguir:
+```bash
+oc start-build people-app
 ```
 
 Após implantar os Helm charts, os microserviços devem estar em execução em seu cluster Kubernetes. Você pode verificar o status da implantação usando oc get pods.
