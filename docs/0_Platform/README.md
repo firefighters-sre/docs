@@ -72,6 +72,7 @@ Instale os seguintes operators a partir do OperatorHub do OpenShift:
 
 - **Red Hat Integration AMQ Streams**: Fornece uma plataforma de streaming distribuída.
 - **Prometheus Operator**: Ferramenta de monitoramento e alerta. **(Nota: Instale no namespace kafka-logging)**
+- **Grafana Operator**: Ferramenta de monitoramento e alerta. **(Nota: Instale a versão `v4` no namespace kafka-logging)**
 - **Red Hat OpenShift distributed tracing platform**: Fornece ferramentas para tracing distribuído.
 
 ### 3. Instalar Helm Charts
@@ -105,35 +106,14 @@ helm template -f grafana/values.yaml grafana | oc apply -f-
   - Acesse a rota da aplicação Grafana para abrir a plataforma.
   - Use as credenciais para fazer login no Grafana (**usuário**: admin; **senha**: admin).
   - Dentro do Grafana, acesse o menu lateral, clique no sessão de Conexões (Connections) e, em seguida, clique em **Data Source**.
-  - Clique em "**Add new data source**".
-  - Escolha a opção **Prometheus**.
-  - Altere o campo URL para conter o valor a seguir:
-    - **URL**: `http://prometheus-operated:9090`
-  - Clique no botão "**Save & Test**"
-  - Se tudo estiver correto, será exibida uma mensagem de sucesso.
 
 - Configure manualmente a fonte de dados AlertManager no Grafana.
-  - Retorne à página de Data sources.
   - Clique em "**Add new data source**"
   - Selecione a opção **AlertManager**
   - Altere o campo URL para conter o valor a seguir:
     - **URL**: `alertmanager:9093`
   - Clique no botão "**Save & Test**"
   - Se tudo estiver correto, será exibida uma mensagem de sucesso.
-
-- Importe os dashboards do Grafana:
-  - Em seu terminal, clone o repositório que contêm os arquivos JSON para criação dos Dashboards com o comando a seguir:
-```bash
-git clone https://github.com/firefighters-sre/grafana-dashboards
-```
-  - Acesse o menu lateral do Grafana e vá para a seção "Dashboards".
-  - Clique em "New" e, em seguida, selecione a opção  "Import".
-  - Selecione os arquivos JSON especificados a seguir que estão no diretório **grafana-dashboards** recém clonado.
-  - Por fim, clique no botão **Load**.
-  **Atenção!** Os três passos anteriores serão realizados para cada um dos arquivos a seguir:
-    - Strimzi Kafka Exporter Dashboard (grafana-dashboards/kafka-exporter.json)
-    - Quarkus SRE Dashboard (grafana-dashboards/grafana-sre-dashboard.json)
-    - Quarkus Service Levels Dashboard (grafana-dashboards/grafana-servicelevels-dashboard.json)
 
 4. **Jaeger**
 - Em seu terminal, certifique-se de que você se encontra no diretório **charts/charts** e execute o comando a seguir:
