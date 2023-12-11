@@ -11,7 +11,7 @@ Diante de um cenário crítico de explosão em um elevador, você e sua equipe d
 
 > **Sua missão é**: Navegar eficientemente através de uma crise simulada, estabelecendo papéis claros, comunicando-se eficazmente e planejando uma evacuação estratégica, aplicando práticas de gerenciamento de incidentes para garantir a segurança e a rápida recuperação do ambiente.
 
-![Mapa do Andar](./../../images/mapa-maisresolucao.svg)
+![Mapa do Andar](./../../images/mapas/default_map.jpg)
 
 ## FASE 1 - PREPARAÇÃO ANTES DA CRISE
 
@@ -48,13 +48,20 @@ Diante de um cenário crítico de explosão em um elevador, você e sua equipe d
 > 
 > **Sua missão é**: Evacuar o andar da melhor maneira possível buscando diminuir ao máximo o número de pessoas afetadas pelo incêndio.
 
-![Mapa do Andar](./../../images/mapa-fogo.svg)
+![Mapa do Andar](./../../images/mapas/fire_map.jpg)
 
 **Instruções**:
-1. **Estabeleça Rotas de Evacuação**:
-    - Use o mapa fornecido acima.
-    - Planeje rotas de evacuação seguras.
-    - Marque suas rotas com post-its no quadro.
+1. **Análise do Mapa e Identificação de Áreas Críticas**:
+   - Utilize o mapa fornecido para identificar áreas críticas, incluindo a localização do incêndio, saídas de emergência, rotas potencialmente perigosas e áreas seguras.
+   - Avalie os riscos associados a diferentes partes do prédio, considerando fatores como densidade de ocupação, materiais inflamáveis e acessibilidade.
+
+2. **Desenvolvimento de Rotas de Evacuação**:
+   - Com base na análise do mapa, planeje rotas de evacuação seguras e eficientes.
+   - Considere rotas alternativas para acomodar condições inesperadas, como bloqueios ou áreas com fumaça intensa.
+
+3. **Estratégias de Comunicação Durante a Evacuação**:
+   - Liste funções específicas no plano de evacuação, como líderes de rota, responsáveis pela contagem de pessoas e coordenadores de comunicação.
+   - Estabeleça um protocolo de comunicação claro para a evacuação, incluindo quem irá comunicar, como e quais informações serão transmitidas.
 
 **Resultado Esperado**:
 Ao final desta atividade, cada equipe deve ter um plano claro de evacuação e comunicação durante a emergência, visualizado com post-its no quadro. Este plano deve incluir rotas de evacuação, responsabilidades de cada membro da equipe e protocolos de comunicação.
