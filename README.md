@@ -62,5 +62,3 @@ Se você deseja contribuir para esta documentação, sinta-se à vontade para fa
 ## 📬 Contato
 
 Para quaisquer perguntas ou feedback, entre em contato com Gabriel Sampaio em gsampaio@redhat.com.
-
-``
