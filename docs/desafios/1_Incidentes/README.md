@@ -1,67 +1,71 @@
 # Planejando a Resposta a um Incidente: Guia da Atividade
 
-> 1. **Emergência Simulada**: As equipes enfrentam um incidente após uma explosão no elevador de um edifício.
-> 
-> 2. **Preparação, Classificação e Resposta**: As equipes primeiro se preparam designando papéis e estabelecendo protocolos; depois, classificam a gravidade do incidente e finalmente planejam rotas de evacuação.
-> 
-> 3. **Objetivo Principal**: Aplicar práticas eficazes de gerenciamento de incidentes em um cenário de alta pressão, culminando em um plano de ação claro visualizado no quadro.
+## Introdução
 
-# 🚨 Desafio
-Diante de um cenário crítico de explosão em um elevador, você e sua equipe devem dominar as práticas de gerenciamento de emergências, desde a preparação e classificação da crise até a execução de uma resposta eficaz, resultando em um plano de ação claro e preciso.
+Bem-vindo ao guia da atividade "Planejando a Resposta a um Incidente". Nesta atividade, você e sua equipe enfrentarão um cenário de incêndio em um elevador, aplicando práticas eficazes de gerenciamento de incidentes para desenvolver um plano de ação claro.
 
-> **Sua missão é**: Navegar eficientemente através de uma crise simulada, estabelecendo papéis claros, comunicando-se eficazmente e planejando uma evacuação estratégica, aplicando práticas de gerenciamento de incidentes para garantir a segurança e a rápida recuperação do ambiente.
+## Contexto do Incidente
 
-![Mapa do Andar](./../../images/mapas/default_map.jpg)
+Um incêndio ocorreu no elevador de um edifício, apresentando um risco significativo aos ocupantes e à estrutura do prédio. Sua equipe deve responder rapidamente para garantir a segurança de todos e minimizar os danos.
 
-## FASE 1 - PREPARAÇÃO ANTES DA CRISE
+## Perguntas Chave
 
-![Tabela de responsabilidades](./../../images/tabela.png)
+1. **Quais papéis são necessários durante o gerenciamento do incêndio no elevador e quais são as responsabilidades de cada papel?**
+   - *Exemplo:* Identificar papéis como líder de evacuação, comunicador principal, responsável pela segurança, etc.
 
-**Instruções**:
-1. **Determine Responsabilidades**:
-    - O Incident Commander (IC) é o principal responsável pela coordenação e decisões estratégicas durante o gerenciamento de um incidente. 
-    - Liste, com post-its no quadro, as principais responsabilidades de um IC.
-    - Discuta e planeje a resposta do IC para diferentes cenários.
+2. **Qual é o plano de comunicação durante o incêndio, incluindo os canais de comunicação, a frequência das atualizações e os principais grupos a serem informados?**
+   - *Exemplo:* Definir se serão usadas mensagens de texto, rádio, ou outros meios; com que frequência as atualizações serão feitas; e quem precisa ser informado (ex.: equipe de bombeiros, funcionários do prédio).
 
-2. **Defina a Comunicação**:
-    - O Comms Lead define um plano de comunicação: canais, frequência de atualizações e stakeholders.
-    - Estabeleça um protocolo para registrar todas as comunicações. 
-    - Estabeleça como, quando e para quem comunicar durante a emergência.
-    - Liste, com post-its no quadro, os protocolos de comunicação estabelecidos.
+3. **Como a equipe classificará a gravidade do incêndio no elevador e quais critérios serão utilizados para essa avaliação?**
+   - *Exemplo:* Definir critérios como a intensidade do fogo, a proximidade a pessoas, e o potencial de propagação para determinar a gravidade do incidente.
 
-3. **Coordenação Técnica**:
-    - O Ops Lead identifica e prepara os recursos técnicos necessários para enfrentar o incidente.
-    - Criar uma lista de recursos, como documentações, scripts ou playbooks, que podem ser rapidamente acessados durante um incidente.
-    - Use post-its para registrar as ações específicas para resolver o incidente.
+4. **Quais são as rotas de evacuação recomendadas considerando o incêndio no elevador e quais medidas de segurança devem ser tomadas ao planejar essas rotas?**
+   - *Exemplo:* Planejar rotas de saída seguras e alternativas; considerar bloqueios, presença de fumaça e acessibilidade das saídas.
 
-## FASE 2 - CLASSIFICAÇÃO DO INCIDENTE
+5. **Quais recursos e ferramentas são necessários para gerenciar o incêndio no elevador e como esses recursos devem ser utilizados de forma eficaz?**
+   - *Exemplo:* Listar recursos como extintores de incêndio, lanternas e kits de primeiros socorros; definir como e quando esses recursos devem ser usados durante o incidente.
 
-**Instruções**:
-1. **Definição da Severidade do Incidente:**
-   - É crucial determinar a gravidade do incidente. A severidade pode variar de 1 (mais grave) a 5 (menos grave).
-   - A severidade determina a urgência da resposta e a quantidade de recursos alocados para gerenciar a situação.
-   - Determine, para esta simulação, a severidade do incidente devido ao potencial risco imediato à vida.
+## Lista de Documentos
 
-## FASE 3 - RESPOSTA À EMERGÊNCIA
+- [Guia do Coordenador de Evacuação](./GUIA_CE.md)
+- [Guia do Consultor de Segurança](./GUIA_CS.md)
+- [Guia do Gerente de Recursos](./GUIA_GR.md)
+- [Guia da Atividade](./GUIA.md)
 
-> **🔥🔥🔥 Emergência Simulada: Uma explosão no elevador causou um incêndio. A área afetada está marcada em vermelho no mapa. 🔥🔥🔥** 
-> 
-> **Sua missão é**: Evacuar o andar da melhor maneira possível buscando diminuir ao máximo o número de pessoas afetadas pelo incêndio.
+## Dinâmica da Atividade
 
-![Mapa do Andar](./../../images/mapas/fire_map.jpg)
+- A atividade começa com **2 membros do grupo** que têm informações básicas sobre o incidente.
+- Esses membros começam a definir os papéis e planejar a resposta inicial ao incêndio.
 
-**Instruções**:
-1. **Análise do Mapa e Identificação de Áreas Críticas**:
-   - Utilize o mapa fornecido para identificar áreas críticas, incluindo a localização do incêndio, saídas de emergência, rotas potencialmente perigosas e áreas seguras.
-   - Avalie os riscos associados a diferentes partes do prédio, considerando fatores como densidade de ocupação, materiais inflamáveis e acessibilidade.
+### Convocação de Outros Membros
 
-2. **Desenvolvimento de Rotas de Evacuação**:
-   - Com base na análise do mapa, planeje rotas de evacuação seguras e eficientes.
-   - Considere rotas alternativas para acomodar condições inesperadas, como bloqueios ou áreas com fumaça intensa.
+- **3 membros adicionais** estão esperando para serem convocados:
+  1. **Coordenador de Evacuação**: Especialista em rotas de evacuação.
+  2. **Gerente de Recursos**: Conhecimento detalhado sobre recursos e ferramentas disponíveis.
+  3. **Consultor de Segurança**: Responsável por assessorar sobre procedimentos de segurança durante emergências.
 
-3. **Estratégias de Comunicação Durante a Evacuação**:
-   - Liste funções específicas no plano de evacuação, como líderes de rota, responsáveis pela contagem de pessoas e coordenadores de comunicação.
-   - Estabeleça um protocolo de comunicação claro para a evacuação, incluindo quem irá comunicar, como e quais informações serão transmitidas.
+### Instruções para a Dinâmica
 
-**Resultado Esperado**:
-Ao final desta atividade, cada equipe deve ter um plano claro de evacuação e comunicação durante a emergência, visualizado com post-its no quadro. Este plano deve incluir rotas de evacuação, responsabilidades de cada membro da equipe e protocolos de comunicação.
+1. **Início da Atividade**:
+   - Os 2 membros iniciais começam a planejar a resposta ao incidente.
+   - Eles devem identificar a necessidade de mais informações e decidir quando convocar outros membros.
+
+2. **Convocação dos Membros Adicionais**:
+   - Os 2 membros iniciais devem chamar um dos 3 membros adicionais quando precisarem de mais informações.
+   - Devem avaliar rapidamente a utilidade das informações trazidas por cada novo membro.
+
+3. **Integração das Informações**:
+   - Incorporar as informações fornecidas pelos membros adicionais no plano de ação.
+   - Continuar a ajustar o plano conforme mais membros são convocados e novas informações são disponibilizadas.
+
+4. **Finalização do Plano de Ação**:
+   - Após convocar todos os membros, finalizar o plano de ação com base nas informações disponíveis.
+   - Apresentar o plano completo, destacando rotas de evacuação, responsabilidades e recursos necessários.
+
+### Resultado Esperado
+
+Ao final desta atividade, cada equipe deve ter um plano claro de evacuação e comunicação durante a emergência, visualizado com post-its no quadro. Este plano deve incluir rotas de evacuação, responsabilidades de cada papel definido e protocolos de comunicação.
+
+## Conclusão
+
+Esta dinâmica permite que a equipe experimente um cenário realista de War Room, onde a comunicação e a colaboração são essenciais para o sucesso na gestão do incidente.
