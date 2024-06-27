@@ -37,15 +37,6 @@ Um incêndio ocorreu no elevador de um edifício, apresentando um risco signific
 - A atividade começa com **2 membros do grupo** que têm informações básicas sobre o incidente.
 - Esses membros começam a definir os papéis e planejar a resposta inicial ao incêndio.
 
-### Convocação de Outros Membros
-
-- **3 membros adicionais** estão esperando para serem convocados:
-  1. **Coordenador de Evacuação**: Especialista em rotas de evacuação.
-  2. **Gerente de Recursos**: Conhecimento detalhado sobre recursos e ferramentas disponíveis.
-  3. **Consultor de Segurança**: Responsável por assessorar sobre procedimentos de segurança durante emergências.
-
-### Instruções para a Dinâmica
-
 1. **Início da Atividade**:
    - Os 2 membros iniciais começam a planejar a resposta ao incidente.
    - Eles devem identificar a necessidade de mais informações e decidir quando convocar outros membros.
@@ -61,6 +52,13 @@ Um incêndio ocorreu no elevador de um edifício, apresentando um risco signific
 4. **Finalização do Plano de Ação**:
    - Após convocar todos os membros, finalizar o plano de ação com base nas informações disponíveis.
    - Apresentar o plano completo, destacando rotas de evacuação, responsabilidades e recursos necessários.
+
+### Convocação de Outros Membros
+
+- **3 membros adicionais** estão esperando para serem convocados:
+  1. **Coordenador de Evacuação**: Especialista em rotas de evacuação.
+  2. **Gerente de Recursos**: Conhecimento detalhado sobre recursos e ferramentas disponíveis.
+  3. **Consultor de Segurança**: Responsável por assessorar sobre procedimentos de segurança durante emergências.
 
 ### Resultado Esperado
 
