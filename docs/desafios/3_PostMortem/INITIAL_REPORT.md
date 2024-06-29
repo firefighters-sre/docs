@@ -1,35 +1,63 @@
-# Relatório Inicial de Incidente
+# INITIAL_REPORT.md: Relatório Inicial do Incidente de Incêndio
 
-**Data:** 21 de Outubro de 2023  
-**Hora:** 15:00 PM  
-**Local:** Prédio Principal
+## Introdução
 
-**Notificado por:** Sr. João Cardoso (Funcionário do Departamento de TI)
+Este relatório inicial documenta os detalhes imediatos do incêndio ocorrido no prédio, afetando as salas AZUL e VERDE. As informações fornecidas aqui servem como base para a investigação e a criação do documento post-mortem.
 
-## Descrição do Incidente:
-A equipe de segurança foi alertada sobre uma inundação em um dos andares do prédio. O sistema de alarme de inundação foi acionado às 08:15 AM, e as câmeras de segurança capturaram imagens de água vazando de uma das caixas d'água no corredor central.
+## Descrição do Incidente
 
-Duas salas, denominadas ROXA e VERMELHA, foram as mais afetadas, com água acumulando rapidamente no chão. Pouco tempo depois, as luzes nestas salas começaram a piscar e um cheiro de queimado foi notado, indicando um possível curto-circuito.
+- **Data e Hora do Incidente**: 25 de Junho às 15:52:00
+- **Localização**: Salas AZUL e VERDE no 24º Andar
+- **Duração**: Aproximadamente 2 horas
+- **Impacto Inicial**
+  - Evacuação completa do prédio.
+  - Danos significativos nas salas AZUL e VERDE.
+  - Interrupção das operações em todo o andar afetado.
 
-Todos os funcionários no andar afetado foram evacuados imediatamente e a energia foi desligada por precaução às 08:21 AM.
+## Sequência de Eventos
 
-## Relatórios Técnicos e Análises de Especialistas:
-- **Último Relatório de Manutenção da Caixa d'Água (19 de Setembro de 2023)**: Nenhuma anomalia foi registrada. Observou-se um ligeiro desgaste nas válvulas, mas nada que justificasse reparos imediatos.
-- **Comentários do Engenheiro de Manutenção (18 de Outubro de 2023)**: Foi mencionado um possível problema com a vedação em uma das juntas da caixa d'água, recomendando uma inspeção mais detalhada.
+1. **[Hora Inicial]**: Relatos de cheiro de fumaça nas proximidades das salas AZUL e VERDE.
+2. **[Hora + 5 minutos]**: Alarmes de incêndio dispararam e o prédio foi evacuado.
+3. **[Hora + 10 minutos]**: Equipe de segurança verificou a origem do fogo.
+4. **[Hora + 15 minutos]**: Uso de extintores de incêndio iniciados, seguido pelo acionamento dos sistemas de sprinklers.
+5. **[Hora + 30 minutos]**: Bombeiros chegaram ao local e começaram o combate ao incêndio.
+6. **[Hora + 2 horas]**: Incêndio controlado e extinto pelos bombeiros.
+7. **[Hora + 2.5 horas]**: Início da inspeção preliminar pelos bombeiros e equipe de manutenção.
 
-## Mapas e Plantas do Edifício:
-- **Planta Baixa do Andar 8**: Detalha a localização da caixa d'água, as salas ROXA e VERMELHA, e o layout do sistema elétrico atualizado.
-- **Diagrama do Sistema Elétrico**: Mostra as recentes atualizações do sistema elétrico, incluindo o novo painel de circuitos no andar 8.
+## Causa Suspeita
 
-## Comunicação Interna:
-- **E-mails entre o Departamento de TI e a Manutenção (20 de Outubro de 2023)**: Discussão sobre flutuações de energia atípicas no andar 8 e a necessidade de uma inspeção no sistema elétrico.
-- **Chat de Emergência**: Registro da comunicação entre a equipe de segurança e o departamento de manutenção no momento do incidente, destacando a rápida resposta à situação.
+- **Causa Inicialmente Suspeita**: Curto-circuito em um painel elétrico localizado na sala AZUL.
+- **Condições Contribuintes**: 
+  - Manutenção inadequada do sistema elétrico.
+  - Falha no sistema de detecção precoce de fumaça.
 
-## Equipamentos Afetados:
-- **Servidores**: Listagem dos servidores e computadores danificados com identificação por número de série e localização na sala.
-- **Iluminação e Câmeras**: Relatório de danos ao sistema de iluminação e câmeras de segurança, incluindo status operacional antes do desligamento.
+## Medidas Imediatas Tomadas
 
-## Observações Adicionais:
-- A caixa d'água foi inspecionada recentemente e não mostrou sinais de danos ou vazamentos.
-- As salas afetadas abrigam equipamentos críticos que suportam várias operações essenciais da empresa.
-- O sistema elétrico do prédio foi atualizado recentemente.
+1. **Desligamento da Eletricidade**: Imediato desligamento da eletricidade para prevenir mais danos.
+2. **Evacuação do Prédio**: Evacuação completa e segura de todos os ocupantes do prédio.
+3. **Combate ao Fogo**: Uso de extintores de incêndio e sistemas de sprinklers, seguido pela intervenção dos bombeiros.
+4. **Isolamento da Área**: Isolamento das salas AZUL e VERDE para evitar acesso não autorizado.
+
+## Equipe Envolvida
+
+- **Segurança do Prédio**: Responsável pela evacuação e medidas iniciais de combate ao incêndio.
+- **Equipe de Manutenção**: Auxiliou na identificação do foco do incêndio e desligamento da eletricidade.
+- **Bombeiros**: Combateram o incêndio e realizaram a inspeção preliminar.
+- **Gestão do Prédio**: Coordenou a comunicação com os ocupantes e equipes de emergência.
+
+## Impacto Inicial
+
+- **Operacional**: Interrupção das atividades no andar afetado, impacto em operações críticas.
+- **Financeiro**: Custos iniciais estimados para reparos e substituição de equipamentos danificados.
+- **Segurança**: Garantia de que todos os ocupantes foram evacuados sem ferimentos.
+
+## Próximos Passos
+
+1. **Investigação Detalhada**: Início da investigação detalhada para confirmar a causa raiz e entender a sequência exata de eventos.
+2. **Documentação do Post-Mortem**: Criação de um documento post-mortem detalhado com base nas diretrizes fornecidas.
+3. **Reparos e Manutenções**: Planejamento e execução de reparos necessários nas salas afetadas e revisão completa do sistema elétrico.
+4. **Revisão de Procedimentos de Segurança**: Avaliação e melhoria dos procedimentos de segurança e sistemas de detecção de incêndio.
+
+## Conclusão
+
+Este relatório inicial fornece uma visão geral do incidente de incêndio, as ações tomadas e os impactos imediatos. As informações aqui contidas servirão como base para a investigação e a documentação completa no documento post-mortem.
