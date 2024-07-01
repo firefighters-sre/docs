@@ -30,10 +30,10 @@ Confrontados com um incêndio no prédio, as equipes devem resolver o incidente 
 
 ## Lista de Documentos
 
-1. **[LOGS.md](/desafios/3_PostMortem/LOGS.md)**: Logs detalhados do incidente.
-2. **[INITIAL_REPORT.md](/desafios/3_PostMortem/INITIAL_REPORT.md)**: Relatório inicial do incidente.
-3. **[CHECKLIST.md](/desafios/3_PostMortem/CHECKLIST.md)**: Checklist para inspeção de segurança após o incidente.
-4. **[GUIDELINES.md](/desafios/3_PostMortem/GUIDELINES.md)**: Diretrizes para a criação do documento post-mortem.
+1. **[LOGS.md](./LOGS.md)**: Logs detalhados do incidente.
+2. **[INITIAL_REPORT.md](./INITIAL_REPORT.md)**: Relatório inicial do incidente.
+3. **[CHECKLIST.md](./CHECKLIST.md)**: Checklist para inspeção de segurança após o incidente.
+4. **[GUIDELINES.md](./GUIDELINES.md)**: Diretrizes para a criação do documento post-mortem.
 
 ## Dinâmica da Atividade
 
